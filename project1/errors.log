@@ -1,0 +1,9 @@
+2022-07-03 06:37:52,389:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 06:39:35,570:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 11:02:54,786:ERROR:register_user:{'branch': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 11:04:43,969:ERROR:register_user:{'branch': [ErrorDetail(string='This field is required.', code='required')], 'dob': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-07-03 12:21:46,438:ERROR:submit_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 12:26:43,993:ERROR:register_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'branch': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 12:27:32,962:ERROR:register_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'branch': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 12:30:42,893:ERROR:register_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 13:09:16,355:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}

@@ -1,0 +1,541 @@
+2022-05-25 18:43:27,294:INFO:login_user:Request for fetching login-page.html
+2022-05-25 18:43:31,159:INFO:register_user:Request for fetching Register-page.html
+2022-05-25 18:43:58,358:INFO:register_user:user created with is_verified value as False
+2022-05-25 18:43:58,359:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpazkzMTA0QGppb29xLmNvbSIsImV4cCI6MTY1MzUwNDUzOCwiaWF0IjoxNjUzNTA0MjM4fQ.ZhzYL1gKZmHkbuBlZNAObYZxScKmq2cpvQXOsFxbxAI
+2022-05-25 18:44:03,122:INFO:register_user:Request for fetching Register-page.html
+2022-05-25 19:13:00,964:INFO:register_user:user created with is_verified value as False
+2022-05-25 19:13:00,964:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN0bzE1MTQ3QGppb29xLmNvbSIsImV4cCI6MTY1MzUwNjI4MCwiaWF0IjoxNjUzNTA1OTgwfQ.hUfwlk9kkM73f7kLCcal4rvLZZep-20FPPwfy9dPDlM
+2022-05-25 19:13:05,422:INFO:register_user:Request for fetching Register-page.html
+2022-05-25 19:13:41,565:INFO:login_user:Request for fetching login-page.html
+2022-05-25 19:47:29,995:INFO:login_user:Request for fetching login-page.html
+2022-05-25 19:47:33,496:INFO:register_user:Request for fetching Register-page.html
+2022-05-25 19:48:18,264:INFO:register_user:user created with is_verified value as False
+2022-05-25 19:48:18,265:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Inp3ZTMyOTM3QGplb2NlLmNvbSIsImV4cCI6MTY1MzUwODM5OCwiaWF0IjoxNjUzNTA4MDk4fQ.Nvfq_0sSoBM9H8f7fMRJths8gqj4gyN4nS2IrXo4Iuo
+2022-05-25 19:48:22,352:INFO:register_user:Request for fetching Register-page.html
+2022-05-25 19:49:18,833:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:44:11,412:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:44:21,505:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 16:45:09,531:INFO:register_user:user created with is_verified value as False
+2022-05-27 16:45:09,532:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRhYTM4NzczQGppb29xLmNvbSIsImV4cCI6MTY1MzY3MDIwOSwiaWF0IjoxNjUzNjY5OTA5fQ.LmOUUNbeuq79VL0CK9FJcewRac8DSS3PLdnN0c3wq7U
+2022-05-27 16:45:14,469:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 16:46:30,927:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:46:53,131:INFO:login_user:Token set to cookies with key 'token'
+2022-05-27 16:46:53,142:INFO:get_user:Request for User details
+2022-05-27 16:47:00,315:INFO:logout_user:Session expired
+2022-05-27 16:47:00,327:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:47:05,904:INFO:forgot_password:Request for fetching forget_password.html
+2022-05-27 16:47:10,071:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/reset_password?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRhYTM4NzczQGppb29xLmNvbSIsImV4cCI6MTY1MzY3MDMzMCwiaWF0IjoxNjUzNjcwMDMwfQ.QcSDnf1Qajh4TZZZhd8bvp5B0UguwjIQYfxSlktmeok
+2022-05-27 16:47:13,662:INFO:forgot_password:Request for fetching forget_password.html
+2022-05-27 16:47:41,410:INFO:reset_password:Request for fetching reset_password.html
+2022-05-27 16:47:52,164:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:48:13,658:ERROR:login_user:Incorrect password
+2022-05-27 16:48:13,665:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:48:23,987:INFO:login_user:Token set to cookies with key 'token'
+2022-05-27 16:48:24,003:INFO:get_user:Request for User details
+2022-05-27 16:48:37,334:INFO:logout_user:Session expired
+2022-05-27 16:48:37,345:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:49:19,030:ERROR:login_user:User not found
+2022-05-27 16:49:19,049:INFO:login_user:Request for fetching login-page.html
+2022-05-27 16:52:06,725:INFO:forgot_password:Request for fetching forget_password.html
+2022-05-27 16:52:17,750:ERROR:forgot_password:Forgot password mail doesn't send as the user not exists
+2022-05-27 16:52:17,768:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 16:54:45,888:INFO:register_user:user created with is_verified value as False
+2022-05-27 16:54:45,889:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imx1cDQ5ODQzQHpjcmNkLmNvbSIsImV4cCI6MTY1MzY3MDc4NSwiaWF0IjoxNjUzNjcwNDg1fQ.xo8vJM_bXZJX_3pxNOHz2eY0x1f5779u7Qdxa1OO2iU
+2022-05-27 16:54:48,564:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 17:02:52,369:ERROR:register_user:{'email': [ErrorDetail(string='user with this email already exists.', code='unique')]}
+2022-05-27 17:03:03,896:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 17:12:08,155:INFO:register_user:Different passwords entered
+2022-05-27 18:15:14,030:ERROR:register_user:{'email': [ErrorDetail(string='user with this email already exists.', code='unique')]}
+2022-05-27 18:17:52,838:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:18:06,499:ERROR:register_user:{'email': [ErrorDetail(string='user with this email already exists.', code='unique')]}
+2022-05-27 18:18:46,512:ERROR:register_user:{'email': [ErrorDetail(string='user with this email already exists.', code='unique')]}
+2022-05-27 18:18:46,526:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:20:27,726:ERROR:register_user:{'email': [ErrorDetail(string='user with this email already exists.', code='unique')]}
+2022-05-27 18:20:27,741:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:21:19,421:ERROR:register_user:{'role': [ErrorDetail(string='This field is required.', code='required')]}
+2022-05-27 18:21:19,438:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:24:01,088:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:24:24,549:ERROR:register_user:{'role': [ErrorDetail(string='This field is required.', code='required')]}
+2022-05-27 18:24:24,563:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:45:04,603:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:45:43,796:INFO:register_user:user created with is_verified value as False
+2022-05-27 18:45:43,798:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imx1cDQ5ODQzQHpjcmNkLmNvbSIsImV4cCI6MTY1MzY3NzQ0MywiaWF0IjoxNjUzNjc3MTQzfQ.uFmd88YT2ncEFqUesASylL9LgwUN1v757kZZuXONjdc
+2022-05-27 18:45:48,829:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 18:53:52,636:INFO:register_user:Different passwords entered
+2022-05-27 18:53:56,959:INFO:register_user:Request for fetching Register-page.html
+2022-05-27 19:35:21,844:INFO:login_user:Request for fetching login-page.html
+2022-05-27 19:40:00,039:INFO:login_user:Request for fetching login-page.html
+2022-05-27 19:40:02,297:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:05:09,538:INFO:login_user:Request for fetching login-page.html
+2022-05-28 14:05:17,589:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:05:46,834:INFO:register_user:user created with is_verified value as False
+2022-05-28 14:16:00,654:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:16:38,869:ERROR:register_user:{'email': [ErrorDetail(string='user with this email already exists.', code='unique')]}
+2022-05-28 14:16:38,960:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:17:29,618:INFO:register_user:user created with is_verified value as False
+2022-05-28 14:17:29,619:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFuaTgwMDc4QHhjb3hjLmNvbSIsImV4cCI6MTY1Mzc0Nzc0OSwiaWF0IjoxNjUzNzQ3NDQ5fQ._t71OZD7PMqhpTp0hRC0Gh8cwnuJ2r13-OTvvVqYDkA
+2022-05-28 14:17:33,705:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:30:44,400:INFO:register_user:user created with is_verified value as False
+2022-05-28 14:30:44,401:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpieDk1NzM4QHpjcmNkLmNvbSIsImV4cCI6MTY1Mzc0ODU0NCwiaWF0IjoxNjUzNzQ4MjQ0fQ.85EoyckK1xgZwpQkyToAp6GSZau9x3H5yzORH54JBww
+2022-05-28 14:30:47,576:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:35:36,582:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:36:11,801:INFO:register_user:user created with is_verified value as False
+2022-05-28 14:36:11,801:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im90cTQzMzEzQGppb29xLmNvbSIsImV4cCI6MTY1Mzc0ODg3MSwiaWF0IjoxNjUzNzQ4NTcxfQ.GZ2Nn8RpdN6iKhlv49hSFh4NHfYLFJ1WPOjEATlwWh8
+2022-05-28 14:36:16,599:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 14:36:56,096:INFO:login_user:Request for fetching login-page.html
+2022-05-28 15:52:35,229:INFO:login_user:Request for fetching login-page.html
+2022-05-28 15:53:15,880:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 15:53:48,716:INFO:register_user:user created with is_verified value as False
+2022-05-28 15:53:48,717:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImtqeTMwODc4QGppb29xLmNvbSIsImV4cCI6MTY1Mzc1MzUyOCwiaWF0IjoxNjUzNzUzMjI4fQ.P_2G5MCg_4U0j6LkFzb5IwvoRIWxv2vwMm-CrwTbrBU
+2022-05-28 15:53:53,011:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 16:35:18,224:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 16:36:01,883:INFO:register_user:user created with is_verified value as False
+2022-05-28 16:36:01,884:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNnZTg1MDA2QHhjb3hjLmNvbSIsImV4cCI6MTY1Mzc1NjA2MSwiaWF0IjoxNjUzNzU1NzYxfQ.292b_rbzgO9CK5W_EuhiPNk5z_hU-nxXOARzS-Pkl_8
+2022-05-28 16:36:06,595:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 16:41:41,544:INFO:register_user:user created with is_verified value as False
+2022-05-28 16:41:41,545:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1iYzE3Njk4QHpjcmNkLmNvbSIsImV4cCI6MTY1Mzc1NjQwMSwiaWF0IjoxNjUzNzU2MTAxfQ.EbjEIa_BMqs59vtQGo1oVDVW0kFdCv6_SKQRzH58KZ8
+2022-05-28 16:41:45,217:INFO:register_user:Request for fetching Register-page.html
+2022-05-28 16:49:48,866:INFO:register_user:user created with is_verified value as False
+2022-05-28 16:49:48,897:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJ4cjg5MTY3QGppb29xLmNvbSIsImV4cCI6MTY1Mzc1Njg4OCwiaWF0IjoxNjUzNzU2NTg4fQ.y8PwSQDKbMcuOSWUgSL8vSm_ScPDrfyCW0OCKX22nvU
+2022-05-28 16:49:52,944:INFO:register_user:Request for fetching Register-page.html
+2022-05-29 17:56:23,737:INFO:login_user:Request for fetching login-page.html
+2022-05-29 17:56:28,571:INFO:register_user:Request for fetching Register-page.html
+2022-05-29 18:03:14,706:INFO:register_user:user created with is_verified value as False
+2022-05-29 18:03:14,706:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR6bzQxMTU4QHpjcmNkLmNvbSIsImV4cCI6MTY1Mzg0NzY5NCwiaWF0IjoxNjUzODQ3Mzk0fQ.usKgpXt2gg2Si5hjXfUXiDH7OwlaDcD-8F_RjU_q-Z4
+2022-05-29 18:03:19,998:INFO:register_user:Request for fetching Register-page.html
+2022-05-29 18:08:52,701:INFO:register_user:user created with is_verified value as False
+2022-05-29 18:08:52,702:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImllbDQwNjQ0QHhjb3hjLmNvbSIsImV4cCI6MTY1Mzg0ODAzMiwiaWF0IjoxNjUzODQ3NzMyfQ.OrvSizGQkOuuV4ngsJqbn1Xf87fQf5X-jwun-1A9t14
+2022-05-29 18:08:56,476:INFO:register_user:Request for fetching Register-page.html
+2022-05-29 18:36:07,136:INFO:register_user:user created with is_verified value as False
+2022-05-29 18:36:07,136:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imh3cTM3NDEwQGplb2NlLmNvbSIsImV4cCI6MTY1Mzg0OTY2NywiaWF0IjoxNjUzODQ5MzY3fQ.iq65iFp6QGY2KRS-5l3qsOiKF6etnN6wz5Vb1oSpWEQ
+2022-05-29 18:36:11,116:INFO:register_user:Request for fetching Register-page.html
+2022-05-29 18:36:54,516:INFO:login_user:Request for fetching login-page.html
+2022-05-29 18:39:01,609:INFO:login_user:Request for fetching login-page.html
+2022-05-29 18:39:09,187:INFO:login_user:Token set to cookies with key 'token'
+2022-05-29 18:40:22,771:INFO:login_user:Request for fetching login-page.html
+2022-05-29 18:40:33,980:INFO:login_user:Token set to cookies with key 'token'
+2022-05-29 18:43:36,370:INFO:login_user:Request for fetching login-page.html
+2022-05-29 18:43:38,814:INFO:register_user:Request for fetching Register-page.html
+2022-05-29 18:44:16,163:INFO:register_user:user created with is_verified value as False
+2022-05-29 18:44:16,258:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImxqejM5NzU3QGplb2NlLmNvbSIsImV4cCI6MTY1Mzg1MDE1NiwiaWF0IjoxNjUzODQ5ODU2fQ.o0FepxiusO0ZeTOj15rmRWwtadjnWVjfViPZNaCYVqA
+2022-05-29 18:44:19,366:INFO:register_user:Request for fetching Register-page.html
+2022-05-29 18:44:40,743:INFO:login_user:Request for fetching login-page.html
+2022-05-29 18:45:03,397:INFO:login_user:Token set to cookies with key 'token'
+2022-05-30 18:06:13,259:INFO:login_user:Request for fetching login-page.html
+2022-05-30 18:06:19,849:INFO:register_user:Request for fetching Register-page.html
+2022-05-30 18:08:03,466:INFO:register_user:user created with is_verified value as False
+2022-05-30 18:08:03,467:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhdDk3NTg5QGppb29xLmNvbSIsImV4cCI6MTY1MzkzNDM4MywiaWF0IjoxNjUzOTM0MDgzfQ.cRekKCcC8n1YC5UPWTLv7en9rDaq74ALcOi_uJdSwNE
+2022-05-30 18:08:08,710:INFO:register_user:Request for fetching Register-page.html
+2022-05-30 18:09:01,231:INFO:login_user:Request for fetching login-page.html
+2022-05-30 18:09:19,373:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 13:20:16,096:INFO:login_user:Request for fetching login-page.html
+2022-06-02 13:48:55,851:INFO:login_user:Request for fetching login-page.html
+2022-06-02 13:48:59,659:INFO:register_user:Request for fetching Register-page.html
+2022-06-02 13:49:30,865:INFO:register_user:user created with is_verified value as False
+2022-06-02 13:49:30,910:INFO:generate_url:Url is created 
+ url--> http://localhost:8000/user/verify_user?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImV0YjY3NTcwQHhjb3hjLmNvbSIsImV4cCI6MTY1NDE3ODA3MCwiaWF0IjoxNjU0MTc3NzcwfQ.R_8NXCjjaNKCyiR6qSLIbcdW_k84w9miyxjRJsgLKBc
+2022-06-02 13:49:33,782:ERROR:send_verify_mail:(535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials cj10-20020a056a00298a00b0051bd72bb2e6sm458529pfb.197 - gsmtp')
+2022-06-02 13:49:33,882:INFO:register_user:Request for fetching Register-page.html
+2022-06-02 13:52:43,281:INFO:login_user:Request for fetching login-page.html
+2022-06-02 13:53:31,584:ERROR:login_user:Current User is not verified
+2022-06-02 13:53:31,643:INFO:login_user:Request for fetching login-page.html
+2022-06-02 13:53:50,106:ERROR:login_user:Incorrect password
+2022-06-02 13:53:50,263:INFO:login_user:Request for fetching login-page.html
+2022-06-02 13:54:38,388:INFO:login_user:Request for fetching login-page.html
+2022-06-02 14:15:04,209:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 14:19:52,479:INFO:login_user:Request for fetching login-page.html
+2022-06-02 14:19:59,491:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 14:20:01,048:INFO:get_user:Request for User details
+2022-06-02 14:21:33,187:INFO:logout_user:Session expired
+2022-06-02 14:21:33,203:INFO:login_user:Request for fetching login-page.html
+2022-06-02 14:21:44,179:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 14:21:45,423:INFO:get_user:Request for User details
+2022-06-02 18:18:10,263:INFO:login_user:Request for fetching login-page.html
+2022-06-02 18:18:17,939:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 18:18:19,199:INFO:get_user:Request for User details
+2022-06-02 18:20:53,458:INFO:logout_user:Session expired
+2022-06-02 18:20:53,470:INFO:login_user:Request for fetching login-page.html
+2022-06-02 18:21:03,400:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 18:21:04,473:INFO:get_user:Request for User details
+2022-06-02 18:44:22,652:INFO:login_user:Request for fetching login-page.html
+2022-06-02 18:44:38,305:INFO:register_user:Request for fetching Register-page.html
+2022-06-02 18:45:36,159:INFO:register_user:user created with is_verified value as False
+2022-06-02 18:45:36,252:INFO:register_user:Request for fetching Register-page.html
+2022-06-02 18:45:40,450:INFO:login_user:Request for fetching login-page.html
+2022-06-02 18:45:53,331:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 18:46:19,262:INFO:login_user:Token set to cookies with key 'token'
+2022-06-02 19:10:58,922:INFO:login_user:Request for fetching login-page.html
+2022-06-02 19:11:05,717:INFO:register_user:Request for fetching Register-page.html
+2022-06-02 19:11:40,538:INFO:register_user:user created with is_verified value as False
+2022-06-02 19:11:40,725:INFO:register_user:Request for fetching Register-page.html
+2022-06-02 19:11:42,881:INFO:login_user:Request for fetching login-page.html
+2022-06-02 19:11:51,927:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 05:48:51,068:INFO:login_user:Request for fetching login-page.html
+2022-06-03 05:49:02,048:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 05:49:56,551:INFO:get_user:Request for User details
+2022-06-03 06:05:03,445:INFO:login_user:Request for fetching login-page.html
+2022-06-03 06:05:09,021:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 06:05:10,240:INFO:get_user:Request for User details
+2022-06-03 06:05:34,394:INFO:logout_user:Session expired
+2022-06-03 06:05:34,407:INFO:login_user:Request for fetching login-page.html
+2022-06-03 06:05:57,962:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 06:05:58,722:INFO:get_user:Request for User details
+2022-06-03 06:06:46,203:INFO:get_user:Request for User details
+2022-06-03 06:08:19,542:INFO:get_user:Request for User details
+2022-06-03 16:38:59,231:INFO:login_user:Request for fetching login-page.html
+2022-06-03 16:39:09,441:INFO:register_user:Request for fetching Register-page.html
+2022-06-03 16:39:22,956:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 16:39:25,404:INFO:get_user:Request for User details
+2022-06-03 18:27:07,277:INFO:login_user:Request for fetching login-page.html
+2022-06-03 18:27:22,186:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 18:27:23,553:INFO:get_user:Request for User details
+2022-06-03 19:03:47,222:INFO:login_user:Request for fetching login-page.html
+2022-06-03 19:03:57,691:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 19:04:12,218:INFO:register_user:Request for fetching Register-page.html
+2022-06-03 19:04:53,567:INFO:register_user:user created with is_verified value as False
+2022-06-03 19:04:53,610:INFO:register_user:Request for fetching Register-page.html
+2022-06-03 19:05:00,489:INFO:login_user:Request for fetching login-page.html
+2022-06-03 19:05:11,778:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 19:24:23,608:INFO:login_user:Request for fetching login-page.html
+2022-06-03 19:24:29,834:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 19:24:36,678:INFO:logout_user:Session expired
+2022-06-03 19:24:36,684:INFO:login_user:Request for fetching login-page.html
+2022-06-03 19:25:03,758:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 19:25:09,694:INFO:logout_user:Session expired
+2022-06-03 19:25:09,701:INFO:login_user:Request for fetching login-page.html
+2022-06-03 19:25:19,042:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 19:27:53,892:INFO:logout_user:Session expired
+2022-06-03 19:27:53,900:INFO:login_user:Request for fetching login-page.html
+2022-06-03 19:28:10,564:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 19:33:48,202:INFO:logout_user:Session expired
+2022-06-03 19:33:48,214:INFO:login_user:Request for fetching login-page.html
+2022-06-03 19:34:00,667:INFO:login_user:Token set to cookies with key 'token'
+2022-06-03 19:34:25,622:INFO:get_user:Request for User details
+2022-06-03 19:35:55,060:INFO:get_user:Request for User details
+2022-06-04 18:19:57,498:INFO:login_user:Request for fetching login-page.html
+2022-06-04 18:20:09,967:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 06:47:10,855:INFO:login_user:Request for fetching login-page.html
+2022-06-05 06:47:23,016:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 12:28:16,661:INFO:login_user:Request for fetching login-page.html
+2022-06-05 12:28:26,611:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 12:43:17,947:INFO:login_user:Request for fetching login-page.html
+2022-06-05 12:43:27,982:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 12:43:42,819:INFO:get_user:Request for User details
+2022-06-05 12:44:06,907:INFO:get_user:Request for User details
+2022-06-05 12:46:37,275:INFO:get_user:Request for User details
+2022-06-05 12:47:19,365:INFO:get_user:Request for User details
+2022-06-05 12:48:54,084:INFO:get_user:Request for User details
+2022-06-05 12:52:38,728:INFO:get_user:Request for User details
+2022-06-05 12:52:48,909:INFO:login_user:Request for fetching login-page.html
+2022-06-05 12:52:51,542:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 12:53:28,924:ERROR:register_user:{'profile_pic': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-06-05 12:53:29,177:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 12:54:11,732:ERROR:register_user:{'profile_pic': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-06-05 12:54:11,808:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 13:11:39,744:INFO:register_user:user created with is_verified value as False
+2022-06-05 13:11:39,927:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 13:11:45,635:INFO:login_user:Request for fetching login-page.html
+2022-06-05 13:11:58,134:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 13:12:19,448:INFO:get_user:Request for User details
+2022-06-05 13:47:23,513:INFO:edit_profile:User details updated
+2022-06-05 13:49:51,380:INFO:edit_profile:User details updated
+2022-06-05 13:55:53,265:INFO:edit_profile:User details updated
+2022-06-05 13:59:04,860:INFO:edit_profile:User details updated
+2022-06-05 14:49:06,661:INFO:login_user:Request for fetching login-page.html
+2022-06-05 15:04:16,727:INFO:login_user:Request for fetching login-page.html
+2022-06-05 15:04:29,094:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 15:05:26,802:INFO:edit_profile:User details updated
+2022-06-05 15:10:19,216:INFO:logout_user:Session expired
+2022-06-05 15:10:19,223:INFO:login_user:Request for fetching login-page.html
+2022-06-05 15:10:21,324:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 15:11:03,086:INFO:register_user:user created with is_verified value as False
+2022-06-05 15:11:03,229:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 15:11:09,507:INFO:login_user:Request for fetching login-page.html
+2022-06-05 15:11:20,585:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 15:39:09,952:INFO:login_user:Request for fetching login-page.html
+2022-06-05 15:39:18,414:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 18:41:27,707:INFO:login_user:Request for fetching login-page.html
+2022-06-05 18:48:12,352:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 18:48:49,394:INFO:register_user:user created with is_verified value as False
+2022-06-05 18:48:49,485:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 18:48:54,589:INFO:login_user:Request for fetching login-page.html
+2022-06-05 18:49:02,722:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 18:51:31,237:INFO:logout_user:Session expired
+2022-06-05 18:51:31,246:INFO:login_user:Request for fetching login-page.html
+2022-06-05 18:52:40,530:INFO:login_user:Request for fetching login-page.html
+2022-06-05 18:54:03,886:INFO:login_user:Request for fetching login-page.html
+2022-06-05 18:57:20,067:INFO:logout_user:Session expired
+2022-06-05 18:57:20,082:INFO:login_user:Request for fetching login-page.html
+2022-06-05 18:57:22,600:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 18:57:27,152:INFO:login_user:Request for fetching login-page.html
+2022-06-05 18:57:34,721:INFO:register_user:Request for fetching Register-page.html
+2022-06-05 19:04:41,617:INFO:login_user:Request for fetching login-page.html
+2022-06-05 19:04:50,577:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 19:11:54,866:INFO:login_user:Request for fetching login-page.html
+2022-06-05 19:12:02,074:INFO:login_user:Token set to cookies with key 'token'
+2022-06-05 19:12:12,293:INFO:get_user:Request for User details
+2022-06-05 19:13:11,284:INFO:get_user:Request for User details
+2022-06-05 19:15:34,860:INFO:get_user:Request for User details
+2022-06-05 19:15:46,140:INFO:get_user:Request for User details
+2022-06-05 19:16:24,384:INFO:logout_user:Session expired
+2022-06-05 19:16:24,394:INFO:login_user:Request for fetching login-page.html
+2022-06-05 19:57:43,111:INFO:login_user:Token set to cookies with key 'token'
+2022-06-06 07:06:23,376:INFO:login_user:Request for fetching login-page.html
+2022-06-06 07:06:37,039:INFO:login_user:Token set to cookies with key 'token'
+2022-06-06 07:07:11,563:INFO:edit_profile:User details updated
+2022-06-06 07:33:10,059:INFO:edit_profile:User details updated
+2022-06-06 07:34:52,359:INFO:edit_profile:User details updated
+2022-06-06 07:37:58,697:INFO:edit_profile:User details updated
+2022-06-06 08:11:27,717:INFO:login_user:Request for fetching login-page.html
+2022-06-06 08:11:39,962:INFO:login_user:Token set to cookies with key 'token'
+2022-06-06 08:12:10,788:INFO:edit_profile:User details updated
+2022-06-06 08:18:31,660:INFO:logout_user:Session expired
+2022-06-06 08:18:31,666:INFO:login_user:Request for fetching login-page.html
+2022-06-06 08:18:37,644:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 08:19:27,072:INFO:register_user:user created with is_verified value as False
+2022-06-06 08:19:27,233:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 08:19:37,426:INFO:login_user:Request for fetching login-page.html
+2022-06-06 08:19:49,561:INFO:login_user:Token set to cookies with key 'token'
+2022-06-06 08:20:33,956:INFO:edit_profile:User details updated
+2022-06-06 08:23:28,043:INFO:logout_user:Session expired
+2022-06-06 08:23:28,056:INFO:login_user:Request for fetching login-page.html
+2022-06-06 08:23:31,304:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 08:24:57,089:INFO:register_user:user created with is_verified value as False
+2022-06-06 08:24:57,279:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 08:25:29,708:ERROR:register_user:{'email': [ErrorDetail(string='user with this email already exists.', code='unique')]}
+2022-06-06 08:25:29,750:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 08:59:25,494:INFO:register_user:user created with is_verified value as False
+2022-06-06 08:59:25,672:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 08:59:30,106:INFO:login_user:Request for fetching login-page.html
+2022-06-06 08:59:42,816:INFO:login_user:Token set to cookies with key 'token'
+2022-06-06 09:01:59,900:INFO:edit_profile:User details updated
+2022-06-06 15:33:40,625:INFO:login_user:Request for fetching login-page.html
+2022-06-06 15:33:49,532:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 15:34:22,715:INFO:register_user:user created with is_verified value as False
+2022-06-06 15:34:22,836:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 15:34:41,255:INFO:login_user:Request for fetching login-page.html
+2022-06-06 15:35:20,286:INFO:login_user:Token set to cookies with key 'token'
+2022-06-06 15:35:56,501:INFO:get_user:Request for User details
+2022-06-06 15:36:52,150:INFO:edit_profile:User details updated
+2022-06-06 15:38:33,364:INFO:logout_user:Session expired
+2022-06-06 15:38:33,374:INFO:login_user:Request for fetching login-page.html
+2022-06-06 15:38:40,575:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 15:39:18,709:INFO:register_user:user created with is_verified value as False
+2022-06-06 15:39:18,815:INFO:register_user:Request for fetching Register-page.html
+2022-06-06 15:39:22,666:INFO:login_user:Request for fetching login-page.html
+2022-06-06 15:39:32,031:INFO:login_user:Token set to cookies with key 'token'
+2022-06-06 15:41:08,475:INFO:get_user:Request for User details
+2022-06-06 15:41:12,296:INFO:get_user:Request for User details
+2022-06-18 10:40:26,861:INFO:login_user:Request for fetching login-page.html
+2022-06-18 10:40:49,489:INFO:login_user:Token set to cookies with key 'token'
+2022-06-25 17:53:30,449:INFO:login_user:Request for fetching login-page.html
+2022-06-25 17:53:34,852:INFO:register_user:Request for fetching Register-page.html
+2022-06-25 17:55:25,041:INFO:register_user:Request for fetching Register-page.html
+2022-06-25 17:56:38,644:INFO:register_user:Request for fetching Register-page.html
+2022-06-25 17:57:10,448:INFO:register_user:user created with is_verified value as False
+2022-06-25 17:57:10,459:INFO:register_user:Request for fetching Register-page.html
+2022-06-25 17:57:59,346:INFO:login_user:Request for fetching login-page.html
+2022-06-25 17:58:14,566:INFO:login_user:Token set to cookies with key 'token'
+2022-06-25 17:58:34,353:INFO:edit_profile:User details updated
+2022-06-30 10:30:04,676:INFO:login_user:Request for fetching login-page.html
+2022-06-30 10:30:08,802:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 10:30:54,827:INFO:register_user:user created with is_verified value as False
+2022-06-30 10:30:54,841:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 10:32:35,612:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 10:32:42,859:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 10:32:44,415:INFO:login_user:Request for fetching login-page.html
+2022-06-30 10:32:58,194:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 10:42:59,967:ERROR:edit_profile:{'dob': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-06-30 10:49:36,633:ERROR:edit_profile:{'mobile': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-06-30 10:55:55,797:INFO:edit_profile:User details updated
+2022-06-30 10:56:15,268:ERROR:edit_profile:{'last_name': [ErrorDetail(string='This field may not be blank.', code='blank')], 'dob': [ErrorDetail(string='This field may not be blank.', code='blank')], 'mobile': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-06-30 11:29:54,797:INFO:login_user:Request for fetching login-page.html
+2022-06-30 11:29:57,000:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 11:30:32,914:INFO:register_user:user created with is_verified value as False
+2022-06-30 11:30:32,950:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 11:30:43,940:INFO:login_user:Request for fetching login-page.html
+2022-06-30 11:31:02,490:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 11:31:25,384:ERROR:edit_profile:{'dob': [ErrorDetail(string='This field may not be blank.', code='blank')], 'mobile': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-06-30 11:33:51,941:INFO:login_user:Request for fetching login-page.html
+2022-06-30 11:33:56,212:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 11:34:39,937:INFO:register_user:user created with is_verified value as False
+2022-06-30 11:34:39,950:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 11:34:45,987:INFO:login_user:Request for fetching login-page.html
+2022-06-30 11:34:57,687:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 11:37:11,888:ERROR:edit_profile:{'last_name': [ErrorDetail(string='This field may not be blank.', code='blank')], 'dob': [ErrorDetail(string='This field may not be blank.', code='blank')], 'mobile': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-06-30 11:40:14,255:ERROR:edit_profile:{'last_name': [ErrorDetail(string='This field may not be blank.', code='blank')], 'dob': [ErrorDetail(string='This field may not be blank.', code='blank')], 'mobile': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-06-30 11:49:02,457:INFO:login_user:Request for fetching login-page.html
+2022-06-30 11:49:06,109:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 11:49:27,203:INFO:login_user:Request for fetching login-page.html
+2022-06-30 11:49:32,836:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 11:50:06,395:INFO:register_user:user created with is_verified value as False
+2022-06-30 11:50:06,481:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 11:50:12,098:INFO:login_user:Request for fetching login-page.html
+2022-06-30 11:50:19,864:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 11:50:32,212:ERROR:edit_profile:{'last_name': [ErrorDetail(string='This field may not be blank.', code='blank')], 'dob': [ErrorDetail(string='This field may not be blank.', code='blank')], 'mobile': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-06-30 11:52:30,075:INFO:edit_profile:User details updated
+2022-06-30 11:58:33,338:INFO:edit_profile:User details updated
+2022-06-30 12:36:18,430:INFO:register_project:{'clg_id': 'n190339', 'branch': 'EEE', 'faculty': 'Faculty3', 'aca_year': 'E3'}
+2022-06-30 12:36:44,339:INFO:login_user:Request for fetching login-page.html
+2022-06-30 12:37:11,214:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 12:37:24,120:INFO:register_project:{'clg_id': 'n190339', 'branch': 'ECE', 'faculty': 'Faculty3', 'aca_year': 'E2'}
+2022-06-30 12:38:05,487:INFO:login_user:Request for fetching login-page.html
+2022-06-30 12:38:13,688:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 12:38:26,833:INFO:register_project:{'clg_id': 'n190339', 'branch': 'MECH', 'faculty': 'Faculty1', 'aca_year': 'E2'}
+2022-06-30 12:59:06,332:INFO:login_user:Request for fetching login-page.html
+2022-06-30 12:59:08,382:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 12:59:36,383:INFO:register_user:user created with is_verified value as False
+2022-06-30 12:59:36,535:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 13:00:02,686:INFO:register_user:user created with is_verified value as False
+2022-06-30 13:00:02,793:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 13:00:33,223:INFO:register_user:user created with is_verified value as False
+2022-06-30 13:00:33,228:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 13:00:36,541:INFO:login_user:Request for fetching login-page.html
+2022-06-30 13:01:26,313:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 13:01:54,218:INFO:register_project:{'clg_id': 'n190339', 'branch': 'MECH', 'faculty': 'mahesh babu palla', 'aca_year': 'E3'}
+2022-06-30 15:02:01,946:INFO:login_user:Request for fetching login-page.html
+2022-06-30 15:02:10,567:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 15:02:42,213:INFO:register_user:user created with is_verified value as False
+2022-06-30 15:02:42,222:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 15:02:55,892:INFO:login_user:Request for fetching login-page.html
+2022-06-30 15:03:06,354:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 15:03:21,290:INFO:get_user:Request for User details
+2022-06-30 15:03:46,420:INFO:logout_user:Session expired
+2022-06-30 15:03:46,427:INFO:login_user:Request for fetching login-page.html
+2022-06-30 15:03:50,111:INFO:register_user:Request for fetching Register-page.html
+2022-06-30 15:04:00,636:INFO:login_user:Request for fetching login-page.html
+2022-06-30 15:04:25,482:INFO:login_user:Token set to cookies with key 'token'
+2022-06-30 15:04:37,959:INFO:get_user:Request for User details
+2022-07-01 12:50:37,014:INFO:login_user:Request for fetching login-page.html
+2022-07-01 12:55:30,396:INFO:login_user:Request for fetching login-page.html
+2022-07-01 12:58:01,588:INFO:login_user:Token set to cookies with key 'token'
+2022-07-01 14:00:32,414:INFO:login_user:Request for fetching login-page.html
+2022-07-01 14:01:15,583:INFO:login_user:Token set to cookies with key 'token'
+2022-07-01 18:52:39,096:INFO:login_user:Request for fetching login-page.html
+2022-07-01 18:53:28,922:INFO:login_user:Token set to cookies with key 'token'
+2022-07-02 04:23:52,650:INFO:login_user:Request for fetching login-page.html
+2022-07-02 04:24:04,420:INFO:login_user:Token set to cookies with key 'token'
+2022-07-02 04:37:00,353:ERROR:submit_project:{'project_file': [ErrorDetail(string='The submitted data was not a file. Check the encoding type on the form.', code='invalid')]}
+2022-07-02 04:44:14,884:ERROR:submit_project:{'project_file': [ErrorDetail(string='The submitted data was not a file. Check the encoding type on the form.', code='invalid')]}
+2022-07-02 04:45:46,681:ERROR:submit_project:{'project_file': [ErrorDetail(string='The submitted data was not a file. Check the encoding type on the form.', code='invalid')]}
+2022-07-02 04:58:49,266:ERROR:submit_project:{'project_file': [ErrorDetail(string='The submitted data was not a file. Check the encoding type on the form.', code='invalid')]}
+2022-07-02 05:08:56,464:INFO:register_project:{'clg_id': 'n190338', 'branch': 'CSE', 'faculty': 'mohan babu manchu', 'aca_year': 'E1'}
+2022-07-02 05:09:41,896:INFO:get_user:Request for User details
+2022-07-02 11:33:01,549:INFO:login_user:Request for fetching login-page.html
+2022-07-02 11:33:04,166:INFO:register_user:Request for fetching Register-page.html
+2022-07-02 11:34:18,915:INFO:login_user:Token set to cookies with key 'token'
+2022-07-02 11:35:53,184:ERROR:submit_project:{'project_file': [ErrorDetail(string='The submitted data was not a file. Check the encoding type on the form.', code='invalid')]}
+2022-07-02 11:38:28,732:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-02 11:41:32,446:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-02 12:03:14,130:INFO:get_user:Request for User details
+2022-07-02 12:06:52,819:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-02 12:50:24,960:INFO:login_user:Request for fetching login-page.html
+2022-07-02 12:50:31,799:INFO:login_user:Request for fetching login-page.html
+2022-07-02 12:53:30,423:INFO:login_user:Token set to cookies with key 'token'
+2022-07-02 12:53:52,698:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-02 13:09:25,890:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-02 13:10:28,296:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 06:35:52,337:INFO:login_user:Request for fetching login-page.html
+2022-07-03 06:37:21,228:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 06:37:52,389:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 06:39:35,570:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 07:14:06,760:INFO:login_user:Request for fetching login-page.html
+2022-07-03 07:14:08,958:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 07:15:29,209:INFO:login_user:Request for fetching login-page.html
+2022-07-03 07:15:47,601:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 07:17:13,103:INFO:logout_user:Session expired
+2022-07-03 07:17:13,136:INFO:login_user:Request for fetching login-page.html
+2022-07-03 07:17:15,579:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 07:35:17,788:INFO:login_user:Request for fetching login-page.html
+2022-07-03 07:35:56,330:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 07:56:45,773:INFO:logout_user:Session expired
+2022-07-03 07:56:45,784:INFO:login_user:Request for fetching login-page.html
+2022-07-03 07:56:50,270:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 07:58:49,300:INFO:login_user:Request for fetching login-page.html
+2022-07-03 07:59:07,908:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 08:00:46,997:INFO:get_user:Request for User details
+2022-07-03 08:01:41,119:INFO:get_user:Request for User details
+2022-07-03 09:16:30,232:INFO:logout_user:Session expired
+2022-07-03 09:16:30,244:INFO:login_user:Request for fetching login-page.html
+2022-07-03 10:58:57,697:INFO:login_user:Request for fetching login-page.html
+2022-07-03 10:59:00,706:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:01:47,950:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:02:54,786:ERROR:register_user:{'branch': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 11:02:54,800:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:04:43,969:ERROR:register_user:{'branch': [ErrorDetail(string='This field is required.', code='required')], 'dob': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+2022-07-03 11:04:43,985:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:08:01,074:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:08:38,727:INFO:register_user:user created with is_verified value as False
+2022-07-03 11:08:38,737:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:08:44,846:INFO:login_user:Request for fetching login-page.html
+2022-07-03 11:08:55,180:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 11:50:13,347:INFO:logout_user:Session expired
+2022-07-03 11:50:13,355:INFO:login_user:Request for fetching login-page.html
+2022-07-03 11:50:16,715:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:51:47,670:INFO:register_user:user created with is_verified value as False
+2022-07-03 11:51:47,701:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:52:26,653:INFO:register_user:user created with is_verified value as False
+2022-07-03 11:52:26,659:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:53:22,790:INFO:register_user:user created with is_verified value as False
+2022-07-03 11:53:22,798:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:53:29,883:INFO:login_user:Request for fetching login-page.html
+2022-07-03 11:54:07,474:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 11:54:49,423:INFO:logout_user:Session expired
+2022-07-03 11:54:49,430:INFO:login_user:Request for fetching login-page.html
+2022-07-03 11:54:51,852:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:55:41,452:INFO:register_user:user created with is_verified value as False
+2022-07-03 11:55:41,460:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 11:55:44,438:INFO:login_user:Request for fetching login-page.html
+2022-07-03 11:56:13,841:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 12:14:37,879:INFO:logout_user:Session expired
+2022-07-03 12:14:37,886:INFO:login_user:Request for fetching login-page.html
+2022-07-03 12:14:40,244:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 12:15:54,459:INFO:register_user:user created with is_verified value as False
+2022-07-03 12:15:54,464:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 12:15:57,328:INFO:login_user:Request for fetching login-page.html
+2022-07-03 12:16:04,758:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 12:17:43,506:INFO:logout_user:Session expired
+2022-07-03 12:17:43,511:INFO:login_user:Request for fetching login-page.html
+2022-07-03 12:17:45,503:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 12:18:33,549:INFO:register_user:user created with is_verified value as False
+2022-07-03 12:18:33,556:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 12:18:37,073:INFO:login_user:Request for fetching login-page.html
+2022-07-03 12:18:43,626:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 12:21:46,438:ERROR:submit_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 12:26:43,993:ERROR:register_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'branch': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 12:27:32,962:ERROR:register_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'branch': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 12:30:42,893:ERROR:register_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-03 12:32:39,758:INFO:register_project:{'clg_id': '3', 'branch': 'CSE', 'faculty': 'amitabh bacchan', 'aca_year': 'E3'}
+2022-07-03 13:06:35,449:INFO:logout_user:Session expired
+2022-07-03 13:06:35,456:INFO:login_user:Request for fetching login-page.html
+2022-07-03 13:06:42,757:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 13:07:22,352:INFO:register_user:user created with is_verified value as False
+2022-07-03 13:07:22,359:INFO:register_user:Request for fetching Register-page.html
+2022-07-03 13:07:27,522:INFO:login_user:Request for fetching login-page.html
+2022-07-03 13:07:45,759:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 13:08:19,714:INFO:register_project:{'clg_id': 'n190234', 'branch': 'CSE', 'faculty': 'hritik roshan', 'aca_year': 'E2'}
+2022-07-03 13:09:16,355:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-03 13:11:44,761:INFO:logout_user:Session expired
+2022-07-03 13:11:44,766:INFO:login_user:Request for fetching login-page.html
+2022-07-03 13:12:17,643:INFO:login_user:Token set to cookies with key 'token'
+2022-07-03 13:12:49,065:INFO:get_user:Request for User details
+2022-07-03 13:12:55,584:INFO:get_user:Request for User details
