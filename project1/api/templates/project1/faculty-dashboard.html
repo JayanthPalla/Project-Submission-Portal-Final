@@ -278,6 +278,11 @@
        
 
     </style>
+     {% if messages %}
+     {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+     {% endfor %}
+ {% endif %}
   </head>
   <body>
     <!--navbar-->
@@ -311,11 +316,11 @@
             <!--side-menu-->
             <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
                 <div class="list-group mt-1">
-                    <a href="{% url 'dashboard' %}" class="side-links list-group-item on-btn"data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="#" class="side-links list-group-item on-btn"data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+                    <a href="#" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
                     <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
                     <a href="{% url 'edit-profile' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                    <a href="{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
+                    <a href="reset_password.html" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
                     <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
                         <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
                     </a>
@@ -347,87 +352,26 @@
             <h4 class="side-head mt-3 text-center " id="myclass">MY CLASS</h4>
             <div class="row justify-content-evenly">
                 <!--class-->
-                <div class="col-xl-4  col-lg-6 col-11 class border rounded   shadow p-1  mb-3 ">
-                    <div class="row">
-                        <div class="col-6  text-center position-relative">
-                            <div class=" class-details">
-                                <h2 class="fw-bold">Batch-01</h2>
-                                <h5 class="mb-3">(CSE E-01)</h5>  
-                                <a href="#" class="btn ">Projects</a> <br> 
-                                <!-- add student -->
-                                <button type="button " class="btn mt-2" data-bs-toggle="modal" data-bs-target="#batch1">
-                                  <i class="bi bi-person-plus-fill"></i> ADD
-                                </button>
-                            </div>                 
-                          <!-- Modal -->
-                          <div class="modal fade" id="batch1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header ">
-                                  <h5 class="modal-title text-center" id="staticBackdropLabel"> Batch-01 </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  <p class="ms-auto">Enter student's Email to Add</p>
-                                  <form>
-                                  
-                                    <div class="input-group mb-3">
-                                      <span class="input-group-text" id="email"><i class="bi bi-envelope-fill me-1"></i> Email</span>
-                                      <input type="email" class="form-control" placeholder="name@gmail.com" aria-label="Username" aria-describedby="email">
-                                    </div>
-                                  </form>
-                                </div>
-                                <div class="modal-footer  ">        
-                                  <button type="button" class="btn btn-primary" style="padding: 5px 30px; "> <i class="bi bi-person-plus-fill"></i> ADD</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>   
-                                              
-                        </div>
-                        
-                        <div class="col-6 justify-content-evenly">
-                            <div class="card  shadow    mb-1 text-center" >
-                                <div class="card-body row">
-                                  <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center" >60</span>
-                                  <span class="card-text col  "  style="display: grid; place-items: center;" >Total Strength</span>
-                                </div>
-                            </div>
-                            <div class="card  shadow   mb-1 text-center" >
-                                <div class="card-body row ">
-                                  <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center">52</span>
-                                  <span class="card-text col " style="display: grid; place-items: center;">Regestered</span>
-                                </div>
-                            </div>
-                            <div class="card shadow   mb-1 text-center" >
-                                <div class="card-body row">
-                                  <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center">40</span>
-                                  <span class="card-text col "  style="display: grid; place-items: center;" >Submitions</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% for class in classes %}
+                <div class="col-xl-4  col-lg-6 col-12 class border rounded   shadow p-1  mb-3 ">
+                  <div class="row">
+                      <div class="col-6  text-center position-relative">
+                          <div class=" class-details">
+                              <h2 class="fw-bold">{{ class.name }}</h2>
+                              <h5 class="mb-3">{{ class.no }}</h5>  
+                              <a href="#" class="btn ">Projects</a>   <br>
+                               <!-- add student -->
+                               <button type="button " class="btn mt-2" data-bs-toggle="modal" data-bs-target="#{{ class.no }}">
+                                <i class="bi bi-person-plus-fill"></i> ADD
+                              </button>
+                          </div>       
 
-               <!--class-->
-               <div class="col-xl-4  col-lg-6 col-11 class border rounded   shadow p-1 mb-3 ">
-                <div class="row">
-                    <div class="col-6  text-center position-relative">
-                        <div class=" class-details">
-                            <h2 class="fw-bold">Batch-02</h2>
-                            <h5 class="mb-3">(CSE E-01)</h5>  
-                            <a href="#" class="btn ">Projects</a>  <br>
-                             <!-- add student -->
-                             <button type="button " class="btn mt-2" data-bs-toggle="modal" data-bs-target="#batch2">
-                              <i class="bi bi-person-plus-fill"></i> ADD
-                            </button> 
-                        </div>  
-                         <!-- Modal -->
-                         <div class="modal fade" id="batch2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                           <!-- Modal -->
+                        <div class="modal fade" id="{{ class.no }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header ">
-                                <h5 class="modal-title text-center" id="staticBackdropLabel"> Batch-02 </h5>
+                                <h5 class="modal-title text-center" id="staticBackdropLabel"> {{ class.name }} </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
@@ -445,95 +389,40 @@
                               </div>
                             </div>
                           </div>
-                        </div>   
-                                                              
-                    </div>
-                    <div class="col-6 justify-content-evenly">
-                        <div class="card  shadow    mb-1 text-center" >
-                            <div class="card-body row">
-                              <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center" >60</span>
-                              <span class="card-text col  "  style="display: grid; place-items: center;" >Total Strength</span>
-                            </div>
-                        </div>
-                        <div class="card  shadow   mb-1 text-center" >
-                            <div class="card-body row ">
-                              <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center">52</span>
-                              <span class="card-text col " style="display: grid; place-items: center;">Regestered</span>
-                            </div>
-                        </div>
-                        <div class="card shadow   mb-1 text-center" >
-                            <div class="card-body row">
-                              <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center">27</span>
-                              <span class="card-text col "  style="display: grid; place-items: center;" >Submitions</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </div>  
 
-
-                <!--class-->
-                <div class="col-xl-4  col-lg-6 col-11 class border rounded   shadow p-1  mb-3 ">
-                    <div class="row">
-                        <div class="col-6  text-center position-relative">
-                            <div class=" class-details">
-                                <h2 class="fw-bold">External</h2>
-                                <h5 class="mb-3">(CSE E-01)</h5>  
-                                <a href="#" class="btn ">Projects</a>   <br>
-                                 <!-- add student -->
-                                 <button type="button " class="btn mt-2" data-bs-toggle="modal" data-bs-target="#External">
-                                  <i class="bi bi-person-plus-fill"></i> ADD
-                                </button>
-                            </div>       
-                             <!-- Modal -->
-                          <div class="modal fade" id="External" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header ">
-                                  <h5 class="modal-title text-center" id="staticBackdropLabel"> External </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  <p class="ms-auto">Enter student's Email to Add</p>
-                                  <form>
-                                  
-                                    <div class="input-group mb-3">
-                                      <span class="input-group-text" id="email"><i class="bi bi-envelope-fill me-1"></i> Email</span>
-                                      <input type="email" class="form-control" placeholder="name@gmail.com" aria-label="Username" aria-describedby="email">
-                                    </div>
-                                  </form>
-                                </div>
-                                <div class="modal-footer  ">        
-                                  <button type="button" class="btn btn-primary" style="padding: 5px 30px; "> <i class="bi bi-person-plus-fill"></i> ADD</button>
-                                </div>
+                                                         
+                      </div>
+                      <div class="col-6 justify-content-evenly">
+                          <div class="card  shadow    mb-1 text-center" >
+                              <div class="card-body row">
+                                <span class=" fs-3 fw-bold text-center" > {{ class.strength }}</span><br>
+                                <span class="card-text   "  style="display: grid; place-items: center;" >Total students</span>
                               </div>
-                            </div>
-                          </div>   
-                                                           
-                        </div>
-                        <div class="col-6 justify-content-evenly">
-                            <div class="card  shadow    mb-1 text-center" >
-                                <div class="card-body row">
-                                  <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center" >30</span>
-                                  <span class="card-text col  "  style="display: grid; place-items: center;" >Alloted</span>
-                                </div>
-                            </div>
-                            <div class="card  shadow   mb-1 text-center" >
-                                <div class="card-body row ">
-                                  <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center">22</span>
-                                  <span class="card-text col " style="display: grid; place-items: center;">Regestered</span>
-                                </div>
-                            </div>
-                            <div class="card shadow   mb-1 text-center" >
-                                <div class="card-body row">
-                                  <span class=" fs-3 col-md-5 col-sm-12 fw-bold text-center">17</span>
-                                  <span class="card-text col "  style="display: grid; place-items: center;" >Submitions</span>
-                                </div>
-                            </div>
-                        </div>
+                          </div>
+                          <div class="card  shadow   mb-1 text-center" >
+                              <div class="card-body row ">
+                                <span class=" fs-3  fw-bold text-center">{{  class.regestered }}</span><br>
+                                <span class="card-text col " style="display: grid; place-items: center;">Regestered</span>
+                              </div>
+                          </div>
+                          <div class="card shadow   mb-1 text-center" >
+                              <div class="card-body row">
+                                <span class=" fs-3  fw-bold text-center">{{ class.submitions }} </span><br>
+                                <span class="card-text col "  style="display: grid; place-items: center;" >Submitions</span>
+                              </div>
+                          </div>
+                      </div>
                     </div>
-                </div>
-                
+              </div>
+              {% endfor %}
+
+
+              
+
+
+
+              </div>
             <!---row-2-->
             <div class="row">
 
@@ -568,10 +457,9 @@
                            <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Batch </a>
                              <ul class="dropdown-menu">
-                               <li><a class="dropdown-item" href="#">Batch-01</a></li>
-                               <li><a class="dropdown-item" href="#">Batch-02</a></li>
-                               <li><a class="dropdown-item" href="#">External</a></li>
-                            
+                               {% for class in classes %}
+                               <li><a class="dropdown-item" href="#">{{ class.name }}</a></li>  
+                               {% endfor %}                          
                              </ul>
                            </li>
                          </ul>
@@ -592,15 +480,17 @@
                      </thead>
                      
                      <tbody>
+                      {% for student in studentList %}
                      <tr>
-                         <th scope="row">1</th>
-                         <td><a href="#">N190324</a> </td>
-                         <td>PS krishna</td>
-                         <td>EEE</td>
-                         <th scope="col">01</th>
-                         <td>Electo Emitor</td>
-                         <td><a href="#" class="btn btn-outline-primary" >View</a></td>
+                         <th scope="row">{{ }}</th>
+                         <td><a href="#">{{ student.id }}</a> </td>
+                         <td>{{ student.name }}</td>
+                         <td>{{ student.branch }}</td>
+                         <th scope="col">{{ student.batch }}</th>
+                         <td>{{ student.project_name }}</td>
+                         <td><a href="{{ student.project_link }}" class="btn btn-outline-primary" >View</a></td>
                      </tr>
+                     {% endfor %}
                     
                     
 
@@ -617,6 +507,8 @@
              <h4 class="side-head mt-5" id="assign-work">Assign-Work</h4>
    
              <!--form-->
+             <form action="{% ulr 'Faculty-dashboard' %" method="POST" enctype="application/x-www-form-urlencoded">
+              {% csrf_token %}
             <div class="bg-light">
 
                 <div  class="form-head row">
@@ -631,6 +523,8 @@
                   </div>
                 </div>
                 </div>
+                
+            
 
                 <div class="form-head mb-2">
                   <span><i class="bi bi-pencil-square  ms-4 me-2 "></i>main</span> 
@@ -642,19 +536,19 @@
                   <div class="col-12 col-md-6 d-flex mb-4">
                       <i class=" icon-col bi bi-pen-fill"></i>
                       <span class="label-col">Titel</span>
-                      <div class="input-col"><input class="input-col" type="Text" placeholder="Tittle of the project"> </div>
+                      <div class="input-col"><input class="input-col" name="title" type="Text" placeholder="Title of the project"> </div>
                   </div>
 
                   <div class="col-12 col-md-6 d-flex mb-4">
                     <i class=" icon-col bi bi-diagram-3-fill"></i>
                     <span class="label-col">Year</span>
                     <div class="input-col">
-                      <select name="branch">
-                        <option value="batch">---year---</option>
-                        <option value="batch2">E01</option>
-                        <option value="batch2">E02</option>
-                        <option value="batch2">E03</option>
-                        <option value="batch2">E04</option>
+                      <select name="year">
+                        <option value="none">---year---</option>
+                        <option value="E01">E01</option>
+                        <option value="E02">E02</option>
+                        <option value="E03">E03</option>
+                        <option value="E04">E04</option>
                       </select>
                     </div>
                   </div>
@@ -662,14 +556,14 @@
                   <div class="col-12 col-md-6 d-flex mb-4">
                     <i class=" icon-col bi bi-pen-fill"></i>
                     <span class="label-col">Topic</span>
-                    <div class="input-col"><input class="input-col" type="Text" placeholder="Topic of the project"> </div>
+                    <div class="input-col"><input class="input-col" name="topic" type="Text" placeholder="Topic of the project"> </div>
                   </div>
 
                   <div class="col-12 col-md-6 d-flex mb-4">
                     <i class=" icon-col bi bi-people-fill"></i>
                     <span class="label-col">Due date</span>
                     <div class="input-col">
-                      <input class="input-col" type="Date" >
+                      <input class="input-col" name="due_date" type="Date" >
                     </div>
                   </div>
               </div>  
@@ -685,9 +579,9 @@
                 <div class="col-12 col-md-6 d-flex mb-4 text-center ">
                   <i class=" icon-col bi bi-file-medical-fill"></i>
                   <span class="label-col">Batch</span>
-                  <div class="input-col">
+                  <div class="input-col" name="batch" >
                     <select name="Topic">
-                      <option value="Batch">--batch--</option>
+                      <option value="batch">--batch--</option>
                       <option value="b1">Batch-01</option>
                       <option value="b2">Batch-02</option>
                       <option value="b3">Batch-03</option>
@@ -719,10 +613,10 @@
                   <div class="input-col">
                     <select name="Topic">
                       <option value="no">--no of students--</option>
-                      <option value="no">40</option>
-                      <option value="no">50</option>
-                      <option value="no">60</option>
-                      <option value="no">70</option>
+                      <option value="40">40</option>
+                      <option value="50">50</option>
+                      <option value="60">60</option>
+                      <option value="70">70</option>
                     </select>
                   </div>
                 </div>
@@ -734,7 +628,7 @@
                     <select name="team">
                       <option value="team">--Team/individual--</option>
                       <option value="team">Team</option>
-                      <option value="one">one</option>
+                      <option value="individual">individual</option>
                     </select>
                   </div>
                 </div>
@@ -747,6 +641,9 @@
                   </div>
                 </div>
 
+
+              </div>
+              </form>
            
           </div>
         </div>
@@ -778,44 +675,6 @@
         </div>     
     </footer>
 
-
-
-    <!--script to create aa tabel-->
-    <script>
-
-        let list = 
-        [
-           
-            ["N190122","siva krishna","EEE","02","electrics","some link"],
-            ["N190802","jaya krishna","CSE","01","HOSTER","some link"],
-            ["N190122","rushi","ECE","EX","vacumner","some link"],
-            ["N190122","daneyal","MECH","02","vehicel booster","some link"],
-            ["n190122","siva krishna","EEE","02","electrics","some link"],
-            ["n190802","jaya krishna","CSE","01","HOSTER","some link"],
-            ["n190122","rushi","ECE","EX","vacumner","some link"],
-            ["n190122","daneyal","MECH","02","vehicel booster","some link"]
-        ]
-
-        function myFunction(data,i) {
-        var table = document.getElementById("projects-list");
-        var row = table.insertRow();
-        var cell = row.insertCell(0);
-            cell.innerHTML = i+1;
-        for(let j=0;j<data[0].length;j++)
-        {
-            cell = row.insertCell(j+1);
-            cell.innerHTML = data[i][j];
-        }
-        }
-
-        for(let i=0 ; i<list.length;i++)
-        {
-            myFunction(list,i);
-        }
-
-        
-
-    </script>
 
 
     <script>
