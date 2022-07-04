@@ -116,7 +116,7 @@
         */
         .about-img{
             width: 300px;
-            height:300px;
+            height:300px:
         }
 
         .team-img{
@@ -135,6 +135,13 @@
        
 
     </style>
+    {% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+    {% endif %}
+    
+    
   </head>
   <body>
     <!--navbar-->
@@ -154,7 +161,7 @@
                 <div class="d-flex text-dark  ms-auto">
                     <a class="nav-link " href="#"> 
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
-                        <span class="ms-2 me-1 d-none d-md-inline " > User name</span>
+                        <span class="ms-2 me-1 d-none d-md-inline " > {{ user.first_name }} {{ user.last_name }}</span>
                     </a>
                     <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
                 </div>
@@ -168,11 +175,11 @@
             <!--side-menu-->
             <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
                 <div class="list-group mt-1">
-                    <a href="{% url 'dashboard' %}" class="side-links list-group-item "data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
-                    <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
-                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                    <a href="{% url 'change-pswd' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
+                    <a href="#" class="side-links list-group-item "data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+                    <a href="#" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="#" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
+                    <a href="editProfile-page.html" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href="reset_password.html" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
                     <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
                         <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
                     </a>
@@ -215,77 +222,24 @@
             </div>
             <div class="row justify-content-evenly mt-4 bg-light">
                 
+              
+                { for team_member in team }
+
                 <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
-                    <img src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg" alt="team-img" class="team-img mt-2 mb-2">
-                    <h3 class=" fw-bold">Person-name</h3>
-                    <h5 class="fw-bold text-primary">Project-Role</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem blanditiis laborum sequi ex tempora.</p>
+                    <img src="{{ team_member.img_link }}" alt="team-img" class="team-img mt-2 mb-2">
+                    <h3 class=" fw-bold">{{ team_member.name }}</h3>
+                    <h5 class="fw-bold text-primary">{{ team_member.roll }}</h5>
+                    <p>{{ team_member.description }}</p>
                     <p class="social-media fs-4">
-                        <a href="#"><i class="bi bi-envelope-fill"></i> </a>
-                        <a href="#"> <i class="bi bi-linkedin"></i></a>
-                        <a href="#"> <i class="bi bi-telephone-fill"></i></a>
+                        <a href="{{ team_member.email }}"><i class="bi bi-envelope-fill"></i> </a>
+                        <a href="{{ team_member.linkedin }}"> <i class="bi bi-linkedin"></i></a>
+                        <a href="{{ team_member.number }} "> <i class="bi bi-telephone-fill"></i></a>
                     </p>
                 </div>
 
-                <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmNdSL0wetARyMZVIRgtl2yPZyzXSJQx4EzA&usqp=CAU" alt="team-img" class="team-img mt-2 mb-2">
-                    <h3 class=" fw-bold">Person-name</h3>
-                    <h5 class="fw-bold text-primary">Project-Role</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem blanditiis laborum sequi ex tempora.</p>
-                    <p class="social-media fs-4">
-                        <a href="#"><i class="bi bi-envelope-fill"></i> </a>
-                        <a href="#"> <i class="bi bi-linkedin"></i></a>
-                        <a href="#"> <i class="bi bi-telephone-fill"></i></a>
-                    </p>
-                </div>
 
-                <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
-                    <img src="https://www.adobe.com/express/create/media_100555ab4fceddd23914dc903ae96e32cb53871b7.jpeg?width=400&format=jpeg&optimize=medium" alt="team-img" class="team-img mt-2 mb-2">
-                    <h3 class=" fw-bold">Person-name</h3>
-                    <h5 class="fw-bold text-primary">Project-Role</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem blanditiis laborum sequi ex tempora.</p>
-                    <p class="social-media fs-4">
-                        <a href="#"><i class="bi bi-envelope-fill"></i> </a>
-                        <a href="#"> <i class="bi bi-linkedin"></i></a>
-                        <a href="#"> <i class="bi bi-telephone-fill"></i></a>
-                    </p>
-                </div>
+                { endteam }
 
-                <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
-                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="team-img" class="team-img mt-2 mb-2">
-                    <h3 class=" fw-bold">Person-name</h3>
-                    <h5 class="fw-bold text-primary">Project-Role</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem blanditiis laborum sequi ex tempora.</p>
-                    <p class="social-media fs-4">
-                        <a href="#"><i class="bi bi-envelope-fill"></i> </a>
-                        <a href="#"> <i class="bi bi-linkedin"></i></a>
-                        <a href="#"> <i class="bi bi-telephone-fill"></i></a>
-                    </p>
-                </div>
-
-                <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
-                    <img src="https://as2.ftcdn.net/v2/jpg/02/23/61/31/1000_F_223613193_lZz1bnJPaINieuvKIP6NxZH0b1vQ22ke.jpg" alt="team-img" class="team-img mt-2 mb-2">
-                    <h3 class=" fw-bold">Person-name</h3>
-                    <h5 class="fw-bold text-primary">Project-Role</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem blanditiis laborum sequi ex tempora.</p>
-                    <p class="social-media fs-4">
-                        <a href="#"><i class="bi bi-envelope-fill"></i> </a>
-                        <a href="#"> <i class="bi bi-linkedin"></i></a>
-                        <a href="#"> <i class="bi bi-telephone-fill"></i></a>
-                    </p>
-                </div>
-
-                <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
-                    <img src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg" alt="team-img" class="team-img mt-2 mb-2">
-                    <h3 class=" fw-bold">Person-name</h3>
-                    <h5 class="fw-bold text-primary">Project-Role</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem blanditiis laborum sequi ex tempora.</p>
-                    <p class="social-media fs-4">
-                        <a href="#"><i class="bi bi-envelope-fill"></i> </a>
-                        <a href="#"> <i class="bi bi-linkedin"></i></a>
-                        <a href="#"> <i class="bi bi-telephone-fill"></i></a>
-                    </p>
-                </div>
 
                 <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8FuEJbKwDdaz1h387130xmYkAIQbZpahhbQ&usqp=CAU" alt="team-img" class="team-img mt-2 mb-2">
