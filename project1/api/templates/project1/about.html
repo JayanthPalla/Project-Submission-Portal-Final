@@ -241,6 +241,7 @@
                 { endteam }
 
 
+                <!--demo-->
                 <div class="col-10 col-md-6 col-lg-4  col-xxl-3 shadow text-center mt-2 mb-5">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8FuEJbKwDdaz1h387130xmYkAIQbZpahhbQ&usqp=CAU" alt="team-img" class="team-img mt-2 mb-2">
                     <h3 class=" fw-bold">Person-name</h3>
@@ -267,7 +268,8 @@
                 <div class="col-12 col-lg-7 ">
                     <h3 class="text-warning mb-4">Drop your msg here...!</h3>
                     <div class="fs-5">
-                        <form>
+                        <form action="{% url 'about-page' %}" method="POST" enctype="application/x-www-form-urlencoded">
+                            {% csrf_token %}
                             <div class="row mb-3">
                                 <div class="col-10 col-md-6">
                                     <label for="name" class="form-label">Your name</label>
