@@ -3,7 +3,7 @@
 Required pips and their versions
 
 python - 3.8.10
-PyJWT - 1.7.1
+PyJWT - 2.4.0
 django - 3.2.13
 djangorestframework - latest version
 pymongo - 3.12.1
