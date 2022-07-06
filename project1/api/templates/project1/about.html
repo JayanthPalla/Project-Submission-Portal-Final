@@ -175,12 +175,12 @@
             <!--side-menu-->
             <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
                 <div class="list-group mt-1">
-                    <a href="#" class="side-links list-group-item "data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                    <a href="#" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
-                    <a href="#" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
-                    <a href="editProfile-page.html" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                    <a href="reset_password.html" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
-                    <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
+                    <a href="{% url 'dashboard' %}" class="side-links list-group-item "> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="{% url 'profile-page' %}" class="side-links list-group-item"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
+                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href="#" class="side-links list-group-item"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">change password</span> </a>
+                    <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
                     </a>
                         <ul class="dropdown-menu" >
@@ -188,10 +188,10 @@
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
                         </ul>
-                     <a href="#" class="side-links list-group-item on-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+                     <a href="{% url 'about-page' %}" class="side-links list-group-item on-btn"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
                 </div>
                 <br><br><br><br><br><br>
-                    <a href="login-page.html" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+                    <a href="{% url 'logout' %}" class="logout "><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
                 <br><br><br>
             </div>
 
