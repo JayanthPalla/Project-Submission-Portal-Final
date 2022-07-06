@@ -133,6 +133,11 @@
        
 
     </style>
+     {% if messages %}
+     {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+     {% endfor %}
+ {% endif %}
   </head>
   <body>
     <!--navbar-->
@@ -152,7 +157,7 @@
                 <div class="d-flex text-dark  ms-auto">
                     <a class="nav-link " href="#"> 
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
-                        <span class="ms-2 me-1 d-none d-md-inline " > User name</span>
+                        <span class="ms-2 me-1 d-none d-md-inline " > {{ user.first_name }} {{user.last_name }}</span>
                     </a>
                     <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
                 </div>
@@ -164,13 +169,13 @@
     <div class="container-fluid">
         <div class="row ">
             <!--side-menu-->
-            <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
+             <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
                 <div class="list-group mt-1">
                     <a href="{% url 'dashboard' %}" class="side-links list-group-item "data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item on-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="#" class="side-links list-group-item on-btn " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
                     <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
-                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                    <a href="{% url 'change-pswd' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
+                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href = "{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Change-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Change password</span> </a>
                     <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
                         <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
                     </a>
@@ -179,58 +184,20 @@
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
                         </ul>
-                     <a href="#" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+                     <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
                 </div>
                 <br><br><br><br><br><br>
-                    <a href="login-page.html" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+                    <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
                 <br><br><br>
             </div>
 
+
             <!---main-content-->
             <div class="col   content-div"> 
-                
-            <div class="row justify-content-evenly">
-                <div class="col-11 col-md-12 col-lg-3 content-div" style="background-color: rgb(229, 229, 229);">
-                    <div class="justify-content-center text-center shadow ">
-                        <div class="head mt-5">CLASSES</div>
-                        <div class="mt-2">Select your class here and assign marks </div>
-                        <div class="mt-4 text-center mx-auto row justify-content-center">
-                            <div class="col-10 justify-content-center">
-                                <div class="card  shadow   mb-1 text-center" >
-                                    <div class="card-body row">
-                                      <a href=""><span class="card-text col "  >CLASS-01</span></a>
-                                    </div>
-                                </div>
-                                <div class="card  shadow   mb-1 text-center" >
-                                    <div class="card-body row ">
-                                        <a href=""><span class="card-text col "  >CLASS-02</span></a>
-                                    </div>
-                                </div>
-                                <div class="card shadow   mb-1 text-center mb-3" >
-                                    <div class="card-body row">
-                                        <a href=""><span class="card-text col " >CLASS-03</span></a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Instrections-->
-                    <div>
-                        <div class="head mt-5">Instructions</div>
-                        <div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam hic enim itaque quod tenetur reprehenderit!</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam hic enim itaque quod tenetur reprehenderit!</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam hic enim itaque quod tenetur reprehenderit!</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-11 col-md-12 col-lg-9 content-div shadow">
+                <div class="row content-div shadow">
                     <div class="text-center text-light p-4 mt-3" style ="background-color:#005;width: 100%; font-size:x-large; font-weight: 700;">
                         <span>Asign marks here...!</span> <br>
-                        <span>CSE-01(projects)</span>
+                        <span>{{ user.cls }}(projects)</span>
                         <br>
                     </div>
                     <div class="row justify-content-center">
@@ -238,22 +205,36 @@
                             
                             <br>
                             <!--marks section-->
+
+                            <form action="{% ulr 'Faculty-scoreboard' %" method="POST" enctype="application/x-www-form-urlencoded">
+                              {% csrf_token %}
                             <div >
                                 <div>
                                     <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
                                         <a class="navbar-brand" href="#">Projects</a>
+
                                         <ul class="nav nav-pills">
+                                            <div class="dropdown me-3">
+                                                <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="class" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  select class here
+                                                </a>
+                                                <ul class="dropdown-menu"  aria-labelledby="class">
+                                                {% for class in classes %}
+                                                  <li><a class="dropdown-item" href="#">{{ class.name }}</a></li>
+                                                {% endfor %}
+                                                </ul>
+                                            </div>
                                           <li class="nav-item">
                                             <input class="form-control me-2" type="search" placeholder="Search for Id" id="search" onkeyup="searchfunction()" aria-label="Search">
                                           </li>
                                         </ul>
                                       </nav>
                                 </div>
-                                <div class="tabel-div" style="max-height: 400px; overflow-y: scroll;overflow-x: scroll;">
+                                <div class="tabel-div" style="max-height: 600px; overflow-y: scroll;overflow-x: scroll;">
                                 <table class="table  table-striped table-hover mt-3" id="projects-list" >
                                     <thead>
                                     <tr>
-                                        <th scope="col">S no</th>
+                                        <th scope="col">Sno</th>
                                         <th scope="col">Id</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Project_Titel</th>
@@ -264,65 +245,24 @@
                                     </thead>
                                     
                                     <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="#">N190324</a> </td>
-                                        <td>PS krishna</td>
-                                        <td>Electo Emitor</td>
-                                        <td><a href="#" class="btn btn-outline-primary" >View</a></td>
-                                        <td><input type="number" style="width:50px ;"></td>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="#">N190324</a> </td>
-                                        <td>PS krishna</td>
-                                        <td>Electo Emitor</td>
-                                        <td><a href="#" class="btn btn-outline-primary" >View</a></td>
-                                        <td><input type="number" style="width:50px ;"></td>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="#">N190324</a> </td>
-                                        <td>PS krishna</td>
-                                        <td>Electo Emitor</td>
-                                        <td><a href="#" class="btn btn-outline-primary" >View</a></td>
-                                        <td><input type="number" style="width:50px ;"></td>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="#">N190324</a> </td>
-                                        <td>PS krishna</td>
-                                        <td>Electo Emitor</td>
-                                        <td><a href="#" class="btn btn-outline-primary" >View</a></td>
-                                        <td><input type="number" style="width:50px ;"></td>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="#">N190324</a> </td>
-                                        <td>PS krishna</td>
-                                        <td>Electo Emitor</td>
-                                        <td><a href="#" class="btn btn-outline-primary" >View</a></td>
-                                        <td><input type="number" style="width:50px ;"></td>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="#">N190324</a> </td>
-                                        <td>PS krishna</td>
-                                        <td>Electo Emitor</td>
-                                        <td><a href="#" class="btn btn-outline-primary" >View</a></td>
-                                        <td><input type="number" style="width:50px ;"></td>
-                                        <td><input type="text"></td>
-                                    </tr>
+                                        {% for student in students %}
+                                        <tr>
+                                            <td>{{ }}</td>
+                                            <td>{{ student.id }} </td>
+                                            <td>{{ student.name }}</td>
+                                            <td>{{ student.project }}</td>
+                                            <td><a href="{{ student.project_link }}" class="btn btn-outline-primary">View</a></td>
+                                            <td><input type="number" name="{{ student.marks }}" style = "width: 50px; "></td>
+                                            <td><input type="text" name=" {{ student.comments }} " ></td>
+                                        </tr>
 
-                                        </tbody>
+                                        {% endfor %}
+                                   
+                                    </tbody>
                                 </table>
                                 </div>
                            </div>
+                
                         </div>
                         <div class="col-4 mt-4">
                             <div class="head mt-5 text-center"> UPLOAD </div>
@@ -330,40 +270,36 @@
                                 <table>
                                     <tr class="mt-2">
                                         <td> <label for="" class="col-form-label">Enter faculty name :</label></td>
-                                        <td><input type="text" id="" class="form-control" ></td>
+                                        <td><input type="text" name="faculty_name" id="" class="form-control" placeholder="{{ user.first_name }} {{ user.last_name }}" disabled></td>
                                     </tr>
                                     <tr class="mt-5">
                                         <td> <label for="" class="col-form-label">Total no of students :</label></td>
-                                        <td><input type="number" id="" class="form-control" ></td>
+                                        <td><input type="number" name="noOfStudents"  id="" class="form-control" ></td>
                                     </tr>
                                     <tr class="mt-2">
                                         <td > <label for="" class="col-form-label">Total no of Project submitions:</label></td>
-                                        <td><input type="number" id="" class="form-control" ></td>
+                                        <td><input type="number" id="" name="noOfSubmitions" class="form-control" ></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2"> <label for="" class="col-form-label">List of Sudents who have'nt submited their projects :</label></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"> <textarea rows="6" class="form-control" placeholder=" enter the list  of students Id here ...!" id=""></textarea></td>
+                                        <td colspan="2"> <textarea rows="6" name="notSubmitedStudents" class="form-control" placeholder=" enter the list  of students Id here ...!" id=""></textarea></td>
                                     </tr>
                                     <tr class="text-center">
                                         <td colspan="2"><button type="submit" class="btn btn-primary mt-3">UPLOAD</button></td>
                                     </tr>
                                 </table>
                             </div>
+                            <br><br>
                         </div>
+                      </form>
                     </div>
                 </div>
             </div>
-
-            
-          
-            
-
-
-
-            </div>
-
+        </div>
+        </div>
+    
    <!-- footer -->
     <footer>
         <div class="container-fluid footer bg-lignt text-dark   " >
@@ -376,59 +312,7 @@
         </div>     
     </footer>
 
-    <!--script to create aa tabel-->
-    <script>
-
-        let list = 
-        [
-           
-            ["N190122","siva krishna","electrics","some Link","marks","comments"],
-            ["N190802","jaya krishna","HOSTER","some link","marks","comments"],
-           
-        ]
-
-        function myFunction(data,i) {
-        var table = document.getElementById("projects-list");
-        var row = table.insertRow();
-        var cell = row.insertCell(0);
-            cell.innerHTML = i+1;
-        for(let j=0;j<data[0].length;j++)
-        {
-            cell = row.insertCell(j+1);
-            cell.innerHTML = data[i][j];
-        }
-        }
-
-        for(let i=0 ; i<list.length;i++)
-        {
-            myFunction(list,i);
-        }
-
-        
-
-    </script>
-
-
-    <script>
-        function searchfunction() {
-          var input, filter, table, tr, td, i, txtValue;
-          input = document.getElementById("search");
-          filter = input.value.toUpperCase();
-          table = document.getElementById("projects-list");
-          tr = table.getElementsByTagName("tr");
-          for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-              txtValue = td.textContent || td.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-              } else {
-                tr[i].style.display = "none";
-              }
-            }       
-          }
-        }
-        </script>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

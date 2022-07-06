@@ -133,11 +133,12 @@
 
     </style>
 
-    {% if messages %}
-    {% for message in messages %}
-        {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
-    {% endfor %}
-    {% endif %}
+{% if messages %}
+{% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+{% endif %}
+
 
   </head>
   <body>
@@ -158,7 +159,7 @@
                 <div class="d-flex text-dark  ms-auto">
                     <a class="nav-link " href="#"> 
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
-                        <span class="ms-2 me-1 d-none d-md-inline " > User name</span>
+                        <span class="ms-2 me-1 d-none d-md-inline " > {{ user.first_name }} {{ user.last_name }}</span>
                     </a>
                     <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
                 </div>
@@ -170,14 +171,15 @@
     <!--content-->
     <div class="container-fluid">
         <div class="row ">
-            <!--side-menu-->
-            <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
+
+             <!--side-menu-->
+              <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
                 <div class="list-group mt-1">
                     <a href="{% url 'dashboard' %}" class="side-links list-group-item "data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item on-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="#" class="side-links list-group-item on-btn " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
                     <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
-                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                    <a href="{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
+                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href = "{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Change-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Change password</span> </a>
                     <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
                         <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
                     </a>
@@ -186,12 +188,13 @@
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
                         </ul>
-                     <a href="#" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+                     <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
                 </div>
                 <br><br><br><br><br><br>
-                    <a href="login-page.html" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+                    <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
                 <br><br><br>
             </div>
+
 
             <!---main-content-->
             <div class="col   content-div"> 
@@ -200,101 +203,36 @@
                 <div  class="p-3 sub-head mt-3" >Major projects</div>
             
                 <div class=" p-3 row justify-content-evenly " >  
-                    <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title text-center"> Project-Title</h5>
-                          <p class="card-text fs-7">Project description Lorem ipsum dolor, sit amet consectetu.</p>
-                         <div class="fw-bold" >
-                            <span class="m-2">Design</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                              </div>
-                            <span class="m-2">Working</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
-                              </div>
-                            <span class="m-2">Over All Score</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-                              </div>
-                         </div>
-                         <div class="text-center mt-2">
-                            <a href="#" class="btn btn-primary  mt-2">Source-Link</a>
-                         </div>
-                        </div>
-                    </div>
+                  
 
+                    {% for major_project in majorProjects %}
                     <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title text-center"> Project-Title</h5>
-                          <p class="card-text fs-7">Project description Lorem ipsum dolor, sit amet consectetu.</p>
+                          <h5 class="card-title text-center">{{ major_project.name }}</h5>
+                          <p class="card-text fs-7"> {{ major_project.description }}</p>
                          <div class="fw-bold" >
                             <span class="m-2">Design</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                <div class="progress-bar bg-danger"  role="progressbar" style="width: {{ major_project.design }}%;" aria-valuenow="{{ major_project.design }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.design }}%</div>
                               </div>
                             <span class="m-2">Working</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ major_project.working }}%;" aria-valuenow="{{ major_project.working }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.working }}%</div>
                               </div>
                             <span class="m-2">Over All Score</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ major_project.score }}%;" aria-valuenow="{{ major_project.working }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.working }}%</div>
                               </div>
                          </div>
                          <div class="text-center mt-2">
-                            <a href="#" class="btn btn-primary  mt-2">Source-Link</a>
+                            <a href="{{ major_project.link }}" class="btn btn-primary  mt-2">Source-Link</a>
                          </div>
                         </div>
                     </div>
+                {% endfor %}
 
-                    <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title text-center"> Project-Title</h5>
-                          <p class="card-text fs-7">Project description Lorem ipsum dolor, sit amet consectetu.</p>
-                         <div class="fw-bold" >
-                            <span class="m-2">Design</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                              </div>
-                            <span class="m-2">Working</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
-                              </div>
-                            <span class="m-2">Over All Score</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-                              </div>
-                         </div>
-                         <div class="text-center mt-2">
-                            <a href="#" class="btn btn-primary  mt-2">Source-Link</a>
-                         </div>
-                        </div>
-                    </div>
 
-                    <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title text-center"> Project-Title</h5>
-                          <p class="card-text fs-7">Project description Lorem ipsum dolor, sit amet consectetu.</p>
-                         <div class="fw-bold" >
-                            <span class="m-2">Design</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                              </div>
-                            <span class="m-2">Working</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
-                              </div>
-                            <span class="m-2">Over All Score</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-                              </div>
-                         </div>
-                         <div class="text-center mt-2">
-                            <a href="#" class="btn btn-primary  mt-2">Source-Link</a>
-                         </div>
-                        </div>
-                    </div>
+                    
                     
                 </div>
                 
@@ -302,77 +240,35 @@
                 <!--Minor projects-->
                 <div class="p-3 sub-head mt-3">Mini projects </div>
                 <div class="p-3 row justify-content-evenly">
-                    <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title text-center"> Project-Title</h5>
-                          <p class="card-text fs-7">Project description Lorem ipsum dolor, sit amet consectetu.</p>
-                         <div class="fw-bold" >
-                            <span class="m-2">Design</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                              </div>
-                            <span class="m-2">Working</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
-                              </div>
-                            <span class="m-2">Over All Score</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-                              </div>
-                         </div>
-                         <div class="text-center mt-2">
-                            <a href="#" class="btn btn-primary  mt-2">Source-Link</a>
-                         </div>
-                        </div>
-                    </div>
 
+                {% for mini_project in miniProjects %}
                     <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title text-center"> Project-Title</h5>
-                          <p class="card-text fs-7">Project description Lorem ipsum dolor, sit amet consectetu.</p>
+                          <h5 class="card-title text-center">{{ mini_project.name }}</h5>
+                          <p class="card-text fs-7"> {{ mini_project.description }}</p>
                          <div class="fw-bold" >
                             <span class="m-2">Design</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                <div class="progress-bar bg-danger"  role="progressbar" style="width: {{ mini_project.design }}%;" aria-valuenow="{{ mini_project.design }}" aria-valuemin="0" aria-valuemax="100">{{ mini_project.design }}%</div>
                               </div>
                             <span class="m-2">Working</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ mini_project.working }}%;" aria-valuenow="{{ major_project.working }}" aria-valuemin="0" aria-valuemax="100">{{ mini_project.working }}%</div>
                               </div>
                             <span class="m-2">Over All Score</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ mini_project.score }}%;" aria-valuenow="{{ major_project.working }}" aria-valuemin="0" aria-valuemax="100">{{ mini_project.working }}%</div>
                               </div>
                          </div>
                          <div class="text-center mt-2">
-                            <a href="#" class="btn btn-primary  mt-2">Source-Link</a>
+                            <a href="{{ mini_project.link }}" class="btn btn-primary  mt-2">Source-Link</a>
                          </div>
                         </div>
                     </div>
+                {% endfor %}
 
-                    <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title text-center"> Project-Title</h5>
-                          <p class="card-text fs-7">Project description Lorem ipsum dolor, sit amet consectetu.</p>
-                         <div class="fw-bold" >
-                            <span class="m-2">Design</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                              </div>
-                            <span class="m-2">Working</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
-                              </div>
-                            <span class="m-2">Over All Score</span>
-                              <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-                              </div>
-                         </div>
-                         <div class="text-center mt-2">
-                            <a href="#" class="btn btn-primary  mt-2">Source-Link</a>
-                         </div>
-                        </div>
-                    </div>
+
+
                 </div>
                 
 
@@ -387,7 +283,7 @@
 
    <!-- footer -->
     <footer>
-        <div class="container-fluid footer bg-lignt text-dark   " >
+        <div class="container-fluid footer bg-lignt text-dark fw-bold   " >
         <div class="row  text-center justify-content-center">
             <div class="row  justify-content-center p-2">
                 <div class="col-10 col-md-2">Copyright &copy 2021</div>

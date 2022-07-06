@@ -206,13 +206,11 @@
             }
 
     </style>
-
     {% if messages %}
     {% for message in messages %}
         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
     {% endfor %}
-    {% endif %}
-
+{% endif %}
   </head>
   <body>
     <!--navbar-->
@@ -248,10 +246,10 @@
              menu-div "  id="menu-opt">               
                 <div class="list-group mt-1">
                     <a href="{% url 'dashboard' %}" class="side-links list-group-item on-btn"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="#" class="side-links list-group-item"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
                     <a href="{% url 'profile-page' %}" class="side-links list-group-item"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
                     <a href="{% url 'edit-profile' %}" class="side-links list-group-item"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                    <a href="#" class="side-links list-group-item"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
+                    <a href="reset_password.html" class="side-links list-group-item"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
                     <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
                     </a>
@@ -272,14 +270,14 @@
                 <!--min-nav-->
                 <div class="text-center mt-4">
                     <div class=" min-nav " role="group" >     
-                        <a href="#" class="btn btn-opt me-1 " >Regester</a>                  
+                        <a href="#regester" class="btn btn-opt me-1 " >Regester</a>                  
                         <a href="#submission" class="btn btn-opt me-1 " >My-projects</a>
                         <a href="#upload" class="btn btn-opt " >Upload</a> 
                     </div>
                 </div>
 
                  <!--Regester to project-->
-                 <h4 class="side-head ms-3 mt-4 p-3" id="join">Project Regestration</h4>
+                 <h4 class="side-head ms-3 mt-4 p-3" id="regester">Project Regestration</h4>
                  <div class=" container bg-light">
                 <div class="row  text-light  mt-2 " >
                 
@@ -287,37 +285,37 @@
                         <div class="">
                             <H2 class="text-warning mb-3 mt-3 ">Regestration Guidlines</H2>
                             <ul>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, assumenda!</li>
-                                <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero eveniet nostrum non maxime assumenda molestias.</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, facilis beatae.</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, assumenda!</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, assumenda!</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, assumenda!</li>
-
+                                {% for instruction in instructions %}
+                                <li>{{ instruction }} </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                     <div class="col  bg-light text-dark p-3 text-center" style="border: #005 4px solid;">
                         <h5 class="text-center p-3 text-start text-light " style="background-color: #005;">Regester</h5>
                         <h5 class="mt-3 mb-5">Please fill the following details to Regester</h5>
-                       <form action="{% url 'register_project' %}" method="POST" enctype="application/x-www-form-urlencoded">
-                           {% csrf_token %}
+                       <form>
                  
                             <div class="row bg-light justify-content-evenly">
                                 
                                 <div class="col-11  col-lg-5 d input-field ">
                                     
                                     <label for="" class="form-label"> <i class="bi bi-person-badge-fill"></i>  Student-Id</label><br>
-                                    <input type="text" name="clg_id" class="input-box " placeholder="--college Id--" id="" value="{{user.clg_id}}" required readonly>
+                                    <input type="text" class="input-box " placeholder="{{ user.id }}" id="" disabled>
                                 </div>
                                 
                                 <div class="col-11  col-lg-5   input-field ">
                                     <label for="branch" class="form-label"> <i class="bi bi-diagram-3"></i> Branch</label><br>
                                     <div class="text-center">
-                                        <select name="branch" id="branch" class=" input-box  " >
-                                            <option>--branch--</option>
-                                            <option>{{user.branch}}</option>
-        
+                                        <select id="branch" class=" input-box  ">
+                                            <option>-----Branch-----</option>
+                                            <option>CSE</option>
+                                            <option>ECE</option>
+                                            <option>EEE</option>
+                                            <option>CIVIL</option>
+                                            <option>MECH</option>
+                                            <option>CHEM</option>
+                                            <option>MME</option>
                                           
                                          </select>
                                     </div>
@@ -327,11 +325,12 @@
                                 <div class="col-11  col-lg-5   input-field ">
                                     <label for="Faculty" class="form-label"><i class="bi bi-person-fill"></i> Faculty</label><br>
                                     <div class="text-center">
-                                        <select name="faculty" id="Faculty" class=" input-box  ">
+                                        <select id="Faculty" class=" input-box  ">
                                             <option>-----select-----</option>
-                                            {% for i in faculty %}
-                                            <option>{{i.first_name}} {{i.last_name}}</option>
-                                            {% endfor %}
+                                            {% for faculty in faculties %}
+                                            <option>{{ faculty.name }}</option>
+                                            {%  endfor %}
+                                          
                                          </select>
                                     </div>
                                   
@@ -342,7 +341,7 @@
                                 <div class="col-11  col-lg-5   input-field ">
                                     <label for="acadamic_year" class="form-label"> <i class="bi bi-diagram-3-fill"></i>  Acadamic year</label><br>
                                     <div class="text-center">
-                                        <select name="aca_year" id="acadamic_year" class=" input-box  ">
+                                        <select id="acadamic_year" class=" input-box  ">
                                             <option>-----Acadamic Year-----</option>
                                             <option>Puc1</option>
                                             <option>Puc2</option>
@@ -382,15 +381,15 @@
                       </tr>
                     </thead>
                     <tbody>
-
-                    {% for i in projects%}
-                      <tr > 
-                        <th scope="row">1</th>
-                        <td>{{i.project_title}}</td>
-                        <td>05-09-2016</td>
-                        <td> <a href="#" class="btn btn-primary "> <i class="bi bi-file-earmark-code-fill"></i> File</a></td>
-                      </tr>
-                     {% endfor %}
+                        {% for project in projects %}
+                        <tr>
+                        <th scope="col">{{  }}</th>
+                        <th scope="col">{{ project.name }}</th>
+                        <th scope="col">{{ projec.date }}</th>
+                        <th scope="col">{{ project.link }}</th>  
+                        </tr>
+                        {% endfor %}
+                     
                     </tbody>
                   </table>
 
@@ -400,8 +399,7 @@
                 <h4 class="side-head ms-3 mt-5 p-3" id="upload">Upload-project</h4>
     
                 <div class="container  justify-content-center  shadow">
-                    <form action="{% url 'submit_project' %}" method="POST" enctype="multipart/form-data">
-
+                    <form action="{% ulr 'Faculty-scoreboard' %" method="POST" enctype="application/x-www-form-urlencoded">
                         {% csrf_token %}
                     <div class="row bg-light justify-content-evenly">
                         <h4 class="text-center p-3 side-head ">Your Project</h4>
@@ -409,23 +407,23 @@
                         <div class="col-11  col-lg-5 d input-field ">
                             
                             <label for="clg-id" class="form-label"> <i class="bi bi-person-badge-fill"></i>  Student-Id</label><br>
-                            <input type="text" class="input-box " name="clg_id" placeholder="--college Id--" id="clg-id" value="{{user.clg_id}}" required readonly>
+                            <input type="text" class="input-box " placeholder="{{ user.name }}" id="clg-id" disabled>
                         </div>
                         <div class="col-11  col-lg-5   input-field ">
                             
                             <label for="project-id" class="form-label"> <i class="bi bi-server "></i>  Project-Id</label><br>
-                             <input type="text" class="input-box " name="project_id" placeholder="--project-id--" id="project-id" required>
+                             <input type="text" class="input-box " placeholder="--project-id--" id="project-id" required>
                         </div>
                     
                         <div class="col-11  col-lg-5   input-field ">
                             <label for="project-tittel" class="form-label"> <i class="bi bi-pencil-fill"></i>  Project-Tittle</label><br>
-                            <input type="text" class="input-box " name="project_title" placeholder="--project-tittel--" id="project-tittel" required>
+                            <input type="text" class="input-box " placeholder="--project-tittel--" id="project-tittel" required>
                         </div>
 
                         <div class="col-11 col-lg-5   input-field text-center ">
                             <label for="team" class="form-label"> <i class="bi bi-person-fill"></i> Individual/ <i class="bi bi-people-fill"></i> Team</label><br>
                             <div class="text-center">
-                                <select id="team" name="individual_or_team" class=" input-box  ">
+                                <select id="team" class=" input-box  ">
                                     <option>-----select-----</option>
                                     <option>Individual</option>
                                     <option>Team</option>
@@ -438,12 +436,16 @@
                         <div class="col-12 input-field">
                            
                             <label for="project-intro" class="form-label "> <i class="bi bi-chat-square-quote-fill"></i> Project-Intro</label><br>
-                            <textarea class="input-area" id="project-intro" name="project_description" placeholder="--Give a breaf introduction to the project--" rows="4"></textarea>
+                            <textarea class="input-area" id="project-intro" placeholder="--Give a breaf introduction to the project--" rows="4"></textarea>
                         </div>
                        
                         <div class=" col-11  col-lg-5 d input-field ">
                             <label for="formFile" class="form-label btn btn-primary"> <i class="bi bi-pencil-square "></i> Project-File</button> </label>
+<<<<<<< HEAD
                             <input class="form-control d-none" name="project_file" type="file" accept=".zip" id="formFile">
+=======
+                            <input class="form-control d-none" type="file" id="formFile">
+>>>>>>> 6122d171da966060a0bfeede521e89e07d939d15
                           </div>
 
                         <div class="col-11  col-lg-5 d input-field mb-4">
@@ -468,7 +470,7 @@
  
    <!-- footer -->
    <footer>
-    <div class="container-fluid footer bg-primary text-dark   " >
+    <div class="container-fluid footer bg-primary text-light     fw-bold  " >
     <div class="row  text-center justify-content-center">
         <div class="row  justify-content-center p-2">
             <div class="col-10 col-md-2">Copyright &copy 2021</div>
@@ -502,41 +504,7 @@
 
 
 
- <!--script to create aa tabel-->
- <script>
 
-    let list = 
-    [
-       
-        ["sms","05-01-2021","source"],
-        ["sms","05-01-2021","source"],
-        ["sms","05-01-2021","source"],
-        ["sms","05-01-2021","source"],
-        ["sms","05-01-2021","source"],
-
-       
-    ]
-
-    function myFunction(data,i) {
-    var table = document.getElementById("projects-list");
-    var row = table.insertRow();
-    var cell = row.insertCell(0);
-        cell.innerHTML = i+1;
-    for(let j=0;j<data[0].length;j++)
-    {
-        cell = row.insertCell(j+1);
-        cell.innerHTML = data[i][j];
-    }
-    }
-
-    for(let i=0 ; i<list.length;i++)
-    {
-        myFunction(list,i);
-    }
-
-    
-
-</script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
