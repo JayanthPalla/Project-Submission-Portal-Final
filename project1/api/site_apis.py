@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from rest_framework.decorators import api_view
-# from rest_framework.parsers import MultiPartParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser, FileUploadParser
 from .serializers import ProjectRegistrationSerializer, ProjectSubmissionSerializer
 from .models import User, ProjectRegistration, ProjectSubmission
 from .mails import send_verify_mail, send_password_mail
@@ -13,6 +13,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import jwt, datetime
 from .logs import logger
+from rest_framework.views import APIView
 
 
 def display_dashboard(request):
@@ -83,21 +84,41 @@ def register_project(request):
 
     return redirect('dashboard')
 
-def submit_project(request):
-    if request.method == 'POST':
-        print("\n\n",request.FILES,"\n\n")
+# def submit_project(request):
+#     if request.method == 'POST':
+#         print("\n\n",request,'\n',request.POST,'-->',request.FILES,"\n\n")
 
-        serializer = ProjectSubmissionSerializer(data = request.POST)
-        serializer.files = request.FILES
+#         parser_classes = (JSONParser, FormParser, MultiPartParser, FileUploadParser)
+#         queryset = ProjectSubmission.objects.all()
+#         serializer = ProjectSubmissionSerializer(data=request.POST)
+#         print("---->1",serializer.is_valid())
+        
+#         print("--->",serializer.is_valid())
+#         print('\n\n',serializer)
+#         if serializer.is_valid():
+#             serializer.save()
+#             #logger.info(serializer.POST)
+#             print('\n\n\n', serializer.data)
+#             messages.success(request, "Project submitted successfully")
+#         else:
+#             logger.error(serializer.errors)
+#             messages.error(request, "Project submition failed")
 
-        if serializer.is_valid():
-            serializer.save()
-            logger.info(serializer.POST)
-            messages.success(request, "Project submitted successfully")
-        else:
-            logger.error(serializer.errors)
-            messages.error(request, "Project submition failed")
+#         return redirect('dashboard')
+#     else:
+#         print('\n\nMETHOD IS',request.method,'\n\n')
+#     return HttpResponse({'message': request.method})
 
-        return redirect('dashboard')
-    else:
-        print('\n\nMETHOD IS',request.method,'\n\n')
+class FileUploadView(APIView):
+    permission_classes = []
+    parser_class = (FileUploadParser,)
+
+    def post(self, request, *args, **kwargs):
+
+      file_serializer = ProjectSubmissionSerializer(data=request.data)
+
+      if file_serializer.is_valid():
+          file_serializer.save()
+          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+      else:
+          return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

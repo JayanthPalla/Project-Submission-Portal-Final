@@ -539,3 +539,50 @@
 2022-07-03 13:12:17,643:INFO:login_user:Token set to cookies with key 'token'
 2022-07-03 13:12:49,065:INFO:get_user:Request for User details
 2022-07-03 13:12:55,584:INFO:get_user:Request for User details
+2022-07-04 12:07:44,755:INFO:login_user:Request for fetching login-page.html
+2022-07-04 12:07:58,630:INFO:register_user:Request for fetching Register-page.html
+2022-07-04 12:08:26,743:INFO:register_user:user created with is_verified value as False
+2022-07-04 12:08:26,752:INFO:register_user:Request for fetching Register-page.html
+2022-07-04 12:11:24,268:INFO:register_user:Request for fetching Register-page.html
+2022-07-04 12:11:37,427:INFO:login_user:Request for fetching login-page.html
+2022-07-04 12:11:43,787:INFO:login_user:Token set to cookies with key 'token'
+2022-07-04 12:11:43,839:ERROR:display_dashboard:Token not exist
+2022-07-04 12:11:43,899:INFO:login_user:Request for fetching login-page.html
+2022-07-04 12:13:45,884:INFO:login_user:Token set to cookies with key 'token'
+2022-07-04 14:06:28,211:INFO:login_user:Request for fetching login-page.html
+2022-07-04 14:07:00,964:INFO:login_user:Token set to cookies with key 'token'
+2022-07-04 14:07:15,931:INFO:logout_user:Session expired
+2022-07-04 14:07:15,942:INFO:login_user:Request for fetching login-page.html
+2022-07-04 14:08:17,714:INFO:login_user:Token set to cookies with key 'token'
+2022-07-04 14:08:58,788:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-05 12:19:55,346:INFO:login_user:Request for fetching login-page.html
+2022-07-05 12:22:35,919:INFO:login_user:Token set to cookies with key 'token'
+2022-07-05 12:22:35,945:ERROR:display_dashboard:Token not exist
+2022-07-05 12:22:35,966:INFO:login_user:Request for fetching login-page.html
+2022-07-05 12:22:55,703:INFO:login_user:Token set to cookies with key 'token'
+2022-07-05 12:33:39,143:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-05 12:35:15,524:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-05 12:44:31,219:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-05 12:47:26,516:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-05 12:49:45,151:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-05 12:56:41,391:ERROR:submit_project:{'project_file': [ErrorDetail(string='No file was submitted.', code='required')]}
+2022-07-05 13:13:29,345:ERROR:submit_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'project_id': [ErrorDetail(string='This field is required.', code='required')], 'project_title': [ErrorDetail(string='This field is required.', code='required')], 'individual_or_team': [ErrorDetail(string='This field is required.', code='required')], 'project_description': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-05 13:14:14,892:ERROR:submit_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'project_id': [ErrorDetail(string='This field is required.', code='required')], 'project_title': [ErrorDetail(string='This field is required.', code='required')], 'individual_or_team': [ErrorDetail(string='This field is required.', code='required')], 'project_description': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-05 13:14:56,801:ERROR:submit_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'project_id': [ErrorDetail(string='This field is required.', code='required')], 'project_title': [ErrorDetail(string='This field is required.', code='required')], 'individual_or_team': [ErrorDetail(string='This field is required.', code='required')], 'project_description': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-05 13:15:52,095:ERROR:submit_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'project_id': [ErrorDetail(string='This field is required.', code='required')], 'project_title': [ErrorDetail(string='This field is required.', code='required')], 'individual_or_team': [ErrorDetail(string='This field is required.', code='required')], 'project_description': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-05 13:29:29,556:INFO:login_user:Request for fetching login-page.html
+2022-07-05 13:29:56,735:INFO:login_user:Token set to cookies with key 'token'
+2022-07-05 13:30:40,924:ERROR:submit_project:{'clg_id': [ErrorDetail(string='This field is required.', code='required')], 'project_id': [ErrorDetail(string='This field is required.', code='required')], 'project_title': [ErrorDetail(string='This field is required.', code='required')], 'individual_or_team': [ErrorDetail(string='This field is required.', code='required')], 'project_description': [ErrorDetail(string='This field is required.', code='required')]}
+2022-07-05 14:38:02,783:INFO:login_user:Request for fetching login-page.html
+2022-07-05 14:38:29,112:ERROR:login_user:User not found
+2022-07-05 14:38:29,125:INFO:login_user:Request for fetching login-page.html
+2022-07-05 14:39:16,023:INFO:login_user:Token set to cookies with key 'token'
+2022-07-05 14:54:04,555:INFO:login_user:Request for fetching login-page.html
+2022-07-05 14:54:27,397:INFO:login_user:Token set to cookies with key 'token'
+2022-07-06 06:04:03,823:INFO:login_user:Request for fetching login-page.html
+2022-07-06 06:04:08,621:INFO:register_user:Request for fetching Register-page.html
+2022-07-06 06:04:46,879:INFO:register_user:user created with is_verified value as False
+2022-07-06 06:04:46,888:INFO:register_user:Request for fetching Register-page.html
+2022-07-06 06:04:51,246:INFO:login_user:Request for fetching login-page.html
+2022-07-06 06:04:57,263:INFO:login_user:Token set to cookies with key 'token'
+2022-07-06 06:05:08,398:INFO:register_project:{'clg_id': 'n190232', 'branch': 'CSE', 'faculty': 'hritik roshan', 'aca_year': 'E2'}

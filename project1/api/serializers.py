@@ -85,7 +85,9 @@ class ProjectRegistrationSerializer(serializers.ModelSerializer):
 
 
 class ProjectSubmissionSerializer(serializers.ModelSerializer):
-    project_file = serializers.FileField()
+    # project_file = serializers.FileField(read_only=True)
     class Meta:
         model = ProjectSubmission
         fields = ('clg_id', 'project_id', 'project_title', 'individual_or_team', 'project_description', 'project_file')
+
+   

@@ -94,7 +94,7 @@ class ProjectSubmission(models.Model):
     project_title = models.CharField(max_length=30)
     individual_or_team = models.CharField(max_length=15)
     project_description = models.CharField(max_length=150)
-    project_file = models.FileField(upload_to="project_files", validators=[FileExtensionValidator(allowed_extensions=['.zip'])])
+    project_file = models.FileField(upload_to="profile_files",null=True, blank=True, validators=[FileExtensionValidator(allowed_extensions=['zip'])])
 
     def __str__(self):
         return self.project_title

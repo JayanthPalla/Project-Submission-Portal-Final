@@ -70,6 +70,7 @@ WSGI_APPLICATION = 'project1.wsgi.application'
 #         }
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
