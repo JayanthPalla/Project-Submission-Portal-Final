@@ -1,19 +1,21 @@
+from urllib import response
 from django.shortcuts import redirect, render
 from rest_framework.decorators import api_view
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser, FileUploadParser
 from .serializers import ProjectRegistrationSerializer, ProjectSubmissionSerializer
 from .models import User, ProjectRegistration, ProjectSubmission
 from .mails import send_verify_mail, send_password_mail
-from project1.settings import key
+from project1.settings import key, MEDIA_ROOT
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework import status
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, FileResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import jwt, datetime
 from .logs import logger
 from rest_framework.views import APIView
+import pytz
 
 
 def display_dashboard(request):
@@ -90,6 +92,8 @@ def submit_project(request):
         parser_class = (FileUploadParser, )
         serializer = ProjectSubmissionSerializer(data=request.data)
 
+        print('\n\n-->',datetime.datetime.now(pytz.utc),'\n\n')
+
         if serializer.is_valid():
             serializer.save()
             logger.info(serializer.data)
@@ -99,6 +103,14 @@ def submit_project(request):
             messages.error(request, "Project submition failed")
 
         return redirect('dashboard')
+
+@api_view(['GET'])
+def download_project(request):
+    project = ProjectSubmission.objects.filter(project_id = request.query_params['id']).first()
+    file_path = MEDIA_ROOT + str(project.project_file)
+    response = FileResponse(open(file_path,'rb'))
+
+    return response
 
 # class FileUploadView(APIView):
 #     permission_classes = []

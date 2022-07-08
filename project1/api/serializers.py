@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import User, ProjectRegistration, ProjectSubmission
-
+import datetime
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -88,6 +88,12 @@ class ProjectSubmissionSerializer(serializers.ModelSerializer):
     # project_file = serializers.FileField(read_only=True)
     class Meta:
         model = ProjectSubmission
-        fields = ('clg_id', 'project_id', 'project_title', 'individual_or_team', 'project_description', 'project_file')
+        fields = ('submission_date', 'clg_id', 'project_id', 'project_title', 'individual_or_team', 'project_description', 'project_file')
 
-   
+    def create(self, validated_data):
+        instance = self.Meta.model(**validated_data)
+        instance.submission_date = datetime.date.today()
+
+        instance.save()
+
+        return instance

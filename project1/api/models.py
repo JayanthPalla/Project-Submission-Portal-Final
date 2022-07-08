@@ -2,6 +2,7 @@ from PIL import Image
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.core.validators import FileExtensionValidator
+# from django.utils import timezone
 
 # Create your models here.
 
@@ -89,6 +90,7 @@ class ProjectRegistration(models.Model):
 
 
 class ProjectSubmission(models.Model):
+    submission_date = models.DateField(null=True, blank=True)
     clg_id = models.CharField(max_length=7)
     project_id = models.CharField(max_length=20)
     project_title = models.CharField(max_length=30)

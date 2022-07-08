@@ -3,7 +3,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import  edit_profile, login_user, register_user, forgot_password, logout_user, get_user, reset_password #, change_password , verify_user
-from .site_apis import display_dashboard, display_about, display_scoreboard, register_project, submit_project #, FileUploadView 
+from .site_apis import display_dashboard, display_about, display_scoreboard, register_project, submit_project, download_project #, FileUploadView 
 
 urlpatterns = [
     path('register/', register_user, name="register-page"),
@@ -21,5 +21,6 @@ urlpatterns = [
 
     path('register_project', register_project, name="register_project"),
     # path('submit_project', FileUploadView.as_view(), name="submit_project")
-    path('submit_project', submit_project, name="submit_project")
+    path('submit_project', submit_project, name="submit_project"),
+    path('download_project', download_project, name="download_project"),
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
