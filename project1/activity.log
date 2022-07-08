@@ -586,3 +586,14 @@
 2022-07-06 06:04:51,246:INFO:login_user:Request for fetching login-page.html
 2022-07-06 06:04:57,263:INFO:login_user:Token set to cookies with key 'token'
 2022-07-06 06:05:08,398:INFO:register_project:{'clg_id': 'n190232', 'branch': 'CSE', 'faculty': 'hritik roshan', 'aca_year': 'E2'}
+2022-07-06 12:14:04,176:INFO:login_user:Request for fetching login-page.html
+2022-07-06 12:15:39,098:INFO:login_user:Token set to cookies with key 'token'
+2022-07-07 17:43:22,279:INFO:login_user:Request for fetching login-page.html
+2022-07-07 17:43:29,500:INFO:register_user:Request for fetching Register-page.html
+2022-07-07 17:44:18,160:INFO:register_user:user created with is_verified value as False
+2022-07-07 17:44:18,169:INFO:register_user:Request for fetching Register-page.html
+2022-07-07 17:44:22,850:INFO:login_user:Request for fetching login-page.html
+2022-07-07 17:44:34,484:INFO:login_user:Token set to cookies with key 'token'
+2022-07-07 17:44:46,884:INFO:register_project:{'clg_id': '12345', 'branch': 'CSE', 'faculty': 'hritik roshan', 'aca_year': 'E1'}
+2022-07-07 17:52:14,998:INFO:submit_project:{'clg_id': '12345', 'project_id': '12345432', 'project_title': 'jingle bell', 'individual_or_team': 'Team', 'project_description': 'dbqbdhjdbeehjebdh d', 'project_file': '/media/profile_files/drive-download-20220628T171104Z-001.zip'}
+2022-07-07 17:53:23,461:INFO:submit_project:{'clg_id': '12345', 'project_id': '12345432', 'project_title': 'jingle bell', 'individual_or_team': 'Individual', 'project_description': 'kjnchbchbyebhduinidnjkbcuir', 'project_file': '/media/profile_files/drive-download-20220628T171104Z-001.zip'}

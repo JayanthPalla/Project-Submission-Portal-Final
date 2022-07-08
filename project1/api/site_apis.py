@@ -84,41 +84,32 @@ def register_project(request):
 
     return redirect('dashboard')
 
-# def submit_project(request):
-#     if request.method == 'POST':
-#         print("\n\n",request,'\n',request.POST,'-->',request.FILES,"\n\n")
+@api_view(['GET', 'POST'])
+def submit_project(request):
+    if request.method == 'POST':
+        parser_class = (FileUploadParser, )
+        serializer = ProjectSubmissionSerializer(data=request.data)
 
-#         parser_classes = (JSONParser, FormParser, MultiPartParser, FileUploadParser)
-#         queryset = ProjectSubmission.objects.all()
-#         serializer = ProjectSubmissionSerializer(data=request.POST)
-#         print("---->1",serializer.is_valid())
-        
-#         print("--->",serializer.is_valid())
-#         print('\n\n',serializer)
-#         if serializer.is_valid():
-#             serializer.save()
-#             #logger.info(serializer.POST)
-#             print('\n\n\n', serializer.data)
-#             messages.success(request, "Project submitted successfully")
-#         else:
-#             logger.error(serializer.errors)
-#             messages.error(request, "Project submition failed")
+        if serializer.is_valid():
+            serializer.save()
+            logger.info(serializer.data)
+            messages.success(request, "Project submitted successfully")
+        else:
+            logger.error(serializer.errors)
+            messages.error(request, "Project submition failed")
 
-#         return redirect('dashboard')
-#     else:
-#         print('\n\nMETHOD IS',request.method,'\n\n')
-#     return HttpResponse({'message': request.method})
+        return redirect('dashboard')
 
-class FileUploadView(APIView):
-    permission_classes = []
-    parser_class = (FileUploadParser,)
+# class FileUploadView(APIView):
+#     permission_classes = []
+#     parser_class = (FileUploadParser,)
 
-    def post(self, request, *args, **kwargs):
+#     def post(self, request, *args, **kwargs):
 
-      file_serializer = ProjectSubmissionSerializer(data=request.data)
+#       file_serializer = ProjectSubmissionSerializer(data=request.data)
 
-      if file_serializer.is_valid():
-          file_serializer.save()
-          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-      else:
-          return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#       if file_serializer.is_valid():
+#           file_serializer.save()
+#           return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+#       else:
+#           return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
