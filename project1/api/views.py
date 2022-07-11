@@ -47,7 +47,7 @@ def register_user(request):
 
         if request.POST.get('password') != request.POST.get('confirm_password'):
             logger.info("Different passwords entered")
-            messages.warning("Password and confirm password must be same")
+            messages.warning(request, "Password and confirm password must be same")
             # raise serializer.ValidationError('Password must be same')
 
         if serializer.is_valid():
