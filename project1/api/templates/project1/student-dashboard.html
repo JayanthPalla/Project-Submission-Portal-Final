@@ -415,8 +415,8 @@
                         <div class="col-11 col-lg-5   input-field text-center ">
                             <label for="team" class="form-label"> <i class="bi bi-person-fill"></i> Individual/ <i class="bi bi-people-fill"></i> Team</label><br>
                             <div class="text-center">
-                                <select id="team" name="individual_or_team" class=" input-box  ">
-                                    <option>-----select-----</option>
+                                <select id="team" name="individual_or_team" class=" input-box " required>
+                                    <option value="">-----select-----</option>
                                     <option>Individual</option>
                                     <option>Team</option>
                                  </select>
@@ -433,7 +433,7 @@
                        
                         <div class=" col-11  col-lg-5 d input-field ">
                             <label for="formFile" class="form-label btn btn-primary"> <i class="bi bi-pencil-square "></i> Project-File</button> </label>
-                            <input class="form-control d-none" name="project_file" type="file" accept=".zip" id="formFile">
+                            <input class="form-control " name="project_file" type="file" accept=".zip" id="formFile">
                           </div>
 
                         <div class="col-11  col-lg-5 d input-field mb-4">
