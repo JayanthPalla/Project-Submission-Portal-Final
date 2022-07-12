@@ -5,56 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--pichart-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Checked',     61],
-          ['Not checked',   39]
-         
-        ]);
-
-        var options = {
-          title: 'My Daily Activities',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>
-    <!--graph-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Batches', 'Total', 'Regestered', 'submited'],
-          ['Batch1', 60, 52, 40],
-          ['Batch2', 60, 52, 27],
-          ['External', 30, 22, 17]
-        ]);
-
-        var options = {
-          chart: {
-            title: 'Projects submition graphs',
-            subtitle: 'This is a graph of the statics of the alloted classes',
-          },
-          bars: 'horizontal' // Required for Material Bar Charts.
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>    
-    
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -275,6 +225,9 @@
        background-color: transparent;
      }
 
+     #piechart{
+        max-width: 200px;
+     }
        
 
     </style>
@@ -343,7 +296,7 @@
                 <div class=" min-nav " role="group" >     
                     <a href="#myclass" class="btn btn-opt me-1" >My class</a>                  
                     <a href="#std-projects" class="btn btn-opt me-1 " >projects</a>
-                    <a href="#assign-work" class="btn btn-opt " >Creat</a> 
+                    <a href="#assign-work" class="btn btn-opt " >Create</a> 
                 </div>
             </div>
             
@@ -359,7 +312,7 @@
                           <div class=" class-details">
                               <h2 class="fw-bold">{{ class.name }}</h2>
                               <h5 class="mb-3">{{ class.no }}</h5>  
-                              <a href="#" class="btn ">Projects</a>   <br>
+                              <a href="#projects" class="btn ">Projects</a>   <br>
                                <!-- add student -->
                                <button type="button " class="btn mt-2" data-bs-toggle="modal" data-bs-target="#{{ class.no }}">
                                 <i class="bi bi-person-plus-fill"></i> ADD
@@ -394,12 +347,6 @@
                                                          
                       </div>
                       <div class="col-6 justify-content-evenly">
-                          <div class="card  shadow    mb-1 text-center" >
-                              <div class="card-body row">
-                                <span class=" fs-3 fw-bold text-center" > {{ class.strength }}</span><br>
-                                <span class="card-text   "  style="display: grid; place-items: center;" >Total students</span>
-                              </div>
-                          </div>
                           <div class="card  shadow   mb-1 text-center" >
                               <div class="card-body row ">
                                 <span class=" fs-3  fw-bold text-center">{{  class.regestered }}</span><br>
@@ -420,6 +367,8 @@
 
               
 
+              
+
 
 
               </div>
@@ -427,26 +376,28 @@
             <div class="row">
 
                 <!--graph-->
-                <div class="col-lg-7 col-12 p-3" >
+                <div class="col-lg-8 col-md-7 col-12 p-3" >
                     <h4 class="side-head mt-3 text-center " >Graph</h4>
-                    <div id="barchart_material" style="overflow-x:scroll ;"></div>
+                    <canvas id="myChart"></canvas>
+                    <!--<div id="barchart_material" style="overflow-x:scroll ;"></div>-->
                 </div>
 
                 <!--pichat-->
-                <div class="col-lg-5 col-12">
-                    <h4 class="side-head mt-3 text-center " >Pi chart</h4>
-                    <div id="piechart_3d"></div>
+                <div class="col-lg-3 col-md-4 col-12 ">
+                  <h4 class="side-head mt-3 text-center mt-5" >Pie chart</h4>
+                    <canvas id="pieChart"></canvas>
+                  
                 </div>
 
             </div>
 
             <!--projects-->
              <!--all the projects-->
-             <h4 class="side-head ms-3 mt-5" id="std-projects">Students Projects</h4>
+             <h4 class="side-head ms-3 mt-5" id="projects">Students Projects</h4>
              <!--list of all  the projects-->
 
              <div >
-                 <div>
+                 <div >
                      <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
                          <a class="navbar-brand" href="#">Projects</a>
                          <ul class="nav nav-pills">
@@ -482,7 +433,7 @@
                      <tbody>
                       {% for student in studentList %}
                      <tr>
-                         <th scope="row">1</th>
+                         <th scope="row">{{ forloop.counter }}</th>
                          <td><a href="#">{{ student.id }}</a> </td>
                          <td>{{ student.name }}</td>
                          <td>{{ student.branch }}</td>
@@ -517,8 +468,8 @@
                   </div>
                   <div class="col-md-6 col-12">
                     <div class="text-end">
-                      <button class=" top-btn">Assign work</button>
-                      <button class="top-btn">Cancel</button>
+                      <button  type="submit"  class=" top-btn">Assign work</button>
+                      <button  type="reset" class="top-btn">Cancel</button>
                     </div>
                   </div>
                 </div>
@@ -535,16 +486,16 @@
 
                   <div class="col-12 col-md-6 d-flex mb-4">
                       <i class=" icon-col bi bi-pen-fill"></i>
-                      <span class="label-col">Titel</span>
-                      <div class="input-col"><input class="input-col" name="title" type="Text" placeholder="Title of the project"> </div>
+                      <span class="label-col">Project Id</span>
+                      <div class="input-col"><input class="input-col" name="project_id" type="Text" placeholder="Title of the project" required> </div>
                   </div>
 
                   <div class="col-12 col-md-6 d-flex mb-4">
                     <i class=" icon-col bi bi-diagram-3-fill"></i>
                     <span class="label-col">Year</span>
                     <div class="input-col">
-                      <select name="year">
-                        <option value="none">---year---</option>
+                      <select name="year" required>
+                        <option value="">---year---</option>
                         <option value="E01">E01</option>
                         <option value="E02">E02</option>
                         <option value="E03">E03</option>
@@ -556,14 +507,14 @@
                   <div class="col-12 col-md-6 d-flex mb-4">
                     <i class=" icon-col bi bi-pen-fill"></i>
                     <span class="label-col">Topic</span>
-                    <div class="input-col"><input class="input-col" name="topic" type="Text" placeholder="Topic of the project"> </div>
+                    <div class="input-col"><input class="input-col" name="topic" type="Text" placeholder="Topic of the project" required> </div>
                   </div>
 
                   <div class="col-12 col-md-6 d-flex mb-4">
                     <i class=" icon-col bi bi-people-fill"></i>
                     <span class="label-col">Due date</span>
                     <div class="input-col">
-                      <input class="input-col" name="due_date" type="Date" >
+                      <input class="input-col" name="due_date" type="Date"  required>
                     </div>
                   </div>
               </div>  
@@ -580,8 +531,8 @@
                   <i class=" icon-col bi bi-file-medical-fill"></i>
                   <span class="label-col">Batch</span>
                   <div class="input-col" name="batch" >
-                    <select name="Topic">
-                      <option value="batch">--batch--</option>
+                    <select name="Topic" required>
+                      <option value=""> ---batch---</option>
                       <option value="b1">Batch-01</option>
                       <option value="b2">Batch-02</option>
                       <option value="b3">Batch-03</option>
@@ -594,15 +545,7 @@
                   <i class=" icon-col bi bi-eyeglasses"></i>
                   <span class="label-col">Branch</span>
                   <div class="input-col">
-                    <select name="branch">
-                      <option value="cse"> CSE</option>
-                      <option value="ece"> ECE</option>
-                      <option value="eee"> EEE</option>
-                      <option value="civil"> CIVIL</option>
-                      <option value="chem"> CHEM</option>
-                      <option value="mech"> MECH</option>
-
-                    </select>
+                    <input class="input-col" name="branch" type="text" value="{{ user.branch }}" readonly >
                   </div>
                 </div>
                 
@@ -612,11 +555,11 @@
                   <span class="label-col">Students</span>
                   <div class="input-col">
                     <select name="Topic">
-                      <option value="no">--no of students--</option>
-                      <option value="40">40</option>
-                      <option value="50">50</option>
-                      <option value="60">60</option>
-                      <option value="70">70</option>
+                      <option value="no">--no of students / group--</option>
+                      <option value="1">1(individual)</option>
+                      <option value="3">3</option>
+                      <option value="5">5</option>
+                      <option value="7">7</option>
                     </select>
                   </div>
                 </div>
@@ -625,8 +568,8 @@
                   <i class=" icon-col bi bi-people-fill"></i>
                   <span class="label-col">One/Team</span>
                   <div class="input-col">
-                    <select name="team">
-                      <option value="team">--Team/individual--</option>
+                    <select required>
+                      <option value="">--Team/individual--</option>
                       <option value="team">Team</option>
                       <option value="individual">individual</option>
                     </select>
@@ -675,6 +618,50 @@
         </div>     
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Batch1', 'Batch2', 'Batch3', 'Batch4'],
+                datasets: [
+                {
+                    label: 'Restrations ',
+                    data: [50,40,40,55],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                },
+
+                {
+                    label: 'Submitions ',
+                    data: [40,34,20,42],
+                    backgroundColor: [
+                        'rgba(255, 49, 32, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }
+
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        </script>
 
 
     <script>
@@ -698,6 +685,34 @@
         }
         </script>
     
+        <script>
+          //setup
+          const dataPie = {
+                labels: [ 'Submitions', 'Pending', ],
+                datasets: [{
+                  label: 'Submitions and pendings',
+                  data: [50, 10],
+                  backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)'
+                  ],
+                  hoverOffset: 4
+                }]
+              };
+          //config
+          const configPie = {
+            type: 'pie',
+            data: dataPie,
+            options: {}
+          };
+          //render inti block
+          const pieChart = new Chart(
+            document.getElementById('pieChart'),
+            configPie
+          );
+
+        </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
