@@ -270,20 +270,20 @@
                 <!--min-nav-->
                 <div class="text-center mt-4">
                     <div class=" min-nav " role="group" >     
-                        <a href="#regester" class="btn btn-opt me-1 " >Regester</a>                  
+                        <a href="#regester" class="btn btn-opt me-1 " >Register</a>                  
                         <a href="#submission" class="btn btn-opt me-1 " >My-projects</a>
                         <a href="#upload" class="btn btn-opt " >Upload</a> 
                     </div>
                 </div>
 
                  <!--Regester to project-->
-                 <h4 class="side-head ms-3 mt-4 p-3" id="regester">Project Regestration</h4>
+                 <h4 class="side-head ms-3 mt-4 p-3" id="regester">Project Registration</h4>
                  <div class=" container bg-light">
                 <div class="row  text-light  mt-2 " >
                 
                     <div class="col-12 col-lg-4  p-5"style="background-color:#005;">
                         <div class="">
-                            <H2 class="text-warning mb-3 mt-3 ">Regestration Guidlines</H2>
+                            <H2 class="text-warning mb-3 mt-3 ">Registration Guidelines</H2>
                             <ul>
                                 {% for instruction in instructions %}
                                 <li>{{ instruction }} </li>
@@ -292,8 +292,8 @@
                         </div>
                     </div>
                     <div class="col  bg-light text-dark p-3 text-center" style="border: #005 4px solid;">
-                        <h5 class="text-center p-3 text-start text-light " style="background-color: #005;">Regester</h5>
-                        <h5 class="mt-3 mb-5">Please fill the following details to Regester</h5>
+                        <h5 class="text-center p-3 text-start text-light " style="background-color: #005;">Register</h5>
+                        <h5 class="mt-3 mb-5">Please fill the following details to Register</h5>
                         <form action="{% url 'register_project' %}" method="POST" enctype="application/x-www-form-urlencoded">
                             {% csrf_token %}
 
@@ -330,10 +330,10 @@
                                 
         
                                 <div class="col-11  col-lg-5   input-field ">
-                                    <label for="acadamic_year" class="form-label"> <i class="bi bi-diagram-3-fill"></i>  Acadamic year</label><br>
+                                    <label for="acadamic_year" class="form-label"> <i class="bi bi-diagram-3-fill"></i>  Academic  year</label><br>
                                     <div class="text-center">
-                                        <select id="acadamic_year" class=" input-box  " name="aca_year" required>
-                                            <option>-----Acadamic Year-----</option>
+                                        <select id="academic_year" class=" input-box  " name="aca_year" required>
+                                            <option>-----Academic Year-----</option>
                                             <option>Puc1</option>
                                             <option>Puc2</option>
                                             <option>E1</option>
@@ -343,7 +343,7 @@
                                           
                                          </select>
                                     </div>
-                                  
+                                    
                                 </div>
         
                            <div><button type="submit" class="btn reg-btn mt-3" >Regester</button></div>
@@ -366,7 +366,7 @@
                     <thead>
                       <tr class="tabel-head">
                         <th scope="col">s no</th>
-                        <th scope="col">Project-Title</th>
+                        <th scope="col">project-Tittel</th>
                         <th scope="col">Date</th>
                         <th scope="col">File</th>
                       </tr>
@@ -376,8 +376,8 @@
                         <tr>
                         <th >{{ forloop.counter }}</th>
                         <th >{{ project.project_title }}</th>
-                        <th >{{project.submission_date}}</th>
-                        <th><a href="{% url 'download_project' %}?id={{project.project_id}}" class="btn btn-primary "> <i class="bi bi-file-earmark-code-fill"></i> Download File</a></th>  
+                        <th >date</th>
+                        <th><a href="#" class="btn btn-primary "> <i class="bi bi-file-earmark-code-fill"></i> File</a></th>  
                         </tr>
                         {% endfor %}
                      
@@ -415,10 +415,10 @@
                         <div class="col-11 col-lg-5   input-field text-center ">
                             <label for="team" class="form-label"> <i class="bi bi-person-fill"></i> Individual/ <i class="bi bi-people-fill"></i> Team</label><br>
                             <div class="text-center">
-                                <select id="team" name="individual_or_team" class=" input-box " required>
+                                <select id="team" name="individual_or_team" class=" input-box  " required >
                                     <option value="">-----select-----</option>
-                                    <option>Individual</option>
-                                    <option>Team</option>
+                                    <option value="individual">Individual</option>
+                                    <option value="team">Team</option>
                                  </select>
                             </div>
                         </div>
@@ -432,8 +432,9 @@
                         </div>
                        
                         <div class=" col-11  col-lg-5 d input-field ">
-                            <label for="formFile" class="form-label btn btn-primary"> <i class="bi bi-pencil-square "></i> Project-File</button> </label>
-                            <input class="form-control " name="project_file" type="file" accept=".zip" id="formFile">
+                            <label for="formFile" class="form-label btn btn-primary"> <i class="bi bi-pencil-square " onchange="javascript:updateList()" ></i> Project-File</button> </label>
+                            <input class="form-control  " name="project_file"  type="file" accept=".zip" id="formFile">
+                            <div id="filename"></div>
                           </div>
 
                         <div class="col-11  col-lg-5 d input-field mb-4">
@@ -489,6 +490,8 @@
           }
         }
         </script>
+
+    
 
 
 
