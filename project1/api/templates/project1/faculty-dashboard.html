@@ -349,14 +349,14 @@
                       <div class="col-6 justify-content-evenly">
                           <div class="card  shadow   mb-1 text-center" >
                               <div class="card-body row ">
-                                <span class=" fs-3  fw-bold text-center">{{  class.regestered }}</span><br>
-                                <span class="card-text col " style="display: grid; place-items: center;">Regestered</span>
+                                <span class=" fs-3  fw-bold text-center">{{  class.registered }}</span><br>
+                                <span class="card-text col " style="display: grid; place-items: center;">Registered</span>
                               </div>
                           </div>
                           <div class="card shadow   mb-1 text-center" >
                               <div class="card-body row">
-                                <span class=" fs-3  fw-bold text-center">{{ class.submitions }} </span><br>
-                                <span class="card-text col "  style="display: grid; place-items: center;" >Submitions</span>
+                                <span class=" fs-3  fw-bold text-center">{{ class.submissions }} </span><br>
+                                <span class="card-text col "  style="display: grid; place-items: center;" >Submissions</span>
                               </div>
                           </div>
                       </div>
@@ -423,8 +423,8 @@
                          <th scope="col">Name</th>
                          <th scope="col">Branch</th>
                          <th scope="col">Batch</th>
-                         <th scope="col">Project_Titel</th>
-                         <th scope="col">Soure</th>
+                         <th scope="col">Project_Tittel</th>
+                         <th scope="col">Source</th>
                      </tr>
                      </thead>
                      
@@ -626,7 +626,7 @@
                 labels: ['Batch1', 'Batch2', 'Batch3', 'Batch4'],
                 datasets: [
                 {
-                    label: 'Restrations ',
+                    label: 'Registrations ',
                     data: [50,40,40,55],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)'
@@ -638,7 +638,7 @@
                 },
 
                 {
-                    label: 'Submitions ',
+                    label: 'Submissions ',
                     data: [40,34,20,42],
                     backgroundColor: [
                         'rgba(255, 49, 32, 0.2)'
@@ -686,9 +686,9 @@
         <script>
           //setup
           const dataPie = {
-                labels: [ 'Submitions', 'Pending', ],
+                labels: [ 'Submissions', 'Pending', ],
                 datasets: [{
-                  label: 'Submitions and pendings',
+                  label: 'Submissions and pendings',
                   data: [50, 10],
                   backgroundColor: [
                     'rgb(255, 99, 132)',
