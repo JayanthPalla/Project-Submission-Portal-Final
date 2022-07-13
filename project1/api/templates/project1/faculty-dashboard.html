@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <title>Admin-dashboard</title>
+    <title>faculty-dashboard</title>
     <style class="text/css">
        
         /*navbar*/
@@ -36,7 +36,7 @@
            min-height: 760px;
             left: 0%;
             border-right: 1px rgb(255, 255, 255) solid;
-
+         
        }
        .list-group
        {
@@ -71,10 +71,12 @@
 
        /* content-div */
        .content-div{
-           background-color: rgb(240, 245, 233);
+           background-color: rgb(209, 209, 209);
+           overflow-x: hidden;
            overflow-y: auto;
            scroll-behavior: smooth;
            max-height: 780px;
+
        }    
        .min-nav{
             padding: 15px;
@@ -85,7 +87,7 @@
 
        .side-head{
            font-weight: 700;
-           padding: 6px 20px;
+           padding: 8px 25px;
            font-size: 25px;
            background-color: #005;
            color: #fff;
@@ -105,52 +107,135 @@
            border: 2px solid white   ;   
        }
 
-       /*branches*/
-       #professor-performance{
-           overflow-y: hidden;
+       /* my class */
+     
+       .class{
+           
+           background-color: rgba(6, 0, 90, 0.4);
+           max-width: 420px;
+       }
+       .class-details{
+           top: 50%;
+           left: 50%;
+           position: absolute;
+           transform: translate(-50%,-50%);
+           width: 100%;
+           color: rgb(0, 11, 109);
+       }
+       .class-details a{
+           background-color: rgb(0, 0, 255);
+           color: #fff;
+           font-weight: 600;
+           padding: 10px 30px;
        }
 
-       .branch-logo{
-           width: 60px;
-           height: 60px;
+       .class .card{
+           background-color: rgb(28, 42, 168,0.9);
+           color: rgb(255, 255, 255);
+           max-height: fit-content;
+        
        }
-       .batch div:hover{
-           opacity: 0.9;
-           cursor: pointer;
-       }
-
-       /* over view */
-
-       a{
-           color: black;
-           text-decoration: none;
-           font-weight: 400;
+       .class .card:hover{
+        background-color: rgb(0, 0, 255,0.9);
+        color: #fff;
        }
 
-      .table-div{
-          max-width: inherit;
-        overflow-x: scroll;
+       #piechart_3d{
+           width: 100%;
+           min-height: 400px;
+           
+       }
+       #barchart_material
+       {
+         height: 90%;
+         width: 95%;
+       }
+
+       /*tabel*/
+       .tabel-div{
+           width: 100%;
+           max-height: 400px;
+           overflow-y: scroll;
         }
+        
 
-        .table-body{
-        overflow-x: scroll;
-        max-height: 500px;
-        overflow-y: scroll;
-        }    
-    
+         /*assign-work*/
+       .form-head{
+        background-color: rgb(235, 235, 235);
+        border: 1px solid rgb(211, 211, 211);
+        padding: 15px;
+        width: 100%;
+        margin-top: 5px;
+      }
+      .top-btn{
+        background-color: #fff;
+        border: 1px solid rgb(6, 0, 93);
+        padding: 6px 15px;
+        margin-left: 5px;
+      
+      }
+     .top-btn:hover{
+       border: 1px rgb(255, 255, 255) solid;
+       background-color: #005;
+       color: #fff;
+     }
+     .minus{
+       background-color: none;
+       font-size:23px ;
+       float: right;
+       border: 1px solid transparent;
+       line-height: 10px;
+      
+     }
+     .minus:hover{
+       border: rgb(158, 158, 158) 1px solid;
+     }
+     
+     .icon-col{
+       color: rgb(27, 27, 163);
+       font-size: 25px;
+       padding-left: 15px;
+      
 
-       #piechart{
-        max-width: 200px;
+     }
+     .label-col{
+        width:25%;
+        line-height: 40px;
+        font-weight: 600;
+        text-align: center;
+     }
+     .input-col input,select {
+       border:none;
+       border-bottom: 1px solid #005;
+       margin-left: 10px;
+       background-color: transparent;
+       outline: none;
+       min-width: 200px;
+       max-width: 300px;
+     }
+     table td{
+       padding: 15px;
+     }
+     table tr{
+         padding: 5px;
+     }
+     
+     .input-area{
+       border: #005 2px solid;
+       background-color: transparent;
      }
 
+     #piechart{
+        max-width: 200px;
+     }
        
 
     </style>
-    {% if messages %}
-    {% for message in messages %}
-        {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
-    {% endfor %}
-{% endif %}
+     {% if messages %}
+     {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+     {% endfor %}
+ {% endif %}
   </head>
   <body>
     <!--navbar-->
@@ -166,31 +251,30 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-opt" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <h5 class="ms-3  my-auto">Admin-Dashboard</h5>
+                <h5 class="ms-3  my-auto">Faculty-Dashbaord</h5>
                 <div class="d-flex text-dark  ms-auto">
                     <a class="nav-link " href="#"> 
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
-                        <span class="ms-2 me-1 d-none d-md-inline " >{{user.first_name}} {{user.last_name}}</span>
+                        <span class="ms-2 me-1 d-none d-md-inline " > {{user.first_name}} {{user.last_name}}</span>
                     </a>
                     <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
                 </div>
             </div>
         </div>
-    </nav>  
-    <!--navbar-end-->
+    </nav>  <!--navbar-end-->
+
     <!--content-->
     <div class="container-fluid">
-        <div class="row ">
+        <div class="row p-2">
             <!--side-menu-->
-            <div class="col-2 col-md-4 col-lg-2
-             menu-div "  id="menu-opt">               
+            <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
                 <div class="list-group mt-1">
-                    <a href="{% url 'dashboard' %}" class="side-links list-group-item on-btn"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                    <a href="{% url 'scoreboard' %}" class="side-links list-group-item"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
-                    <a href="{% url 'profile-page' %}" class="side-links list-group-item"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
-                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                    <a href="reset_password.html" class="side-links list-group-item"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Change password</span> </a>
-                    <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    <a href="#" class="side-links list-group-item on-btn"data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+                    <a href="#" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+                    <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
+                    <a href="{% url 'edit-profile' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+                    <a href="reset_password.html" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reset-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Reset password</span> </a>
+                    <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
                         <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
                     </a>
                         <ul class="dropdown-menu" >
@@ -198,279 +282,333 @@
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
                              <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
                         </ul>
-                     <a href="{% url 'about-page' %}" class="side-links list-group-item"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+                     <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
                 </div>
                 <br><br><br><br><br><br>
-                    <a href="{% url 'logout' %}" class="logout "><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+                    <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
                 <br><br><br>
             </div>
 
-            <!---main-content-->
-            <div class="col   content-div"> 
-                
+        <!---main-content-->
+        <div class="col   content-div"> 
+             <!--min-nav-->
+             <div class="text-center mt-4">
+                <div class=" min-nav " role="group" >     
+                    <a href="#myclass" class="btn btn-opt me-1" >My class</a>                  
+                    <a href="#std-projects" class="btn btn-opt me-1 " >projects</a>
+                    <a href="#assign-work" class="btn btn-opt " >Create</a> 
+                </div>
+            </div>
+            
 
+            <!--my class-->
+            <h4 class="side-head mt-3 text-center " id="myclass">MY CLASS</h4>
+            <div class="row justify-content-evenly">
+                <!--class-->
+                {% for class in classes %}
+                <div class="col-xl-4  col-lg-6 col-12 class border rounded   shadow p-1  mb-3 ">
+                  <div class="row">
+                      <div class="col-6  text-center position-relative">
+                          <div class=" class-details">
+                              <h2 class="fw-bold">{{ class.name }}</h2>
+                              <h5 class="mb-3">{{ class.no }}</h5>  
+                              <a href="#projects" class="btn ">Projects</a>   <br>
+                               <!-- add student -->
+                               <button type="button " class="btn mt-2" data-bs-toggle="modal" data-bs-target="#{{ class.no }}">
+                                <i class="bi bi-person-plus-fill"></i> ADD
+                              </button>
+                          </div>       
 
-                <div class="col content-div ">     
-                    <!--min-nav-->
-                    <div class="text-center mt-4 mb-4  " id="navbar-example2" >
-                        <div class=" min-nav  " role="group" >                
-                            <a href="#branch" class="btn btn-opt me-1 " >Branches</a>
-                            <a href="#std-projects" class="btn btn-opt " >Projects</a> 
-                        </div>
-                    </div>
-                
-                    <div data-bs-spy="scroll" data-bs-target="#content" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-
-
-                    </div>
-                    
-                    <!--professor performances-->
-                    <h4 class="side-head ms-3 mt-4" id="branch">Branches</h4>
-
-                    <div class="row justify-content-center bg-light batch">
-                        <div class="col-12 col-lg-3 col-md-6 mt-2 ">
-                            <div class="card mb-3 " style="max-width: 18rem; background-color: #70c0e6; color: #000;">
-                                <div class="card-body ">
-                                    <div class="col-12 d-flex">
-                                        <p class="card-title fs-4 fw-bold text-start">CSE </p>
-                                        <img  class="img-fluid ms-auto branch-logo"src="https://esquilo.io/png/thumb/SYsXMREbeRjR8f5-HP-Laptop-PNG-Transparent.png" alt="cse-logo">
-                                    </div> 
-                                  <p class="card-text">{{ CSE.submissions }}/{{ CSE.registrations }}</p>
-                                  <div class="progress">
-                                    <div class="progress-bar  " role="progressbar" style="width:{{ CSE.submissions }}%"  aria-valuemax="{{ CSE.registrations }}">{{ CSE.submissions }}%</div>
-                                  </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-3 col-md-6 mt-2 ">
-                            <div class="card mb-3 " style="max-width: 18rem; background-color: #203047; color: rgb(255, 255, 255);">
-                                <div class="card-body ">
-                                    <div class="col-12 d-flex">
-                                        <p class="card-title fs-4 fw-bold text-start">ECE </p>
-                                        <img  class="img-fluid ms-auto branch-logo"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ3WyO6Z6HJwNhYLuNF4chY7ruD5xSlzUf8w&usqp=CAU" alt="cse-logo">
-                                    </div> 
-                                    <p class="card-text">{{ ECE.submissions }}/{{ ECE.registrations }}</p>
-                                    <div class="progress">
-                                      <div class="progress-bar  " role="progressbar" style="width:{{ ECE.submissions }}%"  aria-valuemax="{{ ECE.registrations }}">{{ ECE.submissions }}%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <div class="col-12 col-lg-3 col-md-6 mt-2 ">
-                            <div class="card mb-3 " style="max-width: 18rem; background-color: #da7531; color: rgb(0, 0, 0);">
-                                <div class="card-body ">
-                                    <div class="col-12 d-flex">
-                                        <p class="card-title fs-4 fw-bold text-start">EEE </p>
-                                        <img  class="img-fluid ms-auto branch-logo"src="https://i.pinimg.com/originals/7f/b5/b6/7fb5b63c34cf82142319b728d58716d0.jpg" alt="cse-logo">
-                                    </div> 
-                                    <p class="card-text">{{ EEE.submissions }}/{{ EEE.registrations }}</p>
-                                    <div class="progress">
-                                      <div class="progress-bar  " role="progressbar" style="width:{{ EEE.submissions }}%"  aria-valuemax="{{ EEE.registrations }}">{{ EEE.submissions }}%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <div class="col-12 col-lg-3 col-md-6 mt-2 ">
-                            <div class="card mb-3 " style="max-width: 18rem; background-color: rgb(27, 53, 41); color: rgb(255, 255, 255);">
-                                <div class="card-body ">
-                                    <div class="col-12 d-flex">
-                                        <p class="card-title fs-4 fw-bold text-start">MECH </p>
-                                        <img  class="img-fluid ms-auto branch-logo"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFTIvWXDRdxh-DT-6pzCaps2_eA6qV1yjFxA&usqp=CAU" alt="cse-logo">
-                                    </div> 
-                                    <p class="card-text">{{ MECH.submissions }}/{{ MECH.registrations }}</p>
-                                    <div class="progress">
-                                      <div class="progress-bar  " role="progressbar" style="width:{{ MECH.submissions }}%"  aria-valuemax="{{ MECH.registrations }}">{{ MECH.submissions }}%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <div class="col-12 col-lg-3 col-md-6 mt-2 ">
-                            <div class="card mb-3 " style="max-width: 18rem; background-color: #777777; color: rgb(10, 10, 10);">
-                                <div class="card-body ">
-                                    <div class="col-12 d-flex">
-                                        <p class="card-title fs-4 fw-bold text-start">CIVIL</p>
-                                        <img  class="img-fluid ms-auto branch-logo"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxMv4THBLDicQKVXP7FkJG1DcAoiT94VJWWA&usqp=CAU" alt="cse-logo">
-                                    </div> 
-                                    <p class="card-text">{{ CIVIL.submissions }}/{{ CIVIL.registrations }}</p>
-                                    <div class="progress">
-                                      <div class="progress-bar  " role="progressbar" style="width:{{ CIVIL.submissions }}%"  aria-valuemax="{{ CIVIL.registrations }}">{{ CIVIL.submissions }}%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <div class="col-12 col-lg-3 col-md-6 mt-2 ">
-                            <div class="card mb-3 " style="max-width: 18rem; background-color: #204725; color: rgb(255, 255, 255);">
-                                <div class="card-body ">
-                                    <div class="col-12 d-flex">
-                                        <p class="card-title fs-4 fw-bold text-start">MME</p>
-                                        <img  class="img-fluid ms-auto branch-logo"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-EI37NXvqhikwUIv4g2xaJUGexWjJeuUbUQ&usqp=CAU" alt="cse-logo">
-                                    </div> 
-                                    <p class="card-text">{{ MME.submissions }}/{{ MME.registrations }}</p>
-                                    <div class="progress">
-                                      <div class="progress-bar  " role="progressbar" style="width:{{ MME.submissions }}%"  aria-valuemax="{{ MME.registrations }}">{{ MME.submissions }}%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-3 col-md-6 mt-2 ">
-                            <div class="card mb-3 " style="max-width: 18rem; background-color: #383bce; color: rgb(255, 255, 255);">
-                                <div class="card-body ">
-                                    <div class="col-12 d-flex">
-                                        <p class="card-title fs-4 fw-bold text-start">CHEM</p>
-                                        <img  class="img-fluid ms-auto branch-logo"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTURuipnUH0lkMwuMMyRmytBFIn1iTXh3RTNS5CCwXQxaXfS7hu2DyFAX-qQ_JI7kyogAc&usqp=CAU" alt="cse-logo">
-                                    </div> 
-                                    <p class="card-text">{{ CHEM.submissions }}/{{ CHEM.registrations }}</p>
-                                    <div class="progress">
-                                      <div class="progress-bar  " role="progressbar" style="width:{{ CHEM.submissions }}%"  aria-valuemax="{{ CHEM.registrations }}">{{ CHEM.submissions }}%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-    
-                    
-                    <div class="row">
-                         <!--Graphs-->
-                        <div class="col-12 col-md-8">
-                            <h4 class="side-head ms-3 mt-4" id="join">overall-view</h4>
-                            <canvas id="myChart"></canvas>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <h4 class="side-head mt-3 text-center mt-5" >Pie chart</h4>
-                            <canvas id="pieChart"></canvas>
-                        </div>
-                    </div>
-
-                         <!--All the HODs-->
-                        <div class="container">
-                            <h4 class="side-head ms-3 mt-4" id="join">BRANCH-HODs</h4>
-                        <div class="tabel-div" style="max-height: 600px; overflow-y: scroll;overflow-x: scroll;">
-                            <table class="table table-striped table-hover  bg-light">
-                                <thead >
-                                  <tr style="background-color: rgb(13, 60, 113); color: white;">
-                                    <th scope="col">Sno</th>
-                                    <th scope="col">NAME</th>
-                                    <th scope="col">BRANCH</th>
-                                    <th scope="col">E4 PROGRESS</th>
-                                    <th scope="col">E3 PROGRESS</th>
-                                    <th scope="col">E2 PROGRESS</th>
-                                    <th scope="col">E1 PROGRESS</th>
-                                  </tr>
-                                </thead>
-                                <tbody class="table-body ">
-                                  {% for hod in HODS %}  
-                                  <tr>
-                                    <td>{{ forloop.counter }}</td>
-                                    <td>{{ hod.first_name }} {{ hod.last_name }} </td>
-                                    <td>{{ hod.branch }}</td>
-                                    <td>{{ hod.branch_E4_submissions }}/{{ hod.branch_E4_registrations }} </td>
-                                    <td>{{ hod.branch_E3_submissions }}/{{ hod.branch_E3_registrations }} </td>
-                                    <td>{{ hod.branch_E2_submissions }}/{{ hod.branch_E2_registrations }} </td>
-                                    <td>{{ hod.branch_E1_submissions }}/{{ hod.branch_E1_registrations }} </td>
-                                  </tr>
-                                  {% endfor %}
-                                </tbody>
-                              </table>
-                            </table>
-                            </div>
-                        </div>
-                    
-
-
-                    <!--all the projects-->
-                    <h4 class="side-head ms-3 mt-5" id="std-projects">Students Projects</h4>
-                    <!--list of all  the projects-->
-
-                    <div >
-                        <div>
-                            <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-                                <a class="navbar-brand" href="#">Projects</a>
-                                <ul class="nav nav-pills">
-                                  <li class="nav-item">
-                                    <input class="form-control me-2" type="search" placeholder="Search for Id" id="search" onkeyup="searchfunction()" aria-label="Search">
-                                  </li>
+                           <!-- Modal -->
+                        <div class="modal fade" id="{{ class.no }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header ">
+                                <h5 class="modal-title text-center" id="staticBackdropLabel"> {{ class.name }} </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <p class="ms-auto">Enter student's Email to Add</p>
+                                <form>
                                 
-                                  <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Branch </a>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">CSE</a></li>
-                                      <li><a class="dropdown-item" href="#">ECE</a></li>
-                                      <li><a class="dropdown-item" href="#">CHEM</a></li>
-                                      <li><a class="dropdown-item" href="#">EEE</a></li>
-                                      <li><a class="dropdown-item" href="#">MME</a></li>
-                                      <li><a class="dropdown-item" href="#">CIVIL</a></li>
-                                      <li><a class="dropdown-item" href="#">MECH</a></li>
-                                    </ul>
-                                  </li>
-
-                                  <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">year </a>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">E4</a></li>
-                                      <li><a class="dropdown-item" href="#">E3</a></li>
-                                      <li><a class="dropdown-item" href="#">E2</a></li>
-                                      <li><a class="dropdown-item" href="#">E1</a></li>
-                                    </ul>
-                                  </li>
-
-                                </ul>
-                              </nav>
-                        </div>
-
-                        <div class="tabel-div" style="max-height: 600px; overflow-y: scroll;overflow-x: scroll;">
-                            <table class="table table-striped table-hover  bg-light">
-                                <thead>
-                                    <tr style="background-color: rgb(13, 60, 113); color: white;">
-                                        <th scope="col">S no</th>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Branch</th>
-                                        <th scope="col">Year</th>
-                                        <th scope="col">Project_Tittel</th>
-                                        <th scope="col">Source</th>
-                                    </tr>
-                                    </thead>
-                                    
-                                    <tbody class="table-body">
-                                    {% for student in Students %}
-                                    <tr>
-                                        <th scope="row">{{ forloop.counter }}</th>
-                                        <td><a href="#">{{ student.clg_id }}</a> </td>
-                                        <td>{{ student.fist_name }} {{ student.last_name }}</td>
-                                        <td>{{ student.branch }}</td>
-                                        <td>{{ student.year }}</td>
-                                        <td>{{ student.project_tittle }}</td>
-                                        <td><a href="{{ student.project_link }}" class="btn btn-outline-primary" >View</a></td>
-                                    </tr>                     
-                                  {% endfor %}
-                                </tbody>
-                              </table>
-                            </table>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="email"><i class="bi bi-envelope-fill me-1"></i> Email</span>
+                                    <input type="email" class="form-control" placeholder="name@gmail.com" aria-label="Username" aria-describedby="email">
+                                  </div>
+                                </form>
+                              </div>
+                              <div class="modal-footer  ">        
+                                <button type="button" class="btn btn-primary" style="padding: 5px 30px; "> <i class="bi bi-person-plus-fill"></i> ADD</button>
+                              </div>
                             </div>
-                        
-                     
+                          </div>
+                        </div>  
 
+                                                         
+                      </div>
+                      <div class="col-6 justify-content-evenly">
+                          <div class="card  shadow   mb-1 text-center" >
+                              <div class="card-body row ">
+                                <span class=" fs-3  fw-bold text-center">{{  class.regestered }}</span><br>
+                                <span class="card-text col " style="display: grid; place-items: center;">Regestered</span>
+                              </div>
+                          </div>
+                          <div class="card shadow   mb-1 text-center" >
+                              <div class="card-body row">
+                                <span class=" fs-3  fw-bold text-center">{{ class.submitions }} </span><br>
+                                <span class="card-text col "  style="display: grid; place-items: center;" >Submitions</span>
+                              </div>
+                          </div>
+                      </div>
                     </div>
+              </div>
+              {% endfor %}
 
-            </div>  
-    </div> 
+
+              
+
+              
+
+
+
+              </div>
+            <!---row-2-->
+            <div class="row">
+
+                <!--graph-->
+                <div class="col-lg-8 col-md-7 col-12 p-3" >
+                    <h4 class="side-head mt-3 text-center " >Graph</h4>
+                    <canvas id="myChart"></canvas>
+                </div>
+
+                <!--pichat-->
+                <div class="col-lg-3 col-md-4 col-12 ">
+                  <h4 class="side-head mt-3 text-center mt-5" >Pie chart</h4>
+                    <canvas id="pieChart"></canvas>
+                </div>
+
+            </div>
+
+            <!--projects-->
+             <!--all the projects-->
+             <h4 class="side-head ms-3 mt-5" id="projects">Students Projects</h4>
+             <!--list of all  the projects-->
+
+             <div >
+                 <div >
+                     <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+                         <a class="navbar-brand" href="#">Projects</a>
+                         <ul class="nav nav-pills">
+                           <li class="nav-item">
+                             <input class="form-control me-2" type="search" placeholder="Search for Id" id="search" onkeyup="searchfunction()" aria-label="Search">
+                           </li>
+                         
+                           <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Batch </a>
+                             <ul class="dropdown-menu">
+                               {% for class in classes %}
+                               <li><a class="dropdown-item" href="#">{{ class.name }}</a></li>  
+                               {% endfor %}                          
+                             </ul>
+                           </li>
+                         </ul>
+                       </nav>
+                 </div>
+                 <div class="tabel-div">
+                 <table class="table  table-striped table-hover mt-3" id="projects-list">
+                     <thead>
+                     <tr>
+                         <th scope="col">S no</th>
+                         <th scope="col">Id</th>
+                         <th scope="col">Name</th>
+                         <th scope="col">Branch</th>
+                         <th scope="col">Batch</th>
+                         <th scope="col">Project_Titel</th>
+                         <th scope="col">Soure</th>
+                     </tr>
+                     </thead>
+                     
+                     <tbody>
+                      {% for student in studentList %}
+                     <tr>
+                         <th scope="row">{{ forloop.counter }}</th>
+                         <td><a href="#">{{ student.id }}</a> </td>
+                         <td>{{ student.name }}</td>
+                         <td>{{ student.branch }}</td>
+                         <th scope="col">{{ student.batch }}</th>
+                         <td>{{ student.project_name }}</td>
+                         <td><a href="{{ student.project_link }}" class="btn btn-outline-primary" >View</a></td>
+                     </tr>
+                     {% endfor %}
+                    
+                    
+
+                   
+
+
+                    
+
+                     </tbody>
+                 </table>
+                 </div>
+            </div>
+             <!--Assign-work-->
+             <h4 class="side-head mt-5" id="assign-work">Assign-Work</h4>
+   
+             <!--form-->
+             <form action="{% ulr 'Faculty-dashboard' %" method="POST" enctype="application/x-www-form-urlencoded">
+              {% csrf_token %}
+            <div class="bg-light">
+
+                <div  class="form-head row">
+                  <div class="col-md-6 col-12">
+                    <p class="  text-start"> Fill the details and click assign to assign work.</p>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="text-end">
+                      <button  type="submit"  class=" top-btn">Assign work</button>
+                      <button  type="reset" class="top-btn">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                
+            
+
+                <div class="form-head mb-2">
+                  <span><i class="bi bi-pencil-square  ms-4 me-2 "></i>main</span> 
+                  <button class="minus text-end"><i class="bi bi-dash-lg"></i></button>
+                </div>
+
+                <div class="row justify-content-center bg-light  pt-4"> 
+
+                  <div class="col-12 col-md-6 d-flex mb-4">
+                      <i class=" icon-col bi bi-pen-fill"></i>
+                      <span class="label-col">Project Id</span>
+                      <div class="input-col"><input class="input-col" name="project_id" type="Text" placeholder="Title of the project" required> </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex mb-4">
+                    <i class=" icon-col bi bi-diagram-3-fill"></i>
+                    <span class="label-col">Year</span>
+                    <div class="input-col">
+                      <select name="year" required>
+                        <option value="">---year---</option>
+                        <option value="E01">E01</option>
+                        <option value="E02">E02</option>
+                        <option value="E03">E03</option>
+                        <option value="E04">E04</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex mb-4">
+                    <i class=" icon-col bi bi-pen-fill"></i>
+                    <span class="label-col">Topic</span>
+                    <div class="input-col"><input class="input-col" name="topic" type="Text" placeholder="Topic of the project" required> </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex mb-4">
+                    <i class=" icon-col bi bi-people-fill"></i>
+                    <span class="label-col">Due date</span>
+                    <div class="input-col">
+                      <input class="input-col" name="due_date" type="Date"  required>
+                    </div>
+                  </div>
+              </div>  
+                
+              <div class="form-head mb-3">
+                <span><i class="bi bi-pencil-square ms-4 me-2 "></i>Members</span> 
+                <button class="minus text-end"><i class="bi bi-dash-lg"></i></button>
+              </div>
+            
+              
+              <div class="row justify-content-center bg-light pt-5"> 
+
+                <div class="col-12 col-md-6 d-flex mb-4 text-center ">
+                  <i class=" icon-col bi bi-file-medical-fill"></i>
+                  <span class="label-col">Batch</span>
+                  <div class="input-col" name="batch" >
+                    <select name="Topic" required>
+                      <option value=""> ---batch---</option>
+                      <option value="b1">Batch-01</option>
+                      <option value="b2">Batch-02</option>
+                      <option value="b3">Batch-03</option>
+                      <option value="b4">Batch-04</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 d-flex mb-4 ">
+                  <i class=" icon-col bi bi-eyeglasses"></i>
+                  <span class="label-col">Branch</span>
+                  <div class="input-col">
+                    <input class="input-col" name="branch" type="text" value="{{ user.branch }}" readonly >
+                  </div>
+                </div>
+                
+
+                <div class="col-12 col-md-6 d-flex mb-4 ">
+                  <i class=" icon-col bi bi-list-ol"></i>
+                  <span class="label-col">Students</span>
+                  <div class="input-col">
+                    <select name="Topic">
+                      <option value="no">--no of students / group--</option>
+                      <option value="1">1(individual)</option>
+                      <option value="3">3</option>
+                      <option value="5">5</option>
+                      <option value="7">7</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 d-flex mb-4 ">
+                  <i class=" icon-col bi bi-people-fill"></i>
+                  <span class="label-col">One/Team</span>
+                  <div class="input-col">
+                    <select required>
+                      <option value="">--Team/individual--</option>
+                      <option value="team">Team</option>
+                      <option value="individual">individual</option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="col-10 col-md-9 mb-4 ">
+                  <div class="form-floating">
+                    <textarea class="form-control input-area" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Instructions to the Project</label>
+                  </div>
+                </div>
+
+
+              </div>
+              </form>
+           
+          </div>
+        </div>
+            
+        |</div>
+    </div>
+</div>
+    
+           
 
             
+          
+        
+
+
+
+
 
 
    <!-- footer -->
     <footer>
-        <div class="container-fluid footer bg-lignt text-dark   " >
+        <div class="container-fluid footer bg-lignt text-dark bg-primary  " >
         <div class="row  text-center justify-content-center">
-            <div class="row  justify-content-center p-2 fw-bold">
+            <div class="row  justify-content-center p-2">
                 <div class="col-10 col-md-2">Copyright &copy 2021</div>
                 <div class="col-10 col-md-3"> All rights reserved by RGUKTN</div>
             </div>
@@ -480,19 +618,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!--BARCHART-->
     <script>
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['CSE', 'ECE', 'EEE', 'CIVIL','MECH','CHEM','MME'],
+                labels: ['Batch1', 'Batch2', 'Batch3', 'Batch4'],
                 datasets: [
                 {
                     label: 'Restrations ',
-                    data: [350,340,140,155,88,121,55],
+                    data: [50,40,40,55],
                     backgroundColor: [
-                        'rgba(11, 36, 77, 0.6)'
+                        'rgba(255, 99, 132, 0.2)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)'
@@ -502,9 +639,9 @@
 
                 {
                     label: 'Submitions ',
-                    data: [290,250,133,125,48,101,45],
+                    data: [40,34,20,42],
                     backgroundColor: [
-                        'rgba(255, 49, 32, 0.6)'
+                        'rgba(255, 49, 32, 0.2)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)'
@@ -523,11 +660,6 @@
             }
         });
         </script>
-
-
-
-
-
 
 
     <script>
@@ -549,39 +681,36 @@
             }       
           }
         }
-        </script>   
-
-        <!--piechart-->
+        </script>
+    
         <script>
-            //setup
-            const dataPie = {
+          //setup
+          const dataPie = {
                 labels: [ 'Submitions', 'Pending', ],
                 datasets: [{
-                    label: 'Submitions and pendings',
-                    data: [50, 10],
-                    backgroundColor: [
+                  label: 'Submitions and pendings',
+                  data: [50, 10],
+                  backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)'
-                    ],
-                    hoverOffset: 4
+                  ],
+                  hoverOffset: 4
                 }]
-                };
-            //config
-            const configPie = {
+              };
+          //config
+          const configPie = {
             type: 'pie',
             data: dataPie,
             options: {}
-            };
-            //render inti block
-            const pieChart = new Chart(
+          };
+          //render inti block
+          const pieChart = new Chart(
             document.getElementById('pieChart'),
             configPie
-            );
+          );
 
         </script>
 
-
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
