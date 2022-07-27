@@ -5,78 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--pichart script-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['submited',     6],
-          ['pending',      4],
-        
-        ]);
-
-        var options = {
-          title: 'Project-submitions'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-
-    <!--bar chart script-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-        google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawStuff);
-
-        function drawStuff() {
-            var data = new google.visualization.arrayToDataTable([
-            ['Batches', 'Total-students', 'submitions'],
-            ['Batch-04', 60, 40],
-            ['Batch-03', 60, 35],
-            ['Batch-02', 60, 50],
-            ['Batch-01', 60, 42]
-            ]);
-
-            var options = {
-            width: 800,
-            chart: {
-                title: 'Overall View of Batches',
-                subtitle: 'Here is the graph on Total students and total submitions of each batch'
-            },
-            bars: 'horizontal', // Required for Material Bar Charts.
-            series: {
-                0: { axis: 'Total-students' }, // Bind series 0 to an axis named 'distance'.
-                1: { axis: 'Submitions' } // Bind series 1 to an axis named 'brightness'.
-            },
-            axes: {
-                x: {
-                distance: {label: 'submitions'}, // Bottom x-axis.
-                brightness: {side: 'top', label: 'overall-view of Batches'} // Top x-axis.
-                }
-            }
-            };
-
-        var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
-        chart.draw(data, options);
-        };
-        </script>
-
-
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>HOD-dashboard</title>
     <style class="text/css">
+      body{
+        font-size: small;
+      }
        
         /*navbar*/
         .logo{
@@ -161,6 +98,16 @@
            text-align: center;
        }
 
+       .sub-head{
+           font-weight: 600;
+           padding: 8px 20px;
+           font-size: 20p x;
+           background-color: #005;
+           color: #fff;
+           max-width: 200px;
+          
+       }
+
        .btn-opt{
             padding : 6px 9px;
            color: white;
@@ -237,6 +184,9 @@
        line-height: 10px;
       
      }
+     table {
+       font-size:small;
+     }
      .minus:hover{
        border: rgb(158, 158, 158) 1px solid;
      }
@@ -260,11 +210,13 @@
        margin-left: 10px;
        background-color: transparent;
        outline: none;
+       line-height: 40px;
        min-width: 200px;
        max-width: 300px;
      }
      table td{
        padding: 15px;
+
      }
      
      .input-area{
@@ -275,6 +227,14 @@
        
 
     </style>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+    
+{% if messages %}
+{% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+{% endif %}
   </head>
   <body>
     <!--navbar-->
@@ -294,7 +254,7 @@
                 <div class="d-flex text-dark  ms-auto">
                     <a class="nav-link " href="#"> 
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
-                        <span class="ms-2 me-1 d-none d-md-inline " > User name</span>
+                        <span class="ms-2 me-1 d-none d-md-inline " > {{ user.first_name }} {{ user.last_name }}</span>
                     </a>
                     <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
                 </div>
@@ -306,28 +266,30 @@
     <div class="container-fluid">
         <div class="row ">
             
-          <!--side-menu-->
-          <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
-            <div class="list-group mt-1">
-                <a href="{% url 'dashboard' %}" class="side-links list-group-item on-btn"data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
-                <a href="#" class="side-links list-group-item  " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
-                <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
-                <a href="{% url 'edit-profile' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
-                <a href = "{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Change-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Change password</span> </a>
-                <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
-                    <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
-                </a>
-                    <ul class="dropdown-menu" >
-                        <li><a class="dropdown-item " href="#"><i class="bi bi-plus-circle-fill me-2"></i> <span class=""> upload</span></a></li>
-                         <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
-                         <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
-                    </ul>
-                 <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
-            </div>
-            <br><br><br><br><br><br>
-                <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
-            <br><br><br>
-        </div>
+        <!--side-menu-->
+        <div class="col-2 col-md-4 col-lg-2   menu-div "  id="menu-opt">              
+          <div class="list-group mt-1">
+              <a href="{% url 'dashboard' %}" class="side-links list-group-item on-btn"data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"> <i class="bi bi-speedometer2 me-2"></i> <span class="d-none d-md-inline ">Dashboard </span></a>
+              <a href="#" class="side-links list-group-item  " data-bs-toggle="tooltip" data-bs-placement="right" title="ScoreBoard"> <i class="bi bi-bar-chart-line-fill me-2"></i> <span class="d-none d-md-inline"> ScoreBoard</span></a>
+              <a href="{% url 'profile-page' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Profile"> <i class="bi bi-person-square me-2"></i> <span class="d-none d-md-inline"> Profile</span> </a>
+              <a href="{% url 'edit-profile' %}" class="side-links list-group-item " data-bs-toggle="tooltip" data-bs-placement="right" title="Edit-Profile"> <i class="bi bi-pencil-square me-2"></i> <span class="d-none d-md-inline">Edit profile</span> </a>
+              <a href = "{%url 'change-pswd'}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Change-password"> <i class="bi bi-shield-lock-fill me-2"></i> <span class="d-none d-md-inline">Change password</span> </a>
+              <a class="side-links list-group-item dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
+                  <i class="bi bi-server me-2"></i> <span class="d-none d-md-inline"> Projects</span>
+              </a>
+                  <ul class="dropdown-menu" >
+                      <li><a class="dropdown-item " href="#"><i class="bi bi-plus-circle-fill me-2"></i> <span class=""> upload</span></a></li>
+                       <li><a class="dropdown-item" href="#"> <i class="bi bi-binoculars-fill me-2"></i> <span class=""> view</span></a></li>
+                       <li><a class="dropdown-item" href="#"> <i class="bi bi-pen-fill me-2"></i> <span class="drop"> Edit</span></a></li>
+                  </ul>
+               <a href="{% url 'about-page' %}" class="side-links list-group-item" data-bs-toggle="tooltip" data-bs-placement="right" title="About"> <i class="bi bi-people-fill me-2"></i> <span class="d-none d-md-inline">About </span></a>
+          </div>
+          <br><br><br><br><br><br>
+              <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
+          <br><br><br>
+      </div>
+
+
 
             <!---main-content-->
             <div class="col   content-div"> 
@@ -339,7 +301,8 @@
                     <div class="text-center mt-4">
                         <div class=" min-nav " role="group" >     
                             <a href="#" class="btn btn-opt me-1" >Faculty</a> 
-                            <a href="#assign-work" class="btn btn-opt " >Assign-Work</a> 
+                            <a href="#assign-work" class="btn btn-opt " >Send notice</a> 
+                            <a href="#tabel" class="btn btn-opt " >Students</a> 
 
                         </div>
                     </div>
@@ -348,149 +311,111 @@
                     <!--professor performances-->
                     <h4 class="side-head mt-3">professor-performance</h4>
                     <div class="row mt-2  justify-content-center " id="professor-performance">
-                        <div class="col-11 col-md-6 col-lg-4 col-xl-3 ">
-                            <div class="card  mb-3 prof-card" style="max-width: 18rem;">
-                                <div class="card-header fw-bold">Batch-01</div>
+
+                      {% for faculty in faculties %}
+                        <div class="col-11 col-md-6 col-lg-4  ">
+                            <div class="card  mb-3 prof-card" style="max-width: 20rem;">
+                                <div class="card-header fw-bold">{{ faculty.batch }}</div>
                                 <div class="card-body">
-                                  <h5 class="card-title fw-bold ">Professor-Name</h5>
-                                  <p class="text-star fs-7">name@gmail.com</p>
+                                  <h5 class="card-title fw-bold ">{{ faculty.first_name }} {{ faculty.last_name }}</h5>
+                                  <p class="text-star fs-7">{{ faculty.email }}</p>
                                   <p class="card-text">
 
                                     <table class="table ">
                                         <thead>
                                           <tr>
-                                            <th scope="col">Class</th>
-                                            <th scope="col">Strength</th>
-                                            <th scope="col">Submitions</th>
+                                            <th scope="col">Year</th>
+                                            <th scope="col">Registrations</th>
+                                            <th scope="col">Submissions</th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                           <tr>
-                                            <td>CF-02</td>
-                                            <td>55</td>
-                                            <td>48</td>
+                                            <td>{{ faculty.year }}</td>
+                                            <td>{{ faculty.regCount }} </td>
+                                            <td>{{ faculty.subCount }}</td>
                                           </tr> 
                                         </tbody>
                                       </table>
                                   </p>
                                   <div class="text-center ">
-                                    <a href="#" class="btn btn-primary">See More</a>
+                                    <a href="#table" class="btn btn-primary">See More</a>
+
                                   </div>
                                 </div>
                              </div>
                         </div>
+                        {% endfor %}
 
-                        <div class="col-11 col-md-6 col-lg-4 col-xl-3 ">
-                            <div class="card  mb-3 prof-card" style="max-width: 18rem;">
-                                <div class="card-header fw-bold">Batch-03</div>
-                                <div class="card-body">
-                                  <h5 class="card-title fw-bold ">Professor-Name</h5>
-                                  <p class="text-star fs-7">name@gmail.com</p>
-                                  <p class="card-text">
-                                    <table class="table ">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">Class</th>
-                                            <th scope="col">Strength</th>
-                                            <th scope="col">Submitions</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>CF-05</td>
-                                            <td>50</td>
-                                            <td>40</td>
-                                          </tr> 
-                                        </tbody>
-                                      </table>
-                                  </p>
-                                  <div class="text-center ">
-                                    <a href="#" class="btn btn-primary">See More</a>
-                                  </div>
-                                </div>
-                             </div>
-                        </div>
-
-                        <div class="col-11 col-md-6 col-lg-4 col-xl-3 ">
-                            <div class="card  mb-3 prof-card" style="max-width: 18rem;">
-                                <div class="card-header fw-bold">Batch-04</div>
-                                <div class="card-body">
-                                  <h5 class="card-title fw-bold ">Professor-Name</h5>
-                                  <p class="text-star fs-7">name@gmail.com</p>
-                                  <p class="card-text">
-                                    <table class="table ">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">Class</th>
-                                            <th scope="col">Strength</th>
-                                            <th scope="col">Submitions</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>CF-04</td>
-                                            <td>60</td>
-                                            <td>40</td>
-                                          </tr> 
-                                        </tbody>
-                                      </table>
-                                  </p>
-                                  <div class="text-center ">
-                                    <a href="#" class="btn btn-primary">See More</a>
-                                  </div>
-                                </div>
-                             </div>
-                        </div>
-
-                        <div class="col-11 col-md-6 col-lg-4 col-xl-3 ">
-                            <div class="card  mb-3 prof-card" style="max-width: 18rem;">
-                                <div class="card-header fw-bold">Batch-01</div>
-                                <div class="card-body">
-                                  <h5 class="card-title fw-bold ">Professor-Name</h5>
-                                  <p class="text-star fs-7">name@gmail.com</p>  
-                                  <p class="card-text">
-                                    <table class="table ">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">Class</th>
-                                            <th scope="col">Strength</th>
-                                            <th scope="col">Submitions</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>CF-01</td>
-                                            <td>60</td>
-                                            <td>40</td>
-                                          </tr> 
-                                        </tbody>
-                                      </table>
-                                  </p>
-                                  <div class="text-center ">
-                                    <a href="#" class="btn btn-primary">See More</a>
-                                  </div>
-                                </div>
-                             </div>
-                        </div>
-
+                      
                     </div>
 
 
                     <!--Overview-->
                     <h4 class="side-head mt-3">Over All view</h4>
-                    <div class="row  justify-content-center overall-view">
-                        <div class="col-12 col-lg-4 text-center">
-                            <div id="piechart" class="pichart" ></div>
+                    <div class="row">
+                      <!--graph-->
+                      <div class="col-lg-8 col-md-7 col-12 p-3" >
+                          <h4 class="sub-head mt-3 text-center " >Graph</h4>
+                          <canvas id="myChart"></canvas>
+                          <!--<div id="barchart_material" style="overflow-x:scroll ;"></div>-->
+                      </div>
 
-                        </div>
-                           
-                        <div class="col-12 col-lg-8 text-center">
-                            <div id="dual_x_div" class=" barchart" ></div>
-                        </div>
+                      <!--pichat-->
+                      <div class="col-lg-3 col-md-4 col-12 p-3">
+                        <h4 class="sub-head mt-3 text-center " >Pie chart</h4>
+                          <canvas id="pieChart"></canvas>
+                        
+                      </div>
                     </div>
 
+
+
+             <!--students-->
+             <h4 class="side-head ms-3 mt-5" id="tabel">Students Regestered</h4>
+             <div >
+                  <div class="tabel-div mb-3">
+                  <table class="table  table-striped table-hover mt-3" id="students-list">
+                      <thead>
+                      <tr>
+                          <th scope="col">S no</th>
+                          <th scope="col">Id</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Faculty</th>
+                          <th scope="col">Year</th>
+                          <th scope="col">Project status</th>
+
+                      </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% for student in studentList %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td><a href="#">{{ student.clg_id }}</a> </td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.faculty }}</td>
+                            <td>{{ student.year }}</td>
+                            <td>
+                              {% if student.is_submitted == '1' %}
+                              <span style="color: green ; font-weight: 600;">Submitted</span>
+                              {% else %}
+                              <span style="color: red ; font-weight: 600;">Pending</span>
+                              {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                      
+  
+                      </tbody>
+                  </table >
+                  </div>
+                  <br>
+              
+
+
                     <!--Assign-work-->
-                    <h4 class="side-head mt-5" id="assign-work">Assign-Work</h4>
+                    <h4 class="side-head mt-5" id="assign-work">Notice</h4>
    
                      <!--form-->
                     <div class="bg-light">
@@ -501,116 +426,32 @@
                           </div>
                           <div class="col-md-6 col-12">
                             <div class="text-end">
-                              <button class=" top-btn">Assign work</button>
+                              <button class=" top-btn">Send</button>
                               <button class="top-btn">Cancel</button>
                             </div>
                           </div>
                         </div>
                         </div>
 
-                        <div class="form-head mb-4">
-                          <span><i class="bi bi-pencil-square  ms-4 me-2 "></i>main</span> 
+                        <div class="form-head mb-1">
+                          <span><i class="bi bi-pencil-square  ms-4 me-2 "></i>Detais</span> 
                           <button class="minus text-end"><i class="bi bi-dash-lg"></i></button>
                         </div>
 
-                        <div class="row justify-content-center bg-light "> 
-
-                          <div class="col-12 col-md-6 d-flex mb-4">
-                              <i class=" icon-col bi bi-pen-fill"></i>
-                              <span class="label-col">Titel</span>
+                        <div class="row justify-content-center text-center  bg-light "> 
+                          <div class="col-12  mb-4 center d-md-flex mt-2 ">
+                              <div>
+                                <i class=" icon-col bi bi-pen-fill"></i>
+                              <span class="label-col">Msg Titel</span>
+                              </div>
                               <div class="input-col"><input class="input-col" type="Text" placeholder="Tittle of the project"> </div>
                           </div>
 
-                          <div class="col-12 col-md-6 d-flex mb-4">
-                            <i class=" icon-col bi bi-diagram-3-fill"></i>
-                            <span class="label-col">Year</span>
-                            <div class="input-col">
-                              <select name="branch">
-                                <option value="batch">---year---</option>
-                                <option value="batch2">E01</option>
-                                <option value="batch2">E02</option>
-                                <option value="batch2">E03</option>
-                                <option value="batch2">E04</option>
-                              </select>
-                            </div>
-                          </div>
-
-                          <div class="col-12 col-md-6 d-flex mb-4">
-                            <i class=" icon-col bi bi-pen-fill"></i>
-                            <span class="label-col">Topic</span>
-                            <div class="input-col"><input class="input-col" type="Text" placeholder="Topic of the project"> </div>
-                          </div>
-
-                          <div class="col-12 col-md-6 d-flex mb-4">
-                            <i class=" icon-col bi bi-people-fill"></i>
-                            <span class="label-col">Due date</span>
-                            <div class="input-col">
-                              <input class="input-col" type="Date" >
-                            </div>
-                          </div>
-                      </div>  
-                        
-                      <div class="form-head mb-3">
-                        <span><i class="bi bi-pencil-square ms-4 me-2 "></i>Members</span> 
-                        <button class="minus text-end"><i class="bi bi-dash-lg"></i></button>
-                      </div>
+                         
                     
-                      
-                      <div class="row justify-content-center bg-light"> 
-
-                        <div class="col-12 col-md-6 d-flex mb-4 text-center ">
-                          <i class=" icon-col bi bi-file-medical-fill"></i>
-                          <span class="label-col">Faculty</span>
-                          <div class="input-col">
-                            <select name="Topic">
-                              <option value="faculty"> facutly</option>
-                              <option value="f1">faculty1</option>
-                              <option value="f2">faculty2</option>
-                              <option value="f3">faculty3</option>
-                              <option value="f4">faculty4</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 d-flex mb-4 ">
-                          <i class=" icon-col bi bi-eyeglasses"></i>
-                          <span class="label-col">Examiner</span>
-                          <div class="input-col">
-                            <select name="Examiner">
-                              <option value="team"> Examiner</option>
-                              <option value="team">examiner1</option>
-                              <option value="one">examiner2</option>
-                            </select>
-                          </div>
-                        </div>
                         
 
-                        <div class="col-12 col-md-6 d-flex mb-4 ">
-                          <i class=" icon-col bi bi-list-ol"></i>
-                          <span class="label-col">Students</span>
-                          <div class="input-col">
-                            <select name="Topic">
-                              <option value="no">--no of students--</option>
-                              <option value="no">40</option>
-                              <option value="no">50</option>
-                              <option value="no">60</option>
-                              <option value="no">70</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 d-flex mb-4 ">
-                          <i class=" icon-col bi bi-people-fill"></i>
-                          <span class="label-col">One/Team</span>
-                          <div class="input-col">
-                            <select name="team">
-                              <option value="team">--Team/individual--</option>
-                              <option value="team">Team</option>
-                              <option value="one">one</option>
-                            </select>
-                          </div>
-                        </div>
-
+                        
 
                         <div class="col-10 col-md-9 mb-4 ">
                           <div class="form-floating">
@@ -647,6 +488,103 @@
         </div>
         </div>     
     </footer>
+
+    <!---table-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+          $('#students-list').DataTable();
+      });
+    </script>
+
+    <!--Graphs-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                  {% for batch in batches %}
+                      {{ batch.year }},
+                  {% endfor %}
+                ],
+                datasets: [
+                {
+                    label: 'Restrations ',
+                    data: [
+                  {% for batch in batches %}
+                      {{ batch.regCount }},
+                  {% endfor %}
+
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                },
+
+                {
+                    label: 'Submitions ',
+                    data: [ 
+                      {% for batch in batches %}
+                        {{ batch.subCount }},
+                      {% endfor %}
+                       ],
+
+                    backgroundColor: [
+                        'rgba(255, 49, 32, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }
+
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        </script>
+
+          <!--Pie chart-->
+          <script>
+            //setup
+            const dataPie = {
+                  labels: [ 'Submitions', 'Pending', ],
+                  datasets: [{
+                    label: 'Submitions and pendings',
+                    data: [{{ regCount }}, {{ subCount  }}],
+                    backgroundColor: [
+                      'rgb(255, 99, 132)',
+                      'rgb(54, 162, 235)'
+                    ],
+                    hoverOffset: 4
+                  }]
+                };
+            //config
+            const configPie = {
+              type: 'pie',
+              data: dataPie,
+              options: {}
+            };
+            //render inti block
+            const pieChart = new Chart(
+              document.getElementById('pieChart'),
+              configPie
+            );
+          </script>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
