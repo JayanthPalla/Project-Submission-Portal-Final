@@ -439,15 +439,15 @@
                       </thead>
                       
                       <tbody>
-                        {% for student in studentList %}
+                        {% for student in registered %}
                         <tr>
                             <th scope="row">{{ forloop.counter }}</th>
                             <td><a href="#">{{ student.clg_id }}</a> </td>
                             <td>{{ student.name}}</td>
                             <td>{{ student.branch }}</td>
-                            <td>{{ student.year }}</td>
+                            <td>{{ student.aca_year }}</td>
                             <td>
-                              {% if student.is_submitted == '1' %}
+                              {% if student.is_submitted == 1 %}
                               <span style="color: green ; font-weight: 600;">Submitted</span>
                               {% else %}
                               <span style="color: red ; font-weight: 600;">Pending</span>
@@ -481,7 +481,7 @@
                      </thead>
                      
                      <tbody>
-                      {% for student in studentList %}
+                      {% for student in submitted %}
                       <tr>
                           <th scope="row">{{ forloop.counter }}</th>
                           <td><a href="#">{{ student.clg_id }}</a> </td>
@@ -670,42 +670,29 @@
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: [
-                  {% for batch in batches %}
-                      {{ batch.year }},
-                  {% endfor %}
-                ],
+                labels: ['Puc1', 'Puc2', 'E1', 'E2', 'E3', 'E4'],
                 datasets: [
                 {
                     label: 'Restrations ',
-                    data: [
-                  {% for batch in batches %}
-                      {{ batch.regCount }},
-                  {% endfor %}
-
-                    ],
+                    data: {{rCountList}},
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)'
+                    'rgb(10, 18, 90)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)'
+                    'rgb(255, 252, 255,1)'
                     ],
                     borderWidth: 1
                 },
 
                 {
                     label: 'Submitions ',
-                    data: [ 
-                      {% for batch in batches %}
-                        {{ batch.subCount }},
-                      {% endfor %}
-                       ],
+                    data: {{sCountList}},
 
                     backgroundColor: [
-                        'rgba(255, 49, 32, 0.2)'
+                    'rgb(54, 162, 235)',
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)'
+                        'rgb(255, 252, 255)'
                     ],
                     borderWidth: 1
                 }
@@ -750,10 +737,10 @@
                 labels: [ 'Submitions', 'Pending', ],
                 datasets: [{
                   label: 'Submitions and pendings',
-                  data: [{{ regCount }}, {{ subCount  }}],
+                  data: {{overAllStats}},
                   backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)'
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)'
                   ],
                   hoverOffset: 4
                 }]
