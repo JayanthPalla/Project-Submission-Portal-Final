@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title> Edit-Profile(admin)</title>
     <style class="text/css">
-       
+       body{
+           font-size: small;
+       }
         /*navbar*/
         .logo{
             width: 40px;
@@ -188,13 +190,43 @@
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
                         <span class="ms-2 me-1 d-none d-md-inline " >{{user.first_name}} {{user.last_name}}</span>
                     </a>
-                    <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
+                    <a class="nav-link" onclick="notifications()" data-bs-toggle="offcanvas" data-bs-target="#notifications" aria-controls="notifications"><i class="bi fs-5 bi-bell-fill me-2"></i></a>
+                    <a href="#" id="notification_link" hidden></a>   
                 </div>
             </div>
         </div>
     </nav>  <!--navbar-end-->
 
     <!--content-->
+      <!--Notifications-->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="notifications" aria-labelledby="notificationsLabel">
+        <div class="offcanvas-header">
+            <h6 class="side-head ms-1 mt-2 p-2" id="regester" >Notifications</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="p-1">   
+                {% for instruction in project_instructions %} 
+                <div class="p-1 border  shadow" style="background-color:#0111;">
+                    <h6 class="text-dark mb-1 mt-1  ">{{ instruction_tittle }}  [   {{ instruction_faculty }}]</h6>
+                    <div>
+                        <span class="fw-bold">Due Date : </span>
+                        <span>{{ instruction_dueDate }}</span>
+                    </div>
+                    <div>
+                        <ul>
+                            {% for msg in instruction_msg %}
+                            <li>{{ msg }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+
+
     <div class="container-fluid">
         <div class="row ">
             <!--side-menu-->
@@ -320,7 +352,7 @@
 
    <!-- footer -->
     <footer>
-        <div class="container-fluid footer bg-lignt text-dark   " >
+        <div class="container-fluid footer bg-lignt text-dark  fw-bold  " >
         <div class="row  text-center justify-content-center">
             <div class="row  justify-content-center p-2">
                 <div class="col-10 col-md-2">Copyright &copy 2021</div>
@@ -329,6 +361,13 @@
         </div>
         </div>     
     </footer>
+
+    <script>
+        function notifications()
+        {
+          document.getElementById('notification_link').click();
+        }
+    </script>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
