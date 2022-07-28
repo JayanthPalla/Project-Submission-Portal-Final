@@ -14,6 +14,7 @@
             font-size: small;
         }
         /*navbar*/
+
         .logo{
             width: 40px;
         }
@@ -89,8 +90,6 @@
            font-weight: 700;
            padding: 6px 20px;
            font-size: 25px;
-           text-align: center;
-           min-width: 300px;
            background-color: #005;
            color: #fff;
            display: inline-table;
@@ -280,39 +279,36 @@
                         <a href="#upload" class="btn btn-opt " >Upload</a> 
                     </div>
                 </div>
-              
-                
 
-                <!--Notifications-->
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="notifications" aria-labelledby="notificationsLabel">
-                    <div class="offcanvas-header">
-                        <h6 class="side-head ms-1 mt-2 p-2" id="regester">Notifications</h6>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="p-1">   
-                            {% for instruction in project_instructions %} 
-                            <div class="p-1 border  shadow" style="background-color:#0111;">
-                                <h6 class="text-dark mb-1 mt-1  ">{{ instruction_tittle }}  [   {{ instruction_faculty }}]</h6>
-                                <div>
-                                    <span class="fw-bold">Due Date : </span>
-                                    <span>{{ instruction_dueDate }}</span>
-                                </div>
-                                <div>
-                                    <ul>
-                                        {% for msg in instruction_msg %}
-                                        <li>{{ msg }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
+             <!--Notifications-->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="notifications" aria-labelledby="notificationsLabel">
+                <div class="offcanvas-header">
+                    <h6 class="side-head ms-1 mt-2 p-2" id="regester">Notifications</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="p-1">   
+                        {% for instruction in project_instructions %} 
+                        <div class="p-1 border  shadow" style="background-color:#0111;">
+                            <h6 class="text-dark mb-1 mt-1  ">{{ instruction_tittle }}  [   {{ instruction_faculty }}]</h6>
+                            <div>
+                                <span class="fw-bold">Due Date : </span>
+                                <span>{{ instruction_dueDate }}</span>
                             </div>
-                            {% endfor %}
+                            <div>
+                                <ul>
+                                    {% for msg in instruction_msg %}
+                                    <li>{{ msg }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
+                        {% endfor %}
+                    </div>
                 </div>
-                </div>
-                
-              
-                <br>
+            </div>
+            
+            <br>
 
                  <!--Regester to project-->
                  <h4 class="side-head ms-3 mt-4 p-3" id="regester">Project Regestration</h4>
@@ -323,7 +319,7 @@
                         <div class="">
                             <H2 class="text-warning mb-3 mt-3 ">Regestration Guidlines</H2>
                             <ul>
-                                {% for instruction in Regestration_instructions %}
+                                {% for instruction in instructions %}
                                 <li>{{ instruction }} </li>
                                 {% endfor %}
                             </ul>
@@ -357,7 +353,7 @@
                                         <select id="Faculty" class=" input-box  " name="faculty" required>
                                             <option>-----select-----</option>
                                             {% for i in faculty %}
-                                            <option>{{ i.first_name }} {{ i.last_name }}</option>
+                                            <option>{{i}}</option>
                                             {%  endfor %}
                                           
                                          </select>
