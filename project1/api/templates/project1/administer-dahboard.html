@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>Admin-dashboard</title>
     <style class="text/css">
-       
+        body{
+            font-size: small;
+        }
+
         /*navbar*/
         .logo{
             width: 40px;
@@ -134,8 +137,6 @@
 
         .table-body{
         overflow-x: scroll;
-        max-height: 500px;
-        overflow-y: scroll;
         }    
     
 
@@ -143,9 +144,79 @@
         max-width: 200px;
      }
 
+      /*assign-work*/
+      .form-head{
+        background-color: rgb(235, 235, 235);
+        border: 1px solid rgb(211, 211, 211);
+        padding: 15px;
+        width: 100%;
+        margin-top: 5px;
+      }
+      .top-btn{
+        background-color: #fff;
+        border: 1px solid rgb(6, 0, 93);
+        padding: 6px 15px;
+        margin-left: 5px;
+      
+      }
+     .top-btn:hover{
+       border: 1px rgb(255, 255, 255) solid;
+       background-color: #005;
+       color: #fff;
+     }
+     .minus{
+       background-color: none;
+       font-size:23px ;
+       float: right;
+       border: 1px solid transparent;
+       line-height: 10px;
+      
+     }
+     table {
+       font-size:small;
+     }
+     .minus:hover{
+       border: rgb(158, 158, 158) 1px solid;
+     }
+     
+     .icon-col{
+       color: rgb(27, 27, 163);
+       font-size: 25px;
+       padding-left: 15px;
+      
+
+     }
+     .label-col{
+        width:25%;
+        line-height: 40px;
+        font-weight: 600;
+        text-align: center;
+     }
+     .input-col input,select {
+       border:none;
+       border-bottom: 1px solid #005;
+       margin-left: 10px;
+       background-color: transparent;
+       outline: none;
+       line-height: 40px;
+       min-width: 200px;
+       max-width: 300px;
+     }
+     table td{
+       padding: 15px;
+
+     }
+     
+     .input-area{
+       border: #005 2px solid;
+       background-color: transparent;
+     }
+
        
 
     </style>
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
     {% if messages %}
     {% for message in messages %}
         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
@@ -172,7 +243,7 @@
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
                         <span class="ms-2 me-1 d-none d-md-inline " >{{user.first_name}} {{user.last_name}}</span>
                     </a>
-                    <a class="nav-link" href="#"><i class="bi fs-5 bi-gear-wide-connected me-2"></i></a>
+                    <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#notifications" aria-controls="notifications"><i class="bi fs-5 bi-bell-fill me-2"></i></a>
                 </div>
             </div>
         </div>
@@ -207,6 +278,34 @@
 
             <!---main-content-->
             <div class="col   content-div"> 
+
+                 <!--Notifications-->
+             <div class="offcanvas offcanvas-end" tabindex="-1" id="notifications" aria-labelledby="notificationsLabel">
+                <div class="offcanvas-header">
+                    <h6 class="side-head ms-1 mt-2 p-2" id="regester">Notifications</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="p-1">   
+                        {% for instruction in project_instructions %} 
+                        <div class="p-1 border  shadow" style="background-color:#0111;">
+                            <h6 class="text-dark mb-1 mt-1  ">{{ instruction_tittle }}  [   {{ instruction_faculty }}]</h6>
+                            <div>
+                                <span class="fw-bold">Due Date : </span>
+                                <span>{{ instruction_dueDate }}</span>
+                            </div>
+                            <div>
+                                <ul>
+                                    {% for msg in instruction_msg %}
+                                    <li>{{ msg }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                </div>
                 
 
 
@@ -215,6 +314,7 @@
                     <div class="text-center mt-4 mb-4  " id="navbar-example2" >
                         <div class=" min-nav  " role="group" >                
                             <a href="#branch" class="btn btn-opt me-1 " >Branches</a>
+                            <a href="#assign-work   " class="btn btn-opt " >Assign-work</a> 
                             <a href="#std-projects" class="btn btn-opt " >Projects</a> 
                         </div>
                     </div>
@@ -333,9 +433,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        
-    
+                    </div>
+            
                     
                     <div class="row">
                          <!--Graphs-->
@@ -349,19 +448,94 @@
                         </div>
                     </div>
 
+            <!--Assign-work-->
+            <h4 class="side-head mt-5" id="assign-work">Assign-Work</h4>
+   
+            <!--form-->
+            <form action="{% ulr 'Faculty-dashboard' %" method="POST" enctype="application/x-www-form-urlencoded">
+              {% csrf_token %}
+            <div class="bg-light">
+
+                <div  class="form-head row">
+                  <div class="col-md-6 col-12">
+                    <p class="  text-start"> Fill the details and click assign to assign work.</p>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="text-end">
+                      <button  type="submit"  class=" top-btn">Assign work</button>
+                      <button  type="reset" class="top-btn">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                    <div class="form-head mb-3">
+                  <span><i class="bi bi-pencil-square ms-4 me-2 "></i>Instructions</span> 
+                  <button class="minus text-end"><i class="bi bi-dash-lg"></i></button>
+                </div>
+        
+                <div class="row justify-content-center bg-light  pt-4">
+                      
+                    <div class=" col-12 col-md-6  mb-4 form-check form-switch d-flex ">
+                        <i class="bi bi-people-fill   icon-col"></i>
+                        <span class="label-col ">Send All : </span>
+                        <div class="ms-4" style =" line-height: 43px;" >
+                            <input class="form-check-input mt-3 me-1" type="checkbox" id="sendto" onclick="disableFun()"> 
+                            <label class="form-check-label" for="sendto">click here to send to all</label>
+                        </div>
+                        </div>
+                        
+
+                        <div class="col-12 col-md-6 d-flex mb-4" id="email-div">
+                            <i class="bi icon-col bi-envelope-fill "></i>
+                            <span class="label-col"  >Email</span>
+                            <div class="input-col"><input class="input-col" name="email" type="email" placeholder="Enter email to send" required id="email-field"> </div>
+                        </div>
+                    </div>
+              
+                <div class="row justify-content-center bg-light pt-5"> 
+
+                        <div class="col-12 col-md-6 d-flex mb-4">
+                        <i class=" icon-col bi bi-pen-fill"></i>
+                        <span class="label-col">Msg Tittel</span>
+                        <div class="input-col"><input class="input-col" name="Tittle" type="Text" placeholder="Msg Tittle " required> </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 d-flex mb-4">
+                        <i class=" icon-col bi bi-people-fill"></i>
+                        <span class="label-col">Due date</span>
+                        <div class="input-col">
+                            <input class="input-col" name="due_date" type="Date"  required>
+                        </div>
+                        </div>
+                        
+                        <div class="col-10 col-md-9 mb-4 ">
+                        <div class="form-floating">
+                            <textarea class="form-control input-area" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Instructions to the Project</label>
+                        </div>
+                        </div>
+
+              </div>
+              </form>
+           
+        
+      
+
+
                          <!--All the HODs-->
-                        <div class="container">
+                        <div class="container mt-2">
                             <h4 class="side-head ms-3 mt-4" id="join">BRANCH-HODs</h4>
-                        <div class="tabel-div" style="max-height: 600px; overflow-y: scroll;overflow-x: scroll;">
-                            <table class="table table-striped table-hover  bg-light">
+                        <div class="tabel-div" style="overflow-x: scroll;">
+                            <table class="table table-striped table-hover  bg-light" id="HODs-list">
                                 <thead >
-                                  <tr style="background-color: rgb(13, 60, 113); color: white;">
+                                  <tr style="background-color: rgb(57, 117, 144); color: white;">
                                     <th scope="col">Sno</th>
-                                    <th scope="col">NAME</th>
-                                    <th scope="col">BRANCH</th>
-                                    <th scope="col">E4 PROGRESS</th>
-                                    <th scope="col">E3 PROGRESS</th>
-                                    <th scope="col">E2 PROGRESS</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Branch</th>
+                                    <th scope="col">E4 progress</th>
+                                    <th scope="col">E3 Progress</th>
+                                    <th scope="col">E2 Progress</th>
                                     <th scope="col">E1 PROGRESS</th>
                                   </tr>
                                 </thead>
@@ -390,43 +564,9 @@
                     <!--list of all  the projects-->
 
                     <div >
-                        <div>
-                            <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-                                <a class="navbar-brand" href="#">Projects</a>
-                                <ul class="nav nav-pills">
-                                  <li class="nav-item">
-                                    <input class="form-control me-2" type="search" placeholder="Search for Id" id="search" onkeyup="searchfunction()" aria-label="Search">
-                                  </li>
-                                
-                                  <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Branch </a>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">CSE</a></li>
-                                      <li><a class="dropdown-item" href="#">ECE</a></li>
-                                      <li><a class="dropdown-item" href="#">CHEM</a></li>
-                                      <li><a class="dropdown-item" href="#">EEE</a></li>
-                                      <li><a class="dropdown-item" href="#">MME</a></li>
-                                      <li><a class="dropdown-item" href="#">CIVIL</a></li>
-                                      <li><a class="dropdown-item" href="#">MECH</a></li>
-                                    </ul>
-                                  </li>
 
-                                  <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">year </a>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">E4</a></li>
-                                      <li><a class="dropdown-item" href="#">E3</a></li>
-                                      <li><a class="dropdown-item" href="#">E2</a></li>
-                                      <li><a class="dropdown-item" href="#">E1</a></li>
-                                    </ul>
-                                  </li>
-
-                                </ul>
-                              </nav>
-                        </div>
-
-                        <div class="tabel-div" style="max-height: 600px; overflow-y: scroll;overflow-x: scroll;">
-                            <table class="table table-striped table-hover  bg-light">
+                        <div class="tabel-div" style="overflow-x: scroll;">
+                            <table class="table table-striped table-hover  bg-light"  id="projects-list">
                                 <thead>
                                     <tr style="background-color: rgb(13, 60, 113); color: white;">
                                         <th scope="col">S no</th>
@@ -437,7 +577,7 @@
                                         <th scope="col">Project_Tittel</th>
                                         <th scope="col">Source</th>
                                     </tr>
-                                    </thead>
+                                    </thead>    
                                     
                                     <tbody class="table-body">
                                     {% for student in Students %}
@@ -478,6 +618,42 @@
         </div>     
     </footer>
 
+     <!--disabled script-->
+     <script>
+        function  disableFun(){
+          var sendto = document.getElementById('sendto');
+          
+          if(sendto.checked)
+          {
+            document.getElementById("email-field").disabled = true;
+            document.getElementById("email-div").style.color = "#787b80";
+            document.getElementById("email-field").style.borderColor = "#787b80";
+          }
+          else 
+          {
+            document.getElementById("email-field").disabled = false;
+            document.getElementById("email-div").style.color = "black";
+            document.getElementById("email-field").style.borderColor = "#005";
+          }
+        }
+      </script>
+
+      <!---table-->
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+      <script>
+        $(document).ready(function () {
+            $('#projects-list').DataTable();
+        });
+      </script>
+       <script>
+         $(document).ready(function () {
+             $('#HODs-list').DataTable();
+         });
+       </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--BARCHART-->
@@ -490,24 +666,24 @@
                 datasets: [
                 {
                     label: 'Restrations ',
-                    data: [350,340,140,155,88,121,55],
+                    data: {{rCountList}},
                     backgroundColor: [
-                        'rgba(11, 36, 77, 0.6)'
+                    'rgb(10, 18, 90)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)'
+                    'rgb(255, 252, 255,1)'
                     ],
                     borderWidth: 1
                 },
 
                 {
                     label: 'Submitions ',
-                    data: [290,250,133,125,48,101,45],
+                    data: {{sCountList}},
                     backgroundColor: [
-                        'rgba(255, 49, 32, 0.6)'
+                    'rgb(54, 162, 235)',
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)'
+                        'rgb(255, 252, 255)'
                     ],
                     borderWidth: 1
                 }
@@ -530,56 +706,37 @@
 
 
 
-    <script>
-        function searchfunction() {
-          var input, filter, table, tr, td, i, txtValue;
-          input = document.getElementById("search");
-          filter = input.value.toUpperCase();
-          table = document.getElementById("projects-list");
-          tr = table.getElementsByTagName("tr");
-          for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-              txtValue = td.textContent || td.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-              } else {
-                tr[i].style.display = "none";
-              }
-            }       
-          }
-        }
-        </script>   
+   
 
         <!--piechart-->
         <script>
             //setup
             const dataPie = {
-                labels: [ 'Submitions', 'Pending', ],
-                datasets: [{
+                  labels: [ 'Submitions', 'Pending', ],
+                  datasets: [{
                     label: 'Submitions and pendings',
-                    data: [50, 10],
+                    data: {{overAllStats}},
                     backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)'
+                      'rgb(54, 162, 235)',
+                      'rgb(255, 99, 132)'
                     ],
                     hoverOffset: 4
-                }]
+                  }]
                 };
             //config
             const configPie = {
-            type: 'pie',
-            data: dataPie,
-            options: {}
+              type: 'pie',
+              data: dataPie,
+              options: {}
             };
             //render inti block
             const pieChart = new Chart(
-            document.getElementById('pieChart'),
-            configPie
+              document.getElementById('pieChart'),
+              configPie
             );
-
-        </script>
-
+  
+          </script>
+  
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
