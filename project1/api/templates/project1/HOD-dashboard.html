@@ -36,7 +36,7 @@
        .menu-div{
            background-color: rgb(11, 36, 77);
            color: #fff;
-           min-height: 760px;
+           max-height: 760px;
             left: 0%;
             border-right: 1px rgb(255, 255, 255) solid;
 
@@ -75,9 +75,9 @@
        /* content-div */
        .content-div{
            background-color: rgb(240, 245, 233);
-           overflow-y: auto;
+           overflow-y: scroll;
            scroll-behavior: smooth;
-           max-height: 780px;
+           max-height: 660px;
            overflow-x: hidden;
 
        }    
@@ -112,7 +112,7 @@
             padding : 6px 9px;
            color: white;
            border-radius: 20px;
-           font-size: 17pxz;
+           font-size: 17px;
            font-weight: 600;
            border: 2px solid transparent;   
        }
@@ -256,8 +256,9 @@
                         <img  class="nav-user"src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">   
                         <span class="ms-2 me-1 d-none d-md-inline " > {{ user.first_name }} {{ user.last_name }}</span>
                     </a>
-                    <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#notifications" aria-controls="notifications"><i class="bi fs-5 bi-bell-fill me-2"></i></a>
-                </div>
+                    <a class="nav-link" onclick="notifications()" data-bs-toggle="offcanvas" data-bs-target="#notifications" aria-controls="notifications"><i class="bi fs-5 bi-bell-fill me-2"></i></a>
+                    <a href="#" id="notification_link" hidden></a>
+               </div>
             </div>
         </div>
     </nav>  <!--navbar-end-->
@@ -670,6 +671,15 @@
               configPie
             );
           </script>
+
+
+        <script>
+          function notifications()
+          {
+            document.getElementById('notification_link').click();
+          }
+        </script>
+
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
