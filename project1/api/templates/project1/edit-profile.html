@@ -264,13 +264,14 @@
                     {% csrf_token %}
 
                 <div class=" row row p-3 justify-content-center ">
-                    <div class="col-4 col-md-2  ms-4 ">
+                    <div class="col-12 col-md-2  text-center">
                         <img  class="img-fluid profile-pic img-rounded  " src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">
                         
                     </div>
-                     <div class="col-7 col-md-8 ">
+                     <div class="col-12 col-md-8 text-center ">
+                         <br>
                         <h3 class="edit-name mt-3">{{user.first_name}} {{user.last_name}}</h3>
-                        <p class="lead d-none d-md-inline" style="font-size: 17px;">Lorem ipsum dolor, sit amet Consequatur, exercitationem.</p>
+                        <!-- <p class="lead d-none d-md-inline" style="font-size: 17px;">Lorem ipsum dolor, sit amet Consequatur, exercitationem.</p> -->
                         <div class="mt-2">
                             <label for="formFile" class="form-label btn btn-primary"> <i class="bi bi-pencil-square me-1 "></i>Profile-pic</label>
                             <input class="form-control invisible" type="file" id="formFile">
