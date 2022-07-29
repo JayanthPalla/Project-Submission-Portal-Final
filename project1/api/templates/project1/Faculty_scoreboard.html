@@ -245,8 +245,7 @@
                             <br>
                             <!--marks section-->
 
-                            <form action="{% ulr 'Faculty-scoreboard' %" method="POST" enctype="application/x-www-form-urlencoded">
-                              {% csrf_token %}
+                          
                             <div >
                                 <div>
                                   <span class="ms-2 side-head">Projects</span>
@@ -263,11 +262,14 @@
                                         <th scope="col">Design Marks</th>
                                         <th scope="col">Working Marks</th>
                                         <th scope="col">Comments</th>
+                                        <th scope="col">submit</th>
                                     </tr>
                                     </thead>
                                     
                                     <tbody>
                                         {% for student in students %}
+                                        <form action="{% ulr 'Faculty-scoreboard' %" method="POST" enctype="application/x-www-form-urlencoded">
+                                            {% csrf_token %}
                                         <tr>
                                             <td>{{ }}</td>
                                             <td>{{ student.id }} </td>
@@ -277,8 +279,11 @@
                                             <td><input type="number" name="{{ student.design_marks }}" style = "width: 50px; "></td>
                                             <td><input type="number" name="{{ student.working_marks }}" style = "width: 50px; "></td>
                                             <td><input type="text" name=" {{ student.comments }} " ></td>
-                                        </tr>
+                                            <input type="text" value="{{ student.clg_id }}" name="clg_id"   hidden>
+                                            <td><input type="submit"  id="">  </td>
 
+                                        </tr>
+                                        </form>
                                         {% endfor %}
                                    
                                     </tbody>
@@ -287,36 +292,8 @@
                            </div>
                 
                         </div>
-                        <div class="col-12">
-                            <div class="side-head mt-5 text-center" style="place-items: center;"> Upload </div>
-                            <div class="mt-2  p-3  ">
-                                <table   style="min-width: 70%;"   >
-                                    <tr class="mt-2">
-                                        <td> <label for="" class="col-form-label">Enter faculty name :</label></td>
-                                        <td><input type="text" name="faculty_name" id="" class="form-control" placeholder="{{ user.first_name }} {{ user.last_name }}" disabled></td>
-                                    </tr>
-                                    <tr class="mt-5">
-                                        <td> <label for="" class="col-form-label">Total no of students :</label></td>
-                                        <td><input type="number" name="noOfStudents"  id="" class="form-control" ></td>
-                                    </tr>
-                                    <tr class="mt-2">
-                                        <td > <label for="" class="col-form-label">Total no of Project submitions:</label></td>
-                                        <td><input type="number" id="" name="noOfSubmitions" class="form-control" ></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"> <label for="" class="col-form-label">List of Sudents who have'nt submited their projects :</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"> <textarea rows="6" name="notSubmitedStudents" class="form-control" placeholder=" enter the list  of students Id here ...!" id=""></textarea></td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td colspan="2"><button type="submit" class="btn btn-primary mt-3 mb-3" >UPLOAD</button></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <br><br>
-                        </div>
-                      </form>
+                       
+                 
                     </div>
                 </div>
             </div>
