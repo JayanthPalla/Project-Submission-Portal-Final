@@ -35,7 +35,7 @@
        .menu-div{
            background-color: rgb(11, 36, 77);
            color: #fff;
-           min-height: 760px;
+           min-height: 600px;
             left: 0%;
             border-right: 1px rgb(255, 255, 255) solid;
 
@@ -73,10 +73,12 @@
 
        /* content-div */
        .content-div{
+         
            background-color: rgb(240, 245, 233);
-           overflow-y: auto;
+           overflow-y: scroll;
            scroll-behavior: smooth;
-           max-height: 780px;
+           max-height: 600px;
+           overflow-x: hidden;
 
        }    
        .min-nav{
@@ -195,7 +197,7 @@
                 </div>
                 <br><br><br><br><br><br>
                     <a href="{% url 'logout' %}" class="logout "data-bs-toggle="tooltip" data-bs-placement="right" title="logout" ><i class="bi bi-box-arrow-left me-3"></i>  <span class="d-none d-md-inline">Log out </span></a>
-                <br><br><br>
+                <br>
             </div>
 
 
@@ -290,10 +292,10 @@
                                 </table>
                                 </div>
                            </div>
-                
+
+
                         </div>
                        
-                 
                     </div>
                 </div>
             </div>
@@ -302,7 +304,7 @@
     
    <!-- footer -->
     <footer>
-        <div class="container-fluid footer bg-lignt text-dark   " >
+        <div class="container-fluid footer bg-lignt text-dark fw-bold  " >
         <div class="row  text-center justify-content-center">
             <div class="row  justify-content-center p-2">
                 <div class="col-10 col-md-2">Copyright &copy 2021</div>
