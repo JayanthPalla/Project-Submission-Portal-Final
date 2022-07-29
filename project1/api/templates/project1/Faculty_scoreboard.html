@@ -270,22 +270,23 @@
                                     
                                     <tbody>
                                         {% for student in projects %}
-                                        <form action="{% url 'assign_marks' %}" method="POST" enctype="application/x-www-form-urlencoded">
-                                            {% csrf_token %}
                                             <tr>
                                                 <td>{{ forloop.counter }}</td>
                                                 <td>{{ student.clg_id }} </td>
                                                 <td>{{ student.name }}</td>
                                                 <td>{{ student.project_title }}</td>
                                                 <td><a href="{% url 'download_project' %}?id={{student.project_id}}" class="btn btn-outline-primary">View</a></td>
+                                                <form action="{% url 'assign_marks' %}" method="POST" enctype="application/x-www-form-urlencoded">
+                                                    {% csrf_token %}
                                                 <td><input type="number" name="design_marks" style = "width: 50px; "></td>
                                                 <td><input type="number" name="working_marks" style = "width: 50px; "></td>
                                                 <td><input type="text" name="comments" ></td>
-                                                <!-- <input type="text" value="{{ student.clg_id }}" name="clg_id" hidden> -->
-                                                <td><input type="submit">  </td>
-
+                                                <input type="hidden" value="{{ student.clg_id }}" name="clg_id" >
+                                                <input type="hidden" value="{{ student.project_id }}" name="project_id" >
+                                                <td><input type="submit" >  </td>
+                                            </form>
                                             </tr>
-                                        </form>
+                                        
                                         {% endfor %}
                                    
                                     </tbody>
