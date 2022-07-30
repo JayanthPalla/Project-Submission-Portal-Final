@@ -530,7 +530,7 @@
              <h4 class="side-head mt-5" id="assign-work">Assign-Work</h4>
    
              <!--form-->
-             <form action="{% ulr 'Faculty-dashboard' %" method="POST" enctype="application/x-www-form-urlencoded">
+             <form action="{% url 'create_notifications' %}" method="POST" enctype="application/x-www-form-urlencoded">
               {% csrf_token %}
             <div class="bg-light">
 
@@ -591,7 +591,7 @@
               <div class="col-12 col-md-6 d-flex mb-4">
                 <i class=" icon-col bi bi-pen-fill"></i>
                 <span class="label-col">Msg Title</span>
-                <div class="input-col"><input class="input-col" name="Tittle" type="Text" placeholder="Msg Title " required> </div>
+                <div class="input-col"><input class="input-col" name="msg_title" type="Text" placeholder="Msg Title " required> </div>
               </div>
 
               <div class="col-12 col-md-6 d-flex mb-4">
@@ -606,7 +606,7 @@
                 
                 <div class="col-10 col-md-9 mb-4 ">
                   <div class="form-floating">
-                    <textarea class="form-control input-area" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control input-area" name="instructions" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Instructions to the Project</label>
                   </div>
                 </div>
