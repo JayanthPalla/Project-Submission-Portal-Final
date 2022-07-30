@@ -206,7 +206,6 @@
      .label-col{
         width:25%;
         line-height: 40px;
-        
         font-weight: 600;
         text-align: center;
      }
@@ -322,7 +321,7 @@
                   <div class="p-1">   
                       {% for instruction in project_instructions %} 
                       <div class="p-1 border  shadow" style="background-color:#0111;">
-                          <h6 class="text-dark mb-1 mt-1  ">{{ instruction_tittle }}  [   {{ instruction_faculty }}]</h6>
+                          <h6 class="text-dark mb-1 mt-1  ">{{ instruction_title }}  [   {{ instruction_faculty }}]</h6>
                           <div>
                               <span class="fw-bold">Due Date : </span>
                               <span>{{ instruction_dueDate }}</span>
@@ -403,8 +402,8 @@
                       <div class="col-6 justify-content-evenly">
                           <div class="card  shadow   mb-1 text-center" >
                               <div class="card-body row ">
-                                <span class=" fs-3  fw-bold text-center">{{  class.regestered }}</span><br>
-                                <span class="card-text col " style="display: grid; place-items: center;">Regestered</span>
+                                <span class=" fs-3  fw-bold text-center">{{  class.registered }}</span><br>
+                                <span class="card-text col " style="display: grid; place-items: center;">Registered</span>
                               </div>
                           </div>
                           <div class="card shadow   mb-1 text-center" >
@@ -447,7 +446,7 @@
 
             <!--projects-->
              <!--all the projects-->
-             <h4 class="side-head ms-3 mt-5" id="projects">Students Regestered</h4>
+             <h4 class="side-head ms-3 mt-5" id="projects">Students Registered</h4>
              <!--list of all  the projects-->
 
              <div >
@@ -502,8 +501,8 @@
                          <th scope="col">Id</th>
                          <th scope="col">Name</th>
                          <th scope="col">Branch</th>
-                         <th scope="col">Project_Tittel</th>
-                         <th scope="col">Soure</th>
+                         <th scope="col">Project_Title</th>
+                         <th scope="col">Source</th>
                      </tr>
                      </thead>
                      
@@ -591,8 +590,8 @@
 
               <div class="col-12 col-md-6 d-flex mb-4">
                 <i class=" icon-col bi bi-pen-fill"></i>
-                <span class="label-col">Msg Tittel</span>
-                <div class="input-col"><input class="input-col" name="Tittle" type="Text" placeholder="Msg Tittle " required> </div>
+                <span class="label-col">Msg Title</span>
+                <div class="input-col"><input class="input-col" name="Tittle" type="Text" placeholder="Msg Title " required> </div>
               </div>
 
               <div class="col-12 col-md-6 d-flex mb-4">
