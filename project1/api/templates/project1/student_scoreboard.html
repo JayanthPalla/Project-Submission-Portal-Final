@@ -241,24 +241,24 @@
                     {% for major_project in majorProjects %}
                     <div class="card shadow project-card col-12 col-md-4 col-lg-3" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title text-center">{{ major_project.name }}</h5>
-                          <p class="card-text fs-7"> {{ major_project.description }}</p>
+                          <h5 class="card-title text-center">{{ major_project.project_title }}</h5>
+                          <p class="card-text fs-7"> {{ major_project.project_description }}</p>
                          <div class="fw-bold" >
                             <span class="m-2">Design</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-danger"  role="progressbar" style="width: {{ major_project.design }}%;" aria-valuenow="{{ major_project.design }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.design }}%</div>
+                                <div class="progress-bar bg-danger"  role="progressbar" style="width: {{ major_project.design_marks }}%;" aria-valuenow="{{ major_project.design_marks }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.design_marks }}%</div>
                               </div>
                             <span class="m-2">Working</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ major_project.working }}%;" aria-valuenow="{{ major_project.working }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.working }}%</div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ major_project.working_marks }}%;" aria-valuenow="{{ major_project.working_marks }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.working_marks }}%</div>
                               </div>
                             <span class="m-2">Over All Score</span>
                               <div class="progress ">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ major_project.score }}%;" aria-valuenow="{{ major_project.working }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.working }}%</div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ major_project.score }}%;" aria-valuenow="{{ major_project.score }}" aria-valuemin="0" aria-valuemax="100">{{ major_project.score }}%</div>
                               </div>
                          </div>
                          <div class="text-center mt-2">
-                            <a href="{{ major_project.link }}" class="btn btn-primary  mt-2">Source-Link</a>
+                            <a href="{% url 'download_project' %}?id={{major_project.project_id}}" class="btn btn-primary  mt-2">Source-Link</a>
                          </div>
                         </div>
                     </div>
