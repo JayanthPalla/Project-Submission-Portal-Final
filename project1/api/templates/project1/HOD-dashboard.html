@@ -243,7 +243,7 @@
             <div class="col-12  col-xl-2 text-center  ">
                 <a class=" navbar-brand fw-bold " href="#">
                     <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/b/b8/Rajiv_Gandhi_University_of_Knowledge_Technologies.png">
-                    <abbr title="Project-submisttion-portal"><span class="d-xl-inline d-none"> PSP</span></abbr> <span class="d-xl-none">Project-submission-portal</span>
+                    <abbr title="Project-submission-portal"><span class="d-xl-inline d-none"> PSP</span></abbr> <span class="d-xl-none">Project-submission-portal</span>
                 </a>
             </div>
             <div class="col-12    col-xl-10 d-flex">
@@ -402,7 +402,7 @@
 
 
              <!--students-->
-             <h4 class="side-head ms-3 mt-5" id="tabel">Students Regestered</h4>
+             <h4 class="side-head ms-3 mt-5" id="tabel">Students Registration</h4>
              <div >
                   <div class="tabel-div mb-3">
                   <table class="table  table-striped table-hover mt-3" id="students-list">
@@ -498,8 +498,8 @@
 
               <div class="col-12 col-md-6 d-flex mb-4">
                 <i class=" icon-col bi bi-pen-fill"></i>
-                <span class="label-col">Msg Tittel</span>
-                <div class="input-col"><input class="input-col" name="Tittle" type="Text" placeholder="Msg Tittle " required> </div>
+                <span class="label-col">Msg Title</span>
+                <div class="input-col"><input class="input-col" name="Tittle" type="Text" placeholder="Msg Title " required> </div>
               </div>
 
               <div class="col-12 col-md-6 d-flex mb-4">
@@ -616,7 +616,7 @@
                 },
 
                 {
-                    label: 'Submitions ',
+                    label: 'Submission ',
                     data: [ 
                       {% for batch in batches %}
                         {{ batch.subCount }},
@@ -648,9 +648,9 @@
           <script>
             //setup
             const dataPie = {
-                  labels: [ 'Submitions', 'Pending', ],
+                  labels: [ 'Submission', 'Pending', ],
                   datasets: [{
-                    label: 'Submitions and pendings',
+                    label: 'Submission and pendings',
                     data: [{{ regCount }}, {{ subCount  }}],
                     backgroundColor: [
                       'rgb(255, 99, 132)',
